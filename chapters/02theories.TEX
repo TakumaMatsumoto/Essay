@@ -383,6 +383,40 @@ QD-SOAの利得$g(t,E_k)$は
 
 \subsection{QD-SOAによる位相変化}
 QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起き，それにより光の位相変化が起きる．以下にバンド充填効果による屈折率変化の式を示す．
+\begin{eqnarray}
+  \Delta n^{w}_{ib} (t,E_k) & = & \sum_{j=1}^{2M+1} \frac{ -\Gamma_{w} \pi \hbar^{2} q^{2} N_{D}}{2 n_{r} \varepsilon_{0} m^{2}_{0} E^{2}_{k}} \left|M_{env}\right|^{2} \left<\left|\hat{e} \cdot p_{cv}\right|^{2}\right> \nonumber\\ &&
+  \times \frac{ D^{c}_{w} D^{v}_{w} }{D^{c}_{w} + D^{v}_{w}} G^{s}_{j}B_{w}\left[f^{c}_{w}+f^{v}_{w}-1\right]
+  \\
+  \Delta n^{u}_{ib} (t,E_k) & = & \sum_{j=1}^{2M+1} \frac{ -\Gamma \pi \hbar^{2} q^{2} N_{D}}{2 n_{r} \varepsilon_{0} m^{2}_{0} E^{2}_{k}} \left|M_{env}\right|^{2} \left<\left|\hat{e} \cdot p_{cv}\right|^{2}\right> \nonumber\\ &&
+  \times \frac{ D^{c}_{u} D^{v}_{u} }{D^{c}_{u} + D^{v}_{u}} G^{s}_{j}B_{u,j}\left[f^{c}_{u,j}+f^{v}_{u,j}-1\right]
+  \\
+  \Delta n^{e(g)}_{ib} (t,E_k) & = & \sum_{j=1}^{2M+1} \frac{ -\Gamma \pi \hbar^{2} q^{2} N_{D} D_{e(g)} }{2 n_{r} \varepsilon_{0} m^{2}_{0} E^{2}_{k}} \left|M_{env}\right|^{2} \left<\left|\hat{e} \cdot p_{cv}\right|^{2}\right> \nonumber\\ &&
+  \times G^{s}_{j}B_{e(g),j}\left[f^{c}_{e(g),j}+f^{v}_{e(g),j}-1\right]
+\end{eqnarray}
+ここで$B_{w}$，$B_{u(e,g),j}$は屈折率の均一広がりを表し，以下の式で与えられる．
+\begin{eqnarray}
+  B_{w} & = & \frac{\left(E^{s}_{w} - E_{k}\right) / \pi}{\left(E^{s}_{w} - E_{k}\right)^{2} + \left(\Gamma_{h} / 2\right)^{2}} \\
+  B_{u(e,g),j} & = & \frac{\left(E^{s}_{u(e,g),j} - E_{k}\right) / \pi}{\left(E^{s}_{u(e,g),j} - E_{k}\right)^{2} + \left(\Gamma_{h} / 2\right)^{2}}
+\end{eqnarray}
+自由電子吸収効果による屈折率変化の式は以下のようになる．
+\begin{eqnarray}
+  \Delta n^{w}_{fc} (t,E_k) & = & - \frac{ \Gamma_{w} \hbar^{2} q^{2} }{ 2 V_{w} n_{r} \varepsilon_{0} E^{2}_{k} } 
+  \left(
+	\frac{ N^{c}_{W} }{ m^{*c}_{w} } f^{c}_{w} + 
+	\frac{ N^{v}_{W} }{ m^{*v}_{w} } f^{v}_{w}
+  \right) 
+  \\
+  \Delta n^{u(e,g)}_{fc} (t,E_k) & = & - \frac{ \Gamma \hbar^{2} q^{2} }{ 2 V_{d} n_{r} \varepsilon_{0} E^{2}_{k} } \nonumber\\ &&
+  \left( \sum_{j=1}^{2M+1} 
+	  \frac{ f^{c}_{u(e,g),j} N^{c}_{U(E,G),j} }{ m^{*c}_{d} } 
+	+\frac{ f^{v}_{u(e,g),j} N^{v}_{U(E,G),j} }{ m^{*v}_{d} }
+  \right)
+\end{eqnarray}
+バンド充填効果，自由電子吸収効果による屈折率変化量の和を$\Delta n(t,E_k)$とすると位相変化量は
+\begin{equation}
+  \Delta \phi (t,E_k) = -\frac{2 \pi L_{ca}}{\lambda_{k}} \Delta n(t,E_k)
+\end{equation}
+と表される．
 
 \subsection{QD-SOA内の光の伝搬方程式}
 QD-SOA内の光の伝搬方程式は
