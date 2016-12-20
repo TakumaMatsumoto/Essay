@@ -197,15 +197,15 @@ QD-SOAとは活性層が量子ドット構造で構成される半導体光増幅器である．図{\ref{fig:qd
 
 \newpage
 
-\subsection{QD各層のエネルギー準位･密度}
+\subsection{QD各層のエネルギー準位，密度}
 QDはどのような製造過程においても大きさを制御することができないため，エネルギー準位にばらつきが起こる{\cite{qd_dispersion}}．各層のエネルギー準位の密度のばらつきは正規分布に従うものとし，サンプル数を$2M+1$として量子化を行うと伝導帯，価電子帯のj番目のエネルギー準位は最も密度が高い標本番号を$M$とするとそれぞれ
 \begin{eqnarray}
 	E^{c}_{u(e,g),j} & = & E^{c}_{u(e,g),M} + \left[ j - \left( M+1 \right) \right] \times r_{c} \Delta E \\
 	E^{v}_{u(e,g),j} & = & E^{v}_{u(e,g),M} - \left[ j - \left( M+1 \right) \right] \times r_{v} \Delta E
 \end{eqnarray}
-と表される．図{\ref{fig:energy_dist}}にQD各層のエネルギー準位と密度の関係を示す．図{\ref{fig:energy_dist}}のように各層のエネルギー準位の密度は正規分布に従うものとし，このときj番目の割合は平均を$E^{c(v)}_{g,max}$分散を$\sigma_{in,c(v)} = \Gamma^{c(v)}_{ih} / 2.356$とした正規分布となり，
+と表される．図{\ref{fig:energy_dist}}にQD各層のエネルギー準位と密度の関係を示す．図{\ref{fig:energy_dist}}のように各層のエネルギー準位の密度は正規分布に従うものとし，このときj番目の割合は平均を$E^{c(v)}_{g,M}$分散を$\sigma_{in,c(v)} = \Gamma^{c(v)}_{ih} / 2.356$とした正規分布となり，
 \begin{equation}
-  G^{c(v)}_{j} = \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}_{in,c(v)}}} \exp \left[-\frac{ \left( E^{c(v)}_{g,j} - E^{c(v)}_{g,max} \right)^{2} }{ 2 \sigma^{2}_{in,c(v)} } \right] \times r_{c(v)} \Delta E
+  G^{c(v)}_{j} = \frac{1}{ \sqrt{2 \pi \sigma^{2}_{in,c(v)}}} \exp\left[-\frac{ \left( E^{c(v)}_{g,j} - E^{c(v)}_{g,max} \right)^{2} }{ 2 \sigma^{2}_{in,c(v)} } \right] \times r_{c(v)} \Delta E
 \end{equation}
 と表すことができる．
 
@@ -383,9 +383,6 @@ QD-SOAの利得$g(t,E_k)$は
 
 \subsection{QD-SOAによる位相変化}
 QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起き，それにより光の位相変化が起きる．以下にバンド充填効果による屈折率変化の式を示す．
-\begin{eqnarray}
-
-\end{eqnarray}
 
 \subsection{QD-SOA内の光の伝搬方程式}
 QD-SOA内の光の伝搬方程式は
