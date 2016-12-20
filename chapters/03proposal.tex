@@ -1,0 +1,61 @@
+\chapter{水平垂直パリティを用いた全光誤り訂正システム} 
+\label{chap:proposal}
+
+\section{水平垂直パリティ}
+
+本研究における水平垂直パリティ符号の配置を図{\ref{fig:parity}}に示す．本研究で用いる水平垂直パリティ符号は情報系列のビット数が4，パリティ符号のビット数が4となる符号であり，符号長は8となる．このとき，$x_1,x_2,x_3,x_4$は情報系列を表し，$x_5,x_6,x_7,x_8$はパリティを表す．また，パリティは以下の式より求められる．
+\begin{eqnarray}
+  x_5 = x_1 \oplus x_2 \\
+  x_6 = x_3 \oplus x_4 \\
+  x_7 = x_1 \oplus x_3 \\
+  x_8 = x_2 \oplus x_4 
+\end{eqnarray}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=4.0cm]{Parity.eps}
+    \caption{水平垂直パリティ}
+    \label{fig:parity}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{符号化}
+符号化システムのブロック図を図{\ref{fig:encoder}}に示す．始めに，情報系列を$1\times5$スプリッタに通して5つの導波路に分岐させる．5つの導波路のうち4つの導波路はパリティを生成するために用いられ，残りの1つの導波路は符号語を生成する際に用いられる．パリティ生成用の導波路では遅延素子を用いて伝送するタイミングを合わせる．続いて，タイミングを合わせた信号を全光XORゲートに入力して情報系列に対応したパリティを生成する．生成されたパリティに遅延素子を用いてタイミングをずらした後$4\times1$パワーコンバイナで結合することにより，パリティを連続した信号へと変換する．最後に，元の情報系列と生成したパリティを$2\times1$パワーコンバイナに入力して符号語を生成する．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{Encoder.eps}
+    \caption{符号化システムのブロック図}
+    \label{fig:encoder}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{誤り訂正}
+誤り訂正システムのブロック図を図{\ref{fig:decoder}}に示す．始めに，図{\ref{fig:decoder}}中のフィルター1，2の説明を行う．フィルター1の内部のブロック図は図{\ref{fig:filter1}}に示した通りであり，入力信号を$1 \times 4$スプリッタに入力する．続いて各ビットを取り出すために取り出すビットのみ``1''である信号とスプリッタに通した信号をAND回路に入力し，$4 \times 1$コンバイナに入力してパリティ部分のみの信号を取り出す．フィルター2も同様にしてデータ部分のみの信号を取り出すことができる． \\
+続いて誤り訂正システムの説明を行う．誤り訂正システムでは，始めに受信信号を$1\times3$スプリッタに通して3つの導波路に分岐させる．フィルター1では受信信号のパリティビットのみを取り出し，フィルター2では受信信号のデータビットのみを取り出す．フィルター2から出力されたデータビットを用いてパリティを生成し，フィルター1から出力されたパリティとの排他的論理和をとることで誤りのパターンを生成する．誤りのパターンによってどのビットに誤りが発生しているか判定することが可能である．続いて，データビットに誤りが発生している場合は2つのビットが1となるため全光ANDゲートに入力することで誤りが発生した位置を表す信号を得る．誤り発生位置を表す信号のタイミングをずらして$4\times1$パワーコンバイナにより結合した後，受信信号との排他的論理和をとることで誤りを訂正した信号を得る．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{Decoder.eps}
+    \caption{誤り訂正システムのブロック図}
+    \label{fig:decoder}
+  \end{center}
+\end{figure}
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{filter1.eps}
+    \caption{フィルター1のブロック図}
+    \label{fig:filter1}
+  \end{center}
+\end{figure}
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{filter2.eps}
+    \caption{フィルター2のブロック図}
+    \label{fig:filter2}
+  \end{center}
+\end{figure}

@@ -1,0 +1,89 @@
+\chapter{数値解析と結果} 
+\label{chap:result}
+
+%-----------------------------------------------------
+\section{数値解析条件}
+本研究では，Optisystem13.0.0，MATLAB R2014aを用いて行い各光デバイスを数値的に解析する．QD-SOAはキャリアのレート方程式及び伝達行列法(Transfer Matrix Method:TMM)を用いて解析を行い，QD-SOA以外の光デバイスの動作はOptisystem13.0.0に従う．また，QD-SOAのパラメータは表{\ref{table:qd_soa_param}}に示したものを用い，通信速度は160Gbps，150Gbpsの2通りについて行った．
+\begin{table}[htbp]
+\renewcommand{\arraystretch}{1.3}
+  \begin{center}
+    \small
+    \caption{デバイスパラメータ}
+    \label{table:qd_soa_param}
+    \begin{tabular}{c c c c}
+    \hline
+    Symbol & パラメータ名 & 値 & 単位 \\
+    \hline
+    $L$ & QD-SOAの長さ & $2.0 \times 10^{-3}$ & $m$ \\
+    $L_{w}$ & QD-SOAの厚さ & $ 0.25 \times 10^{-6}$ & $m$ \\
+    $W$ & QD-SOAの幅 & $ 3.0 \times 10^{-6}$ & $m$ \\
+    $N_{Q}$ & 量子ドット密度  & $ 5.0 \times 10^{14}$ & $m^{-2}$ \\
+    $\tau_{w2}$ & キャリア寿命(WL→ES) & $ 3.0 \times 10^{-12}$ & $s$ \\
+    $\tau_{2w}$ & キャリア寿命(ES→WL) & $ 1.0 \times 10^{-9}$ & $s$ \\
+    $\tau_{wR}$ & キャリア寿命(WL→系外) & $ 2.0 \times 10^{-9}$ & $s$ \\
+    $\tau_{21}$ & キャリア寿命(ES→GS) & $ 0.16 \times 10^{-12}$ & $s$ \\
+    $\tau_{12}$ & キャリア寿命(GS→ES) & $ 1.2 \times 10^{-12}$ & $s$ \\
+    $\tau_{1R}$ & キャリア寿命(GS→系外) & $ 0.4 \times 10^{-9}$ & $s$ \\
+    $I$ & 注入電流 & $ 3.0 \times 10^{-2}$ & $A$ \\
+    $g_{\max}$ & 最大利得 & $ 3.0 \times 10^{2}$ & $m^{-1}$ \\
+    $\alpha_{LEF}$ & 線幅増大係数 & $ 2.0 \times 10^{2}$ & $-$ \\
+    $\alpha_{int}$ & 損失係数 & $ 3.0 \times 10^{2}$ & $m^{-1}$ \\
+    \hline
+    \end{tabular}
+  \end{center}
+\renewcommand{\arraystretch}{1.0}
+\end{table}
+
+\section{入出力波形}
+
+図{\ref{fig:send_compare_160Gbps}}に通信速度を160Gbpsとしたときの符号化システムに入力した信号と符号化システムから出力された信号を示す．入力信号は``1110''，``0110''の2パターンとする．出力された信号は各パターンについて``11100101''，``01101111''となり，このことから符号化システムに信号を入力すると入力信号に対応した符号語が出力されることが分かる．\\
+続いて図{\ref{fig:passive_compare_160Gbps}}に受信信号と受信信号を誤り訂正システムに入力して出力された信号を示す．受信信号は``11110101''，``00101111''の2パターンとする．このとき，1つ目のパターンは4ビット目に誤りが発生したことにより元々``0''であった信号が``1''となり，2つ目のパターンは1ビット目に誤りが発生したことにより元々``1''であった信号が``0''となっている．誤り訂正システムから出力された信号は``1''に対応する光強度と``0''に対応する光強度の差が開いており，1つ目のパターンは``11100101''であり，2つ目のパターンは``01101111''であることが分かる．このことから，両パターンについて誤り訂正が行われていることが分かる． \\
+同様の数値解析を通信速度を150Gbpsとして行うと，符号化システムの入出力結果は図{\ref{fig:send_compare_150Gbps}}となり，誤り訂正システムの入出力結果は図{\ref{fig:passive_compare_150Gbps}}となる． \\
+以上より，160Gbps，150Gbpsで水平垂直パリティによる符号語の生成，誤りの訂正が可能であることが言える．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=12.0cm]{send_compare_160Gbps.eps}
+    \caption{符号化システムの入出力結果(160Gbps)}
+    \label{fig:send_compare_160Gbps}
+    \includegraphics[clip,width=12.0cm]{passive_compare_160Gbps.eps}
+    \caption{誤り訂正システムの入出力結果(160Gbps)}
+    \label{fig:passive_compare_160Gbps}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=12.0cm]{send_compare_150Gbps.eps}
+    \caption{符号化システムの入出力結果(150Gbps)}
+    \label{fig:send_compare_150Gbps}
+    \includegraphics[clip,width=12.0cm]{passive_compare_150Gbps.eps}
+    \caption{誤り訂正システムの入出力結果(150Gbps)}
+    \label{fig:passive_compare_150Gbps}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{性能評価}
+
+評価指標としてアイダイアグラムと消光比(ER:Extinction Ratio)を用いる．アイダイアグラムとは信号波形を1ビットごとに重ねあわせたものである．``1''に対応する光強度と``0''に対応する光強度のスペースの空き具合をアイ開口といい，大きいほど信号品質がよいとされる．また，消光比とはアイダイアグラムを数値で評価する指標である．ERは$ER(dB)=10log_{10}(P_{\min}^{1}/P_{\max}^{0})$で表され，$P_{\min}^{1}$は出力``1''の最小強度，$P_{\max}^{0}$は出力``0''の最大強度を表す．図{\ref{fig:eyedia_result_160Gbps}}に，通信速度を160Gbpsとしたときの誤り訂正後の信号のアイダイアグラムを示す．本研究では， 図{\ref{fig:eyedia_result_160Gbps}}の矢印で示した部分の消光比を求めるものとし，ER値は5.72(dB)である． \\
+通信速度が150Gbpsのときアイダイアグラムは図{\ref{fig:eyedia_result_150Gbps}}となり，ER値は13.6(dB)である．文献{\cite{Gayen}}より，消光比が5.23(dB)より大きい場合，回路性能が良いとされることから提案システムは160Gbps，150Gbpsで有効であることが示された．
+
+\begin{figure}[htbp]
+  \begin{minipage}{0.5\hsize}
+  \begin{center}
+    \includegraphics[clip,width=6.0cm]{eyedia_result_160Gbps.eps}
+    \caption{受信信号のアイダイアグラム(160Gbps)}
+    \label{fig:eyedia_result_160Gbps}
+  \end{center}
+  \end{minipage}
+  \begin{minipage}{0.5\hsize}
+  \begin{center}
+    \includegraphics[clip,width=7.0cm]{eyedia_result_150Gbps.eps}
+    \caption{受信信号のアイダイアグラム(150Gbps)}
+    \label{fig:eyedia_result_150Gbps}
+  \end{center}
+  \end{minipage}
+\end{figure}
+

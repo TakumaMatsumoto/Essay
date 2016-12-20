@@ -1,0 +1,502 @@
+\chapter{本研究に関連する従来研究} 
+\label{chap:theories}
+
+%-----------------------------------------------------
+
+\section{非線形光学効果}
+\subsection{非線形光学効果の概要}
+レーザー出現以前に知られていた弱い光によっておこる直進，反射，屈折，回折，干渉，吸収，発光，散乱といった様々な光学現象はすべて線形光学現象と呼ばれる．ここで線形であることは光に対する物質の応答が線形すなわち光電場に比例しているということを意味している．これは，光の電界によって誘起される分極によるものである．光の強度が小さい範囲では物質の分極が光の電界の大きさに比例するが，光の強度が大きくなると分極が光の電界に比例しなくなり，非線形性が見られるようになる．このとき発生する現象が非線形光学現象である{\cite{non_linear}}．
+
+\subsection{非線形屈折率変化と非線形現象}
+非線形屈折率変化とは光の強度に応じて屈折率が変化する現象で，分極の非線形性が原因となって引き起こされる．光強度を$I$，線形な範囲での屈折率を$n_0$，非線形屈折率係数を$n_2$とすると屈折率は，
+\begin{equation}
+  n = n_{0} + n_{2}I
+\end{equation}
+と表すことができる．
+
+非線形屈折率変化によって引き起こされる現象には，自分自身の光の強度により位相が変化する自己位相変調(SPM:Self Phase Modulation)，他の光の強度により位相が変化する相互位相変調(XPM:Cross Phase Modulation)が存在する．
+
+\newpage
+
+\section{光の位相}
+本研究で用いる全光デバイスの性質や動作には光の位相が大きく関わっている．光は波動性をもち，位相とは波の位置を表している．位相を図に表すと図{\ref{fig:phase}}のようになり，正弦波について考えたとき円周上を一定速度で左回りに動く点を，右のように投射した軌跡と考えることができる．図{\ref{fig:phase}}の$\phi$は位相を表している．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{Phase.eps}
+    \caption{位相のイメージ}
+    \label{fig:phase}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{半導体光増幅器(SOA:Semiconductor Optical Amplifier)}
+SOAは半導体を用いた光増幅器である{\cite{optic}}．SOAに外部から励起させた半導体に光を照射すると，入射光の強さに比例した位相も周波数も同じ光を放出する，誘導放出という現象を利用し，増幅した光を出力する．
+
+\subsection{SOAの基本構造}
+図{\ref{fig:SOA}}にSOAの簡易構造を示す．SOAはp型とn型の異なる原子配列を持った半導体に活性層が挟み込まれた構造となっており，この活性層で光が増幅される．活性層には単一の元素からなる，不純物を含まない真性半導体が用いられるが，p型とn型の半導体には，キャリア（自由電子や正孔のように電荷を運ぶもの）を増やし電気伝導率を上げるために真性半導体に不純物を添加した不純物半導体を用いる．このうち，自由電子キャリアを増加させたものをn型半導体，自由正孔キャリアを増加させたものをp型半導体と言う．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=12.0cm]{SOA.eps}
+    \caption{SOAの簡易構造}
+    \label{fig:SOA}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\subsection{n型半導体，p型半導体}
+図{\ref{fig:n_semiconductor}}，図{\ref{fig:p_semiconductor}}では最外殻の電子だけを示している．真性半導体のシリコンは価電子が4個の原子であり，図{\ref{fig:n_semiconductor}}のように価電子が5個のリンを微量だけ添加するとリンはシリコンの間に入り，最外殻に価電子を8個持つ共有結合を形成する．このとき電子が1つ余り自由電子となって電気伝導に寄与する．これをｎ型半導体という．一方，図{\ref{fig:p_semiconductor}}のようにシリコンに価電子が3個のボロンを微量だけ添加するとボロンはシリコンの間に入り，最外殻に価電子を8個持つ共有結合を形成する．このとき電子が1つ欠損し，この欠損している電子があるべき場所をホールという．このホールに近くの電子が飛び込むことで，あたかも正電荷を有する電子が動くように電気伝導に寄与する．これをp型半導体という．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=8.0cm]{n_semiconductor.eps}
+    \caption{N型半導体のモデル図}
+    \label{fig:n_semiconductor}
+    \includegraphics[clip,width=8.0cm]{p_semiconductor.eps}
+    \caption{P型半導体のモデル図}
+    \label{fig:p_semiconductor}
+  \end{center}
+\end{figure}
+
+\subsection{SOAにおける光の増幅原理}
+二つのエネルギー準位$E_{1}，E_{2}(E_{1}<E_{2})$をもつ原子系を考える．一般に高いエネルギー準位（準位2）にあるキャリアは，ある確率で低いエネルギー準位（準位1）に遷移する．この過程を図(左)に示す．この過程は媒質に入射する光に左右されないため，自然放出と呼ばれる．\\
+一方，媒質に光が入射すると，準位1にあるキャリアが準位2に遷移する誘導吸収と，準位2にあるキャリアが準位1に遷移する誘導放出が起こる．これは媒質に入射する光によって起こるため，誘導遷移過程と呼ばれる．誘導吸収過程を図(中央)に，誘導放出過程を図(右)に示す．\\
+ここで，準位1におけるキャリアの数を$N_{1}$，準位2におけるキャリアの数を$N_{2}$とすると，平衡状態では$N_{1}<N_{2}$となる．SOAにおいては，電流によってキャリアを注入することによって，反転分布$N_{1}>N_{2}$を形成する．反転分布においては，誘導吸収されるキャリアの数より，誘導放出されるキャリアの数を大きくなるため，光が増幅される．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{amp_phenomenon.eps}
+    \caption{キャリアの遷移過程}
+    \label{fig:amp_phenomenon}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{量子井戸(QW:Quantum Well)}
+QWとは2種類の半導体薄膜が交互に積み重なった構造のことであり，キャリアを2次元方向に閉じ込めることができる．図{\ref{fig:qw_energy}}にQWのバンド図を示す．QWでは電子・正孔の取りうるエネルギーが量子化され，伝導帯・価電子帯に階段状のエネルギー準位が形成される．これに伴い，スペクトル幅が狭くなり，光学利得が改善される．光ファイバ通信で用いられる波長領域では，GaInAsP，AlGaInAs系材料を用いて，大きいバンドギャップ材料が小さいバンドギャップ材料を挟む量子井戸構造が用いられる．この構造では，キャリアが低いバンドギャップに落ち込み，光学遷移が小さいバンドギャップ材料の伝導帯，価電子帯の量子準位間で生じ，吸収，発光の効率を高くすることができる．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{qw_energy.eps}
+    \caption{QWのバンド図}
+    \label{fig:qw_energy}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{量子ドット(QD:Quantum Dot)}
+QDは複数の半導体原子から構成されており，キャリアを3次元方向に閉じ込めることができる．図{\ref{fig:qd_energy}}にQDのバンド図を示す．QDはQWと比較して，より多くのエネルギー準位を形成し，QWよりも吸収，発光の効率を高くすることができる．QDはバルク結晶上に薄膜を塗布し，薄膜を形成する原子とバルク結晶の相互作用により薄膜上に形成させるStranski-Krastanovモードと呼ばれる手法で形成される．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{qd_energy.eps}
+    \caption{QDのバンド図}
+    \label{fig:qd_energy}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{量子ドット半導体光増幅器(QD-SOA)}
+QD-SOAとは活性層が量子ドット構造で構成される半導体光増幅器である．図{\ref{fig:qd_soa}}にQD-SOAのモデル図を示す．QD-SOAは増幅に必要な電流値が小さい，利得の回復が早い，温度に対する依存性が低いなどの特性をもつ光増幅器であり，現在最も増幅の特性がよいとされている{\cite{qd_soa}}．
+これらの特性が生まれる理由は，増幅に関わる電子が量子ドットに局所的に集まることで，電子のエネルギー準位が離散化され，注入されたキャリアの大部分が光の増幅に寄与するためである．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{qd_soa.eps}
+    \caption{QD-SOAのモデル図}
+    \label{fig:qd_soa}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\subsection{QD-SOAのエネルギーバンド構造}
+図{\ref{fig:qd_soa_energy}}にQD-SOAのエネルギー構造のモデル図を示す．QD-SOAにおけるエネルギー準位はQW(Quantum Well)，US(Upper State)，ES(Excited State)，GS(Ground State)の4準位でモデル化される．図中の矢印はキャリアのエネルギー遷移を示しており，伝導帯・価電子帯のキャリアはともに(QW，US)間，(US，ES)間，(US，GS)間，(ES，GS)間のみで遷移することを意味している．電流によりQWに注入されたキャリアは，US，ES，GSへと遷移し，GSからエネルギー準位が下がる際の誘導放出により光は増幅される．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=12.0cm]{qd_soa_energy.eps}
+    \caption{量子ドットのエネルギー構造のモデル図}
+    \label{fig:qd_soa_energy}
+  \end{center}
+\end{figure}
+
+\section{QD-SOAの入出力特性の解析}
+ここでは，QD-SOAの入出力特性の解析に用いる手法，式について説明する．以降で用いる文字とその意味を表{\ref{table:qdsoa_param}}に示す．
+
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{longtable}[c]{|c|c|c|}
+ \caption{解析の式に用いる文字，意味，単位}
+ \label{table:qdsoa_param} \\ \hline
+  文字 & 意味 & 単位 \\ \hline \hline \endhead
+  $L_{ca}$  			& 活性層の長さ			& ${\rm m}$ \\ \hline
+  $W$        			& 活性層の幅 	 		& ${\rm m}$ \\ \hline
+  $L_{QW}$ 			& 量子井戸の高さ	 		& ${\rm m}$ \\ \hline
+  $L_{H}$ 				& 量子ドットの高さ	 		& ${\rm m}$ \\ \hline
+  $l_{D}$ 				& 量子ドット層の数	 		& - \\ \hline 
+  $T$ 				& 室温 			 		& ${\rm m}$ \\ \hline
+  $n_{D}$ 				& 量子ドット密度 	 		& ${\rm m^{-2}}$ \\ \hline
+  $N_{QD}$ 			& 量子ドットの数 			&  - \\ \hline
+  $D^{c,v}_{g}$ 			& 縮退係数(GS層) 		&  - \\ \hline
+  $D^{c,v}_{e}$ 		& 縮退係数(ES層) 		&  - \\ \hline
+  $D^{c(v)}_{u}$ 		& 縮退係数(US層) 		&  - \\ \hline
+  $D^{c(v)}_{w}$ 		& 縮退係数(QW層) 		&  - \\ \hline
+  $|M_{env}|^2$ 		& 包絡関数 				&  - \\ \hline
+  $\langle|\hat{e} \cdot p_{cv}|^2\rangle$ & 運動量行列 	&  ${\rm kg \cdot eV}$ \\ \hline
+  $f_{D}$ 				& ドープ密度 		 		&  - \\ \hline
+  $m^{*c(v)}_{w}$ 		& キャリアの有効質量(QW層) &  ${\rm kg}$ \\ \hline
+  $m^{*c(v)}_{d}$ 		& キャリアの有効質量(QD層) &  ${\rm kg}$ \\ \hline
+  $V_{d}$ 				& QD層の体積 				& ${\rm m^{3}}$ \\ \hline
+  $\Gamma^{c(v)}_{ih}$ 	& 不均一広がりの半値全幅		& ${\rm eV}$ \\ \hline
+  $\Gamma_{ih}$ 		& 不均一広がりの半値全幅の和	& ${\rm eV}$ \\ \hline
+  $\Gamma_{h}$ 		& 均一広がりの半値全幅		& ${\rm eV}$ \\ \hline
+  $\Gamma$ 			& 閉じ込め係数(QD層)			& - \\ \hline
+  $\Gamma_{w}$ 		& 閉じ込め係数(QW層)			& - \\ \hline
+  $\hat{\tau}^{c(v)}_{eg}$ & キャリア緩和時間(ES$\to$GS) & ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ge}$ & キャリア脱出時間(GS$\to$ES) & ${\rm s}$ \\ \hline 
+  $\hat{\tau}^{c(v)}_{ug}$ & キャリア緩和時間(US$\to$GS) & ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{gu}$ & キャリア脱出時間(GS$\to$US) & ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ue}$ & キャリア緩和時間(US$\to$ES) & ${\rm s}$ \\ \hline 
+  $\hat{\tau}^{c(v)}_{eu}$ & キャリア脱出時間(ES$\to$US) & ${\rm s}$ \\ \hline 
+  $\hat{\tau}^{c(v)}_{wr}$ & 自然放出時間(QW層)		& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ur}$ & 自然放出時間(US層) 		& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{wu}$ & キャリア緩和時間(QW$\to$US) & ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{uw}$ & キャリア脱出時間(US$\to$QW) & ${\rm s}$ \\ \hline
+  $\hat{\tau}_{dr}$ 		& 自然放出時間 				 & ${\rm s}$ \\ \hline
+  $r_{c(v)}$ 	 		& サンプル間隔の係数		& - \\ \hline
+  $\Delta E$ 			& サンプル間隔 			& ${\rm eV}$ \\ \hline
+  $2M+1$ 	 		& サンプル数 				& - \\ \hline
+  $E^{c(v)}_{g(e,u),j}$ 	& エネルギー準位(j番目QD層) & ${\rm eV}$ \\ \hline
+  $n_r$ 	 	 		& QD層の物質屈折率 		& - \\ \hline
+  $V_{w}$ 	 		& QW層の体積 			& ${\rm m^{3}}$ \\ \hline
+  $I$ 		 		& 注入電流  				& ${\rm A}$ \\ \hline
+  $N^{c(v)}_{W}$  & 最大許容キャリア数(QW層)		& - \\ \hline
+  $N^{c(v)}_{U,j}$ & 最大許容キャリア数(j番目US層) 	& - \\ \hline
+  $N^{c(v)}_{E,j}$ & 最大許容キャリア数(j番目ES層) 	& - \\ \hline
+  $N^{c(v)}_{G,j}$ & 最大許容キャリア数(j番目GS層) 	& - \\ \hline
+  $G^{c(v)}_{j}$   & 不均一広がりのうちj番目の割合 	& - \\ \hline
+  $\varepsilon_0$		& 真空中における誘電率 	& ${\rm F \cdot m^{-1}}$ \\ \hline
+  $m_0$		 & 電子の質量 	& ${\rm kg}$ \\ \hline
+  $q$ 		 & 電荷素量 		& ${\rm C}$ \\ \hline
+  $h$ 		 & プランク定数  	& ${\rm Js}$ \\ \hline
+  $\hbar$ 	 & ディラック定数 	& ${\rm Js}$ \\ \hline
+  $c$ 		 & 光速 			& ${\rm m \cdot s^{-1}}$ \\ \hline
+  $\alpha_{i}$ 	 & 損失係数 		& ${\rm m^{-1}}$ \\ \hline
+  $P_{k}$ 	& 波長kの光強度 		& ${\rm W}$ \\ \hline
+  $E_{k}$ 	& 波長kの光エネルギー 	& ${\rm eV}$ \\ \hline
+\end{longtable}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\newpage
+
+\subsection{QD各層のエネルギー準位･密度}
+QDはどのような製造過程においても大きさを制御することができないため，エネルギー準位にばらつきが起こる{\cite{qd_dispersion}}．各層のエネルギー準位の密度のばらつきは正規分布に従うものとし，サンプル数を$2M+1$として量子化を行うと伝導帯，価電子帯のj番目のエネルギー準位は最も密度が高い標本番号を$M$とするとそれぞれ
+\begin{eqnarray}
+	E^{c}_{u(e,g),j} & = & E^{c}_{u(e,g),M} + \left[ j - \left( M+1 \right) \right] \times r_{c} \Delta E \\
+	E^{v}_{u(e,g),j} & = & E^{v}_{u(e,g),M} - \left[ j - \left( M+1 \right) \right] \times r_{v} \Delta E
+\end{eqnarray}
+と表される．図{\ref{fig:energy_dist}}にQD各層のエネルギー準位と密度の関係を示す．図{\ref{fig:energy_dist}}のように各層のエネルギー準位の密度は正規分布に従うものとし，このときj番目の割合は平均を$E^{c(v)}_{g,max}$分散を$\sigma_{in,c(v)} = \Gamma^{c(v)}_{ih} / 2.356$とした正規分布となり，
+\begin{equation}
+  G^{c(v)}_{j} = \frac{ 1 }{ \sqrt{2 \pi \sigma^{2}_{in,c(v)}}} \exp \left[-\frac{ \left( E^{c(v)}_{g,j} - E^{c(v)}_{g,max} \right)^{2} }{ 2 \sigma^{2}_{in,c(v)} } \right] \times r_{c(v)} \Delta E
+\end{equation}
+と表すことができる．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=12.0cm]{energy_dist.eps}
+    \caption{エネルギー準位と密度の関係}
+    \label{fig:energy_dist}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\subsection{レート方程式}
+QD-SOAの入出力特性を解析するためには，QD-SOAに光を入射した際のキャリアの増減に起因する利得の変化，およびそれに伴う光の振幅と位相の変化を計算する必要がある．半導体発光デバイスにおけるキャリアの時間変化はレート方程式と呼ばれる微分方程式で記述できることが知られている{\cite{qd_soa_rate_equation}}．本研究に用いるレート方程式を式に示す．
+
+\begin{eqnarray}
+  \label{eq:qd_qw}
+  \frac{ {\partial}f^{c(v)}_{w} }{ {\partial}t } & = & 
+	\frac{I}{qN^{c(v)}_{W}} - 
+	\frac{ \sqrt{ f^{c}_{w} f^{v}_{w} } }{ \hat{\tau}^{c(v)}_{wr} } + 
+	\frac{ D^{c(v)}_{u} }{ D^{c(v)}_{w} } \sum_{j=1}^{2M+1} G^{c(v)}_{j} \nonumber\\ &&
+	\times
+	\left(
+		\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{uw,j} }	\left(1 - f^{c(v)}_{w} \right)
+		\frac{ f^{c(v)}_{w}  }{ \hat{\tau}^{c(v)}_{wu}  } 	\left(1 - f^{c(v)}_{u,j}\right)
+	\right)
+  \\
+  \label{eq:qd_us}
+  \frac{ {\partial}f^{c(v)}_{u,j} }{ {\partial}t } & = & 
+	\frac{ f^{c(v)}_{w}  }{ \hat{\tau}^{c(v)}_{wu}  }	\left(1 - f^{c(v)}_{u,j}\right) -
+	\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{uw,j} }	\left(1 - f^{c(v)}_{w} \right) \nonumber\\ &&
+	+ \frac{ D^{c(v)}_{e} }{ D^{c(v)}_{u} } \left(
+		\frac{ f^{c(v)}_{e,j} }{ \hat{\tau}^{c(v)}_{eu} } \left(1 - f^{c(v)}_{u,j}\right)
+		\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{ue} } \left(1 - f^{c(v)}_{e,j}\right)
+	\right)  \nonumber\\ &&
+	+ \frac{ D^{c(v)}_{g} }{ D^{c(v)}_{u} } \left(
+		\frac{ f^{c(v)}_{g,j} }{ \hat{\tau}^{c(v)}_{gu} } \left(1 - f^{c(v)}_{u,j}\right)
+		\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{ug} } \left(1 - f^{c(v)}_{g,j}\right)
+	\right)  \nonumber\\ &&
+	- \frac{ \sqrt{ f^{c}_{u,j} f^{v}_{u,j} } }{ \hat{\tau}^{c(v)}_{ur} }
+  \\
+  \label{eq:qd_es}
+  \frac{ {\partial}f^{c(v)}_{e,j} }{ {\partial}t } & = & 
+	\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{ue} }	\left(1 - f^{c(v)}_{e,j}\right) -
+	\frac{ f^{c(v)}_{e,j} }{ \hat{\tau}^{c(v)}_{eu} }	\left(1 - f^{c(v)}_{u,j}\right) \nonumber\\ &&
+	+ \frac{ D^{c(v)}_{g} }{ D^{c(v)}_{e} } \left(
+		\frac{ f^{c(v)}_{g,j} }{ \hat{\tau}^{c(v)}_{ge} } \left(1 - f^{c(v)}_{e,j}\right)
+		\frac{ f^{c(v)}_{e,j} }{ \hat{\tau}^{c(v)}_{eg} } \left(1 - f^{c(v)}_{g,j}\right)
+	\right)  \nonumber\\ &&
+	- \frac{ \sqrt{ f^{c}_{e,j} f^{v}_{e,j} } }{ \hat{\tau}_{dr} } - \frac{\Gamma}{N^{c(v)}_{E,j}} \nonumber\\ &&
+	\times
+	\sum_{k} \frac{ P_{k,in}g^{e}_{jk} \bigl[e^{( [ \Gamma g(t,E_k) - \alpha_{i} ] L_{ca})} - 1 \bigr]}{E_k\bigl[ \Gamma g \left( t,E_k \right) - \alpha_{i} \bigr]} \nonumber\\ &&
+	\times
+	\left( f^{c}_{e,j} + f^{v}_{e,j} - 1 \right)
+  \\
+  \label{eq:qd_gs}
+  \frac{ {\partial}f^{c(v)}_{g,j} }{ {\partial}t } & = & 
+	\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{ug} }	\left(1 - f^{c(v)}_{g,j}\right) -
+	\frac{ f^{c(v)}_{g,j} }{ \hat{\tau}^{c(v)}_{gu} }	\left(1 - f^{c(v)}_{u,j}\right) \nonumber\\ &&
+	\frac{ f^{c(v)}_{e,j} }{ \hat{\tau}^{c(v)}_{eg} } \left(1 - f^{c(v)}_{g,j}\right) -
+	\frac{ f^{c(v)}_{g,j} }{ \hat{\tau}^{c(v)}_{ge} } \left(1 - f^{c(v)}_{e,j}\right) \nonumber\\ &&
+	- \frac{ \sqrt{ f^{c}_{g,j} f^{v}_{g,j} } }{ \hat{\tau}_{dr} } - \frac{\Gamma}{N^{c(v)}_{G,j}} \nonumber\\ &&
+	\times
+	\sum_{k} \frac{ P_{k,in}g^{g}_{jk} \bigl[e^{( [ \Gamma g(t,E_k) - \alpha_{i} ] L_{ca})} - 1 \bigr]}{E_k\bigl[ \Gamma g \left( t,E_k \right) - \alpha_{i} \bigr]} \nonumber\\ &&
+	\times
+	\left( f^{c}_{g,j} + f^{v}_{g,j} - 1 \right)
+\end{eqnarray}
+
+({\ref{eq:qd_qw}})式から({\ref{eq:qd_gs}})式の左辺は活性層の各層でのキャリア占有率の時間微分を表している．ここで，各式の詳細について以下に述べる．
+式({\ref{eq:qd_qw}})は微小時間におけるQWにおけるキャリア占有率の挙動である．右辺各項について説明する．
+\begin{description}
+  \item[式({\ref{eq:qd_qw}})第1項 $\frac{I}{qN^{c(v)}_{W}}$]\mbox{}\\
+	電流励起によりQWに注入されるキャリアを表す．注入電流$I$[C/s]を電荷素量$q$[C]で割っているのは電流をキャリア数に換算するためであり，キャリア数の上限を超えないように$N^{c(v)}_{W}$で割っている．
+  \item[式({\ref{eq:qd_qw}})第2項 $-\frac{ \sqrt{ f^{c}_{w} f^{v}_{w} } }{ \hat{\tau}^{c(v)}_{wr} }$]\mbox{}\\
+	非発光再結合により消失するキャリアを表す．非発光再結合時間$\hat{\tau}^{c(v)}_{wr}$[s]での除算は，単位時間当たりの密度への換算であり，$\hat{\tau}^{c(v)}_{wr}$秒間隔でこの状態が発生することを表す．
+  \item[式({\ref{eq:qd_qw}})第3項 $\frac{ D^{c(v)}_{u} }{ D^{c(v)}_{w} }$]\mbox{}\\
+	QWに対するUSの縮退係数を表す．
+  \item[式({\ref{eq:qd_qw}})第3項 $G^{c(v)}_{j}$]\mbox{}\\
+	不均一広がりの内，QDのj番目の割合を表す．
+  \item[式({\ref{eq:qd_qw}})第3項 $\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{uw,j} }	\left(1 - f^{c(v)}_{w} \right)$]\mbox{}\\
+	USからＱＷへのキャリア脱出を表す．$1 - f^{c(v)}_{w}$ と $f^{c(v)}_{u,j}$ の乗算は，QWに脱出できる$f^{c(v)}_{u,j}$の割合を示している．キャリア脱出時間(US $\to$ QW)$\hat{\tau}^{c(v)}_{uw,j}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{uw,j}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_qw}})第3項 $-\frac{ f^{c(v)}_{w}  }{ \hat{\tau}^{c(v)}_{wu}  } 	\left(1 - f^{c(v)}_{u,j}\right)$]\mbox{}\\
+	ＱＷからUSへのキャリア緩和を表す．$1 - f^{c(v)}_{u,j}$ と $f^{c(v)}_{w}$ の乗算は，USに遷移できる$f^{c(v)}_{w}$の割合を示している．キャリア緩和時間(QW $\to$ US)$\hat{\tau}^{c(v)}_{wu}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{wu}$秒間隔でこの状態が発生することを表している．
+\end{description}
+
+式({\ref{eq:qd_us}})は微小時間でのj番目のUSにおけるキャリア占有率の挙動である．右辺各項について説明する．
+\begin{description}
+  \item[式({\ref{eq:qd_us}})第1項 $\frac{ f^{c(v)}_{w}  }{ \hat{\tau}^{c(v)}_{wu}  }	\left(1 - f^{c(v)}_{u,j}\right)$]\mbox{}\\
+	ＱＷからUSへのキャリア緩和を表す．$1 - f^{c(v)}_{u,j}$ と $f^{c(v)}_{w}$ の乗算は，USに遷移できる$f^{c(v)}_{w}$の割合を示している．キャリア緩和時間(QW $\to$ US)$\hat{\tau}^{c(v)}_{wu}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{wu}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_us}})第2項 $-\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{uw,j} }	\left(1 - f^{c(v)}_{w} \right)$]\mbox{}\\
+	USからＱＷへのキャリア脱出を表す．$1 - f^{c(v)}_{w}$ と $f^{c(v)}_{u,j}$ の乗算は，QWに脱出できる$f^{c(v)}_{u,j}$の割合を示している．キャリア脱出時間(US $\to$ QW)$\hat{\tau}^{c(v)}_{uw,j}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{uw,j}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_us}})第3項 $\frac{ D^{c(v)}_{e} }{ D^{c(v)}_{u} }$]\mbox{}\\
+	USに対するESの縮退係数を表す．
+  \item[式({\ref{eq:qd_us}})第3項 $\frac{ f^{c(v)}_{e,j} }{ \hat{\tau}^{c(v)}_{eu} } \left(1 - f^{c(v)}_{u,j}\right)$]\mbox{}\\
+	ESからUSへのキャリア脱出を表す．$1 - f^{c(v)}_{u,j}$ と $f^{c(v)}_{e,j}$ の乗算は，USに脱出できる$f^{c(v)}_{e,j}$の割合を示している．キャリア脱出時間(ES $\to$ US)$\hat{\tau}^{c(v)}_{eu}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{eu}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_us}})第3項 $-\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{ue} } \left(1 - f^{c(v)}_{e,j}\right)$]\mbox{}\\
+	USからESへのキャリア緩和を表す．$1 - f^{c(v)}_{e,j}$ と $f^{c(v)}_{u,j}$ の乗算は，ESに遷移できる$f^{c(v)}_{u,j}$の割合を示している．キャリア緩和時間(US $\to$ ES)$\hat{\tau}^{c(v)}_{ue}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{ue}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_us}})第4項 $\frac{ D^{c(v)}_{g} }{ D^{c(v)}_{u} }$]\mbox{}\\
+	USに対するGSの縮退係数を表す．
+  \item[式({\ref{eq:qd_us}})第4項 $\frac{ f^{c(v)}_{g,j} }{ \hat{\tau}^{c(v)}_{gu} } \left(1 - f^{c(v)}_{u,j}\right)$]\mbox{}\\
+	GSからUSへのキャリア脱出を表す．$1 - f^{c(v)}_{u,j}$ と $f^{c(v)}_{g,j}$ の乗算は，USに脱出できる$f^{c(v)}_{g,j}$の割合を示している．キャリア脱出時間(GS $\to$ US)$\hat{\tau}^{c(v)}_{gu}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{gu}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_us}})第4項 $-\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{ug} } \left(1 - f^{c(v)}_{g,j}\right)$]\mbox{}\\
+	USからGSへのキャリア緩和を表す．$1 - f^{c(v)}_{g,j}$ と $f^{c(v)}_{u,j}$ の乗算は，GSに遷移できる$f^{c(v)}_{u,j}$の割合を示している．キャリア緩和時間(US $\to$ GS)$\hat{\tau}^{c(v)}_{ug}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{ug}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_us}})第5項 $-\frac{ \sqrt{ f^{c}_{u,j} f^{v}_{u,j} } }{ \hat{\tau}^{c(v)}_{ur} }$]\mbox{}\\
+	非発光再結合により消失するキャリアを表す．非発光再結合時間$\hat{\tau}^{c(v)}_{ur}$[s]での除算は，単位時間当たりの密度への換算であり，$\hat{\tau}^{c(v)}_{ur}$秒間隔でこの状態が発生することを表す．
+\end{description}
+
+式({\ref{eq:qd_es}})は微小時間でのj番目のESにおけるキャリア占有率の挙動である．右辺各項について説明する．
+\begin{description}
+  \item[式({\ref{eq:qd_es}})第1項 $\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{ue} } \left(1 - f^{c(v)}_{e,j}\right)$]\mbox{}\\
+	USからESへのキャリア緩和を表す．$1 - f^{c(v)}_{e,j}$ と $f^{c(v)}_{u,j}$ の乗算は，ESに遷移できる$f^{c(v)}_{u,j}$の割合を示している．キャリア緩和時間(US $\to$ ES)$\hat{\tau}^{c(v)}_{ue}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{ue}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_es}})第2項 $-\frac{ f^{c(v)}_{e,j} }{ \hat{\tau}^{c(v)}_{eu} } \left(1 - f^{c(v)}_{u,j}\right)$]\mbox{}\\
+	ESからUSへのキャリア脱出を表す．$1 - f^{c(v)}_{u,j}$ と $f^{c(v)}_{e,j}$ の乗算は，USに脱出できる$f^{c(v)}_{e,j}$の割合を示している．キャリア脱出時間(ES $\to$ US)$\hat{\tau}^{c(v)}_{eu}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{eu}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_es}})第3項 $\frac{ D^{c(v)}_{g} }{ D^{c(v)}_{e} }$]\mbox{}\\
+	ESに対するGSの縮退係数を表す．
+  \item[式({\ref{eq:qd_es}})第3項 $\frac{ f^{c(v)}_{g,j} }{ \hat{\tau}^{c(v)}_{ge} } \left(1 - f^{c(v)}_{e,j}\right)$]\mbox{}\\
+	GSからESへのキャリア脱出を表す．$1 - f^{c(v)}_{e,j}$ と $f^{c(v)}_{g,j}$ の乗算は，ESに脱出できる$f^{c(v)}_{g,j}$の割合を示している．キャリア脱出時間(GS $\to$ ES)$\hat{\tau}^{c(v)}_{ge}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{ge}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_es}})第3項 $-\frac{ f^{c(v)}_{e,j} }{ \hat{\tau}^{c(v)}_{eg} } \left(1 - f^{c(v)}_{g,j}\right)$]\mbox{}\\
+	ESからGSへのキャリア緩和を表す．$1 - f^{c(v)}_{g,j}$ と $f^{c(v)}_{e,j}$ の乗算は，GSに遷移できる$f^{c(v)}_{e,j}$の割合を示している．キャリア緩和時間(ES $\to$ GS)$\hat{\tau}^{c(v)}_{eg}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{eg}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_es}})第4項 $-\frac{ \sqrt{ f^{c}_{e,j} f^{v}_{e,j} } }{ \hat{\tau}^{c(v)}_{dr} }$]\mbox{}\\
+	非発光再結合により消失するキャリアを表す．非発光再結合時間$\hat{\tau}^{c(v)}_{dr}$[s]での除算は，単位時間当たりの密度への換算であり，$\hat{\tau}^{c(v)}_{dr}$秒間隔でこの状態が発生することを表す．
+  \item[式({\ref{eq:qd_es}})第5項 $-\frac{\Gamma}{N^{c(v)}_{E,j}} \sum_{k} \frac{ P_{k,in}g^{e}_{jk} \bigl[e^{( [ \Gamma g(t,E_k) - \alpha_{i} ] L_{ca})} - 1 \bigr]}{E_k\bigl[ \Gamma g \left( t,E_k \right) - \alpha_{i} \bigr]} \left( f^{c}_{e,j} + f^{v}_{e,j} - 1 \right)$]\mbox{}\\
+	誘導放出により消失するキャリア及び誘導吸収により増加するキャリアを表す．
+\end{description}
+
+式({\ref{eq:qd_gs}})は微小時間でのj番目のGSにおけるキャリア占有率の挙動である．右辺各項について説明する．
+\begin{description}
+  \item[式({\ref{eq:qd_gs}})第1項 $\frac{ f^{c(v)}_{u,j} }{ \hat{\tau}^{c(v)}_{ug} } \left(1 - f^{c(v)}_{g,j}\right)$]\mbox{}\\
+	USからGSへのキャリア緩和を表す．$1 - f^{c(v)}_{e,j}$ と $f^{c(v)}_{u,j}$ の乗算は，GSに遷移できる$f^{c(v)}_{u,j}$の割合を示している．キャリア緩和時間(US $\to$ GS)$\hat{\tau}^{c(v)}_{ug}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{ug}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_gs}})第2項 $-\frac{ f^{c(v)}_{g,j} }{ \hat{\tau}^{c(v)}_{gu} } \left(1 - f^{c(v)}_{u,j}\right)$]\mbox{}\\
+	GSからUSへのキャリア脱出を表す．$1 - f^{c(v)}_{g,j}$ と $f^{c(v)}_{g,j}$ の乗算は，USに脱出できる$f^{c(v)}_{g,j}$の割合を示している．キャリア脱出時間(GS $\to$ US)$\hat{\tau}^{c(v)}_{gu}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{gu}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_gs}})第3項 $\frac{ f^{c(v)}_{e,j} }{ \hat{\tau}^{c(v)}_{eg} } \left(1 - f^{c(v)}_{g,j}\right)$]\mbox{}\\
+	ESからGSへのキャリア緩和を表す．$1 - f^{c(v)}_{g,j}$ と $f^{c(v)}_{e,j}$ の乗算は，GSに遷移できる$f^{c(v)}_{e,j}$の割合を示している．キャリア緩和時間(ES $\to$ GS)$\hat{\tau}^{c(v)}_{eg}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{eg}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_gs}})第4項 $-\frac{ f^{c(v)}_{g,j} }{ \hat{\tau}^{c(v)}_{ge} } \left(1 - f^{c(v)}_{e,j}\right)$]\mbox{}\\
+	GSからESへのキャリア脱出を表す．$1 - f^{c(v)}_{e,j}$ と $f^{c(v)}_{g,j}$ の乗算は，ESに脱出できる$f^{c(v)}_{g,j}$の割合を示している．キャリア脱出時間(GS $\to$ ES)$\hat{\tau}^{c(v)}_{ge}$[s]での除算は，単位時間当たりの密度への変換であり，$\hat{\tau}^{c(v)}_{ge}$秒間隔でこの状態が発生することを表している．
+  \item[式({\ref{eq:qd_gs}})第5項 $-\frac{ \sqrt{ f^{c}_{g,j} f^{v}_{g,j} } }{ \hat{\tau}^{c(v)}_{dr} }$]\mbox{}\\
+	非発光再結合により消失するキャリアを表す．非発光再結合時間$\hat{\tau}^{c(v)}_{dr}$[s]での除算は，単位時間当たりの密度への換算であり，$\hat{\tau}^{c(v)}_{dr}$秒間隔でこの状態が発生することを表す．
+  \item[式({\ref{eq:qd_gs}})第6項 $-\frac{\Gamma}{N^{c(v)}_{G,j}} \sum_{k} \frac{ P_{k,in}g^{g}_{jk} \bigl[e^{( [ \Gamma g(t,E_k) - \alpha_{i} ] L_{ca})} - 1 \bigr]}{E_k\bigl[ \Gamma g \left( t,E_k \right) - \alpha_{i} \bigr]} \left( f^{c}_{g,j} + f^{v}_{g,j} - 1 \right)$]\mbox{}\\
+	誘導放出により消失するキャリア及び誘導吸収により増加するキャリアを表す．
+\end{description}
+
+活性層の各層で存在できるキャリアの数には上限があり，QWからGSまで各層のキャリア数の上限は以下の式で表される．
+\begin{eqnarray}
+  \label{eq:qw_max}
+    N^{c(v)}_{W} & = & N_{QD}D^{c(v)}_{w} \\
+  \label{eq:us_max}
+    N^{c(v)}_{U,j} & = & N_{QD}D^{c(v)}_{u} G^{c(v)}_{j} \\
+  \label{eq:es_max}
+    N^{c(v)}_{E,j} & = & N_{QD}D^{c(v)}_{e} G^{c(v)}_{j} \\
+  \label{eq:gs_max}
+    N^{c(v)}_{G,j} & = & N_{QD}D^{c(v)}_{g} G^{c(v)}_{j}
+\end{eqnarray}
+
+\subsection{QD-SOAによる利得}
+QD-SOAの利得$g(t,E_k)$は
+\begin{equation}
+  g(t,E_k) = \sum_{l=e,g}\sum_{j=1}^{2M+1} g^{l}_{j,k}(E_k)\bigl[f^{c}_{l,j}+f^{v}_{l,j}-1\bigr]
+\end{equation}
+で表される．これは，利得$g$がES，GSのキャリア占有率に依存することを示している．\\
+また，j番目ES，GS層が波長kの光子に与える利得$g^{e(g)}_{j,k}$は
+\begin{equation}
+  g^{e(g)}_{j,k} = \frac{ \pi \hbar q^{2} N_{D} D_{e(g)} }{ c n_{r} \varepsilon_{0} m^{2}_{0} E_{k} } \left|M_{env}\right|^{2} \left<\left|\hat{e} \cdot p_{cv}\right|^{2}\right> L^{e(g)}_{j} G^{s}_{j}
+\end{equation}
+で表される．ここで，$L^{e(g)}_{j}$，$G^{s}_{j}$はそれぞれ光子エネルギーの均一広がり，j番目QD層の放射再結合の割合を表しており，
+\begin{eqnarray}
+  L^{e(g)}_{j}  & = & \frac{1}{\pi} \frac{ \Gamma_{h} / 2 }{\left(E^{s}_{e(g),j} - E_k\right)^{2} + \left(\Gamma_{h}/2\right)^{2}} \\
+  G^{s}_{j}  & = & \frac{1}{\sqrt{2 \pi \sigma^{2}_{in,s}}} \exp \left[-\frac{\left(E^{s}_{g,j}-E^{s}_{g,M}\right)^{2}}{2\sigma^{2}_{in,s}}\right] \Delta E
+\end{eqnarray}
+と表される．また$E^{s}_{u(e,g),j}$はQD各層における光子遷移エネルギーであり，
+\begin{equation}
+  E^{s}_{u(e,g),j} = E^{c}_{u(e,g),j} - E^{v}_{u(e,g),j}
+\end{equation}
+となる．
+
+\subsection{QD-SOAによる位相変化}
+QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起き，それにより光の位相変化が起きる．以下にバンド充填効果による屈折率変化の式を示す．
+\begin{eqnarray}
+
+\end{eqnarray}
+
+\subsection{QD-SOA内の光の伝搬方程式}
+QD-SOA内の光の伝搬方程式は
+\begin{equation}
+  \label{eq:denpan}
+  \frac{{\partial}E}{{\partial}z} = \frac{E}{2}{-\alpha_{int} + (1-j\alpha_{LEF})g_{\max}(2f-1)}
+\end{equation}
+で表せる．$z$はQD-SOA内の光の伝搬方向の位置，$\alpha_{int}$は損失係数，$\alpha_{LEF}$は線幅増大係数，$j$は虚数単位を表している．QD-SOAにおける位相変化量を$\phi$とすると，式({\ref{eq:denpan}})より
+\begin{equation}
+  \label{eq:phi_diff}
+  \frac{{\partial}\varphi}{{\partial}z} = -\frac{1}{2}\alpha_{LEF}g_{\max}(2f-1)
+\end{equation}
+と表せる．式({\ref{eq:phi_diff}})より，QD-SOAにおける位相の変化量は線幅増大係数，最大利得，GSにおけるキャリア占有率に依存することが分かる．つまり，QD-SOAのパラメータである線幅増大係数，最大利得を変化させることで，位相変化量の調整が可能である．
+
+\subsection{非線形状態空間法(NSSM:Nonlinear State Space Method)}
+QD-SOA内における光電界はキャリア密度や時間，位置に依存して絶えず変化する．また，QD-SOAはデバイス長が短いものでも数$100{\mu}m$程度あるため，入力時の光電界から直接，出力時の光電界を求めることができない．そこで，{\cite{NSSM}}ではNSSMを用いてQD-SOAの入出力特性の解析をしている．
+\newpage
+
+\section{全光XORゲート}
+図{\ref{fig:xor}}に量子ドット半導体光増幅器(Quantum Dot Semiconductor Optical Amplifier:QD-SOA)を用いた全光XORゲートの構成を示す{\cite{Ultrafast}}，{\cite{Rostami}}．全光XORゲートは2つのQD-SOAと2つの3dBカプラ(以下カプラ)から構成される．QD-SOAは光増幅器として用いられるデバイスであり，入力する光強度に応じて出力する光の位相を変化させることができる． \\
+始めに，クロック光はカプラにより2本の導波路に分岐される．上の導波路ではQD-SOA1に入射され，下の導波路ではQD-SOA2に入射される．QD-SOA1では光Aの入射により，クロック光の位相は$\phi_{A}$だけ変化する．QD-SOA2では光Bが入射され，クロック光の位相は$\phi_{B}$だけ変化する．各導波路の光の位相が異なるとき，カプラにより合波されると光が強め合い，光が出力される．各導波路の光の位相が等しいとき，カプラにより合波されると光が打ち消され，光が出力されない．以上のことから，光A，Bの入力が等しいとき上下の導波路で位相差が生じないため，光は出力されない．また，光A，Bの入力が異なるとき位相差が生じて光が出力される．以上より全光XORゲートは表{\ref{table:xor_table}}の真理値表と同じ動作であることが分かる．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{XORGate.eps}
+    \caption{全光XORゲート}
+    \label{fig:xor}
+  \end{center}
+\end{figure}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+\begin{center}
+ \small
+ \caption{全光XORゲートの真理値表}
+ \label{table:xor_table}
+ \begin{tabular}{c c c}
+  \hline
+  入力光A & 入力光B & 出力光 \\
+  \hline
+  0 & 0 & 0 \\
+  0 & 1 & 1 \\
+  1 & 0 & 1 \\
+  1 & 1 & 0 \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+\renewcommand{\arraystretch}{1.0}
+
+\newpage
+
+\section{全光ANDゲート}
+図{\ref{fig:and}}に全光ANDゲートの構成を示す{\cite{80Gbps}}．全光ANDゲートは全光XORゲートと同様の構成であるがカプラに入力する光を入力光Bとし，QD-SOA2を励起する光をクロック光とする．入力光Bの入力が``0''のとき，光は出力されない．入力光Bの入力が``1''であり，入力光Aの入力が``0''のとき，上下の導波路で位相差が生じないため，光は出力されないが，入力光A，Bの入力が``1''のとき，上下の導波路で位相差が生じるため，光が出力される．以上より全光ANDゲートは表{\ref{table:and_table}}の真理値表と同じ動作であることが分かる．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=14.0cm]{ANDGate.eps}
+    \caption{全光ANDゲート}
+    \label{fig:and}
+  \end{center}
+\end{figure}
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+\begin{center}
+ \small
+ \caption{全光ANDゲートの真理値表}
+ \label{table:and_table}
+ \begin{tabular}{c c c}
+  \hline
+  入力光A & 入力光B & 出力光 \\
+  \hline
+  0 & 0 & 0 \\
+  0 & 1 & 0 \\
+  1 & 0 & 0 \\
+  1 & 1 & 1 \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+\renewcommand{\arraystretch}{1.0}
+
+\newpage
+
+\section{アイダイアグラム}
+図{\ref{fig:eyedia}}に信号波形とアイダイアグラムの関係性を示す．アイダイアグラムとは伝送された信号波形の多数のビットを1ビット幅の間隔で重ねたものである．アイダイアグラムを用いることによって，デジタル伝送において送信信号の信号パターンが引き起こす送信特性や受信特性の変化を観測することが可能となる．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=6.0cm]{Eyedia.eps}
+    \caption{信号波形とアイダイアグラムの関係}
+    \label{fig:eyedia}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{消光比}
+アイダイアグラムを数値的に評価する指標として消光比(ER:Extinction Ratio)が用いられ，これはシステムを考える上での一つの性能指標となる．消光比(ER）は下式によって表される．
+\begin{equation}
+  ER(dB) = 10 \log \frac{P_{\min}^{1}}{P_{\max}^{0}}
+\end{equation}
+ここで，$P_{\min}^{1}$および$P_{\max}^{0}$は図{\ref{fig:extinction}}に対応しており，それぞれ出力信号光``1''に対応する最小光強度，出力信号光``0''に対応する最大光強度を表す．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip,width=8.0cm]{Extinction.eps}
+    \caption{アイダイアグラムと消光比の関係}
+    \label{fig:extinction}
+  \end{center}
+\end{figure}
+
+\newpage

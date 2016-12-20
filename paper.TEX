@@ -1,0 +1,41 @@
+\documentclass[a4j,12pt,fleqn]{jreport}	%%[文字サイズ12,数式を左寄せ]
+
+\usepackage{yagiarticle}		%オリジナルスタイル
+\usepackage{hhline}			%オリジナルスタイル
+\usepackage{mypaper00}		%オリジナルスタイル
+\usepackage[dvipdfmx]{graphicx} 	%図を載せるのに使う これにしないとmatlabの図が切れる
+\usepackage{wrapfig}			%キャプションの位置を調整する
+\usepackage{float}				%図をどうしても指定の場所に入れたい場合は[H]コマンドで挿入
+\usepackage{amsmath}			%行列とか使う
+\usepackage{amsfonts}  		% AMSTeX 用拡張フォントを使う
+\usepackage{comment}			%\begin{comment}--\end{comment}でコメントアウト
+\usepackage{longtable}			%複数ページにまたがる表
+
+\graphicspath{{./MainFigure/}}			%図のフォルダの場所を指定
+
+\pagestyle{headings}	%ページ番号を上に設定する
+
+%\setlength\intextsep{0pt}		%図の上の余白を0ptにする
+%\setlength\textfloatsep{0pt}	%図の下の余白を0ptにする
+\abovecaptionskip=-5pt 			%タイトルの上の余白を減らす
+%\abovecaptionskip=10pt 		%タイトルの上の余白をもとに戻す
+
+
+%%%%% 本文 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\pagenumbering{roman}		%ページ番号をローマ字で設定する
+%\tableofcontents      %目次
+%\listoffigures   %図目次
+%\listoftables   	%表目次
+
+%\input{./chapters/01intro.tex}			%はじめに
+\input{./chapters/02theories.tex}			%従来研究
+% \input{./chapters/03proposal.tex}			%提案手法
+% \input{./chapters/04result.tex}			%数値解析と結果
+% \input{./chapters/05conclusion.tex}		%結論
+% \input{./chapters/98ackn.tex}			%謝辞
+\input{./chapters/99ref.tex}			%参考文献
+
+\end{document}
