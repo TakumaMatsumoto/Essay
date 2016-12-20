@@ -360,26 +360,37 @@ QD-SOAの入出力特性を解析するためには，QD-SOAに光を入射した際のキャリアの増減に起
     N^{c(v)}_{G,j} & = & N_{QD}D^{c(v)}_{g} G^{c(v)}_{j}
 \end{eqnarray}
 
+\newpage
+
 \subsection{QD-SOAによる利得}
-QD-SOAの利得$g(t,E_k)$は
+QD-SOAの単位長さあたりの利得$g(t,E_k)$は
 \begin{equation}
+  \label{eq:gain}
   g(t,E_k) = \sum_{l=e,g}\sum_{j=1}^{2M+1} g^{l}_{j,k}(E_k)\bigl[f^{c}_{l,j}+f^{v}_{l,j}-1\bigr]
 \end{equation}
-で表される．これは，利得$g$がES，GSのキャリア占有率に依存することを示している．\\
+で表される．これは，単位長さあたりの利得$g(t,E_k)$がES，GSのキャリア占有率に依存して変化することを示している．\\
 また，j番目ES，GS層が波長kの光子に与える利得$g^{e(g)}_{j,k}$は
 \begin{equation}
   g^{e(g)}_{j,k} = \frac{ \pi \hbar q^{2} N_{D} D_{e(g)} }{ c n_{r} \varepsilon_{0} m^{2}_{0} E_{k} } \left|M_{env}\right|^{2} \left<\left|\hat{e} \cdot p_{cv}\right|^{2}\right> L^{e(g)}_{j} G^{s}_{j}
 \end{equation}
 で表される．ここで，$L^{e(g)}_{j}$，$G^{s}_{j}$はそれぞれ光子エネルギーの均一広がり，j番目QD層の放射再結合の割合を表しており，
 \begin{eqnarray}
-  L^{e(g)}_{j}  & = & \frac{1}{\pi} \frac{ \Gamma_{h} / 2 }{\left(E^{s}_{e(g),j} - E_k\right)^{2} + \left(\Gamma_{h}/2\right)^{2}} \\
-  G^{s}_{j}  & = & \frac{1}{\sqrt{2 \pi \sigma^{2}_{in,s}}} \exp \left[-\frac{\left(E^{s}_{g,j}-E^{s}_{g,M}\right)^{2}}{2\sigma^{2}_{in,s}}\right] \Delta E
+  L^{e(g)}_{j}  	& = & \frac{1}{\pi} \frac{ \Gamma_{h} / 2 }{\left(E^{s}_{e(g),j} - E_k\right)^{2} + \left(\Gamma_{h}/2\right)^{2}} \\
+  G^{s}_{j}  	& = & \frac{1}{\sqrt{2 \pi \sigma^{2}_{in,s}}} \exp \left[-\frac{\left(E^{s}_{g,j}-E^{s}_{g,M}\right)^{2}}{2\sigma^{2}_{in,s}}\right] \Delta E
 \end{eqnarray}
 と表される．また$E^{s}_{u(e,g),j}$はQD各層における光子遷移エネルギーであり，
 \begin{equation}
   E^{s}_{u(e,g),j} = E^{c}_{u(e,g),j} - E^{v}_{u(e,g),j}
 \end{equation}
-となる．
+となる．このとき，出力光強度$P_{k,out}$は増幅利得を$G(t,E_k)$として入力強度を$P_{k,in}$とすると
+\begin{equation}
+  P_{k,out} = G(t,E_k)P_{k,in}
+\end{equation}
+と表される．また，増幅利得は閉じ込め係数を$\Gamma$，損失係数を$\alpha_{i}$，活性層の長さを$L_{ca}$として以下の式で表される．
+\begin{equation}
+  \label{eq:total_gain}
+  G(t,E_k) = \exp\left(\left[\Gamma g(t,E_k) - \alpha_{i}\right]L_{ca}\right)
+\end{equation}
 
 \subsection{QD-SOAによる位相変化}
 QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起き，それにより光の位相変化が起きる．以下にバンド充填効果による屈折率変化の式を示す．
@@ -414,25 +425,34 @@ QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起き，それにより光の位
 \end{eqnarray}
 バンド充填効果，自由電子吸収効果による屈折率変化量の和を$\Delta n(t,E_k)$とすると位相変化量は
 \begin{equation}
+  \label{eq:phase_diff}
   \Delta \phi (t,E_k) = -\frac{2 \pi L_{ca}}{\lambda_{k}} \Delta n(t,E_k)
 \end{equation}
 と表される．
 
+\newpage
+
 \subsection{QD-SOA内の光の伝搬方程式}
-QD-SOA内の光の伝搬方程式は
+
+QD-SOA内の光の伝搬方程式は単位長さあたりの増幅利得を$dG(t,E_k)$，位相変化量を$d\phi (t,E_k)$とすると
 \begin{equation}
   \label{eq:denpan}
-  \frac{{\partial}E}{{\partial}z} = \frac{E}{2}{-\alpha_{int} + (1-j\alpha_{LEF})g_{\max}(2f-1)}
+  \frac{{\partial}E}{{\partial}z} = E\left(\frac{dG(t,E_k)}{2}+jd\phi (t,E_k)\right)
 \end{equation}
-で表せる．$z$はQD-SOA内の光の伝搬方向の位置，$\alpha_{int}$は損失係数，$\alpha_{LEF}$は線幅増大係数，$j$は虚数単位を表している．QD-SOAにおける位相変化量を$\phi$とすると，式({\ref{eq:denpan}})より
-\begin{equation}
-  \label{eq:phi_diff}
-  \frac{{\partial}\varphi}{{\partial}z} = -\frac{1}{2}\alpha_{LEF}g_{\max}(2f-1)
-\end{equation}
-と表せる．式({\ref{eq:phi_diff}})より，QD-SOAにおける位相の変化量は線幅増大係数，最大利得，GSにおけるキャリア占有率に依存することが分かる．つまり，QD-SOAのパラメータである線幅増大係数，最大利得を変化させることで，位相変化量の調整が可能である．
+で表せる．$z$はQD-SOA内の光の伝搬方向の位置，$j$は虚数単位を表している．
 
 \subsection{非線形状態空間法(NSSM:Nonlinear State Space Method)}
-QD-SOA内における光電界はキャリア密度や時間，位置に依存して絶えず変化する．また，QD-SOAはデバイス長が短いものでも数$100{\mu}m$程度あるため，入力時の光電界から直接，出力時の光電界を求めることができない．そこで，{\cite{NSSM}}ではNSSMを用いてQD-SOAの入出力特性の解析をしている．
+QD-SOAの入出力特性の解析にはNSSM{\cite{NSSM}}を用いる．NSSMとはQD-SOAに入力する光からQD-SOAから出力される光を直接求めることができる手法で，計算時間の短縮を行うことができる．光の伝搬方程式は式(\ref{eq:denpan})で表され，光が伝搬方向に沿って$\Delta z$だけ進んだときの電場は$z$の位置の電場を$E(z)$とすると
+\begin{equation}
+  \label{eq:denpan}
+  E(z+\Delta z) = E(z)\exp\left(dG(t,E_k)+jd\phi (t,E_k)\right)
+\end{equation}
+と表される．また，式(\ref{eq:total_gain})，式(\ref{eq:phase_diff})よりQD-SOAに入力する光の電界を$E(0)$とするとQD-SOAから出力される光の電界$E(L_{ca})$は以下の式より求められる．
+\begin{equation}
+  \label{eq:electric_field_out}
+  E(L_{ca}) = E(0)\exp\left(G(t,E(0))+j\Delta \phi (t,E(0))\right)
+\end{equation}
+
 \newpage
 
 \section{全光XORゲート}
