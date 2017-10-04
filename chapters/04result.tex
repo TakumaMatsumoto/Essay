@@ -3,87 +3,155 @@
 
 %-----------------------------------------------------
 \section{数値解析条件}
-本研究では，Optisystem13.0.0，MATLAB R2014aを用いて行い各光デバイスを数値的に解析する．QD-SOAはキャリアのレート方程式及び伝達行列法(Transfer Matrix Method:TMM)を用いて解析を行い，QD-SOA以外の光デバイスの動作はOptisystem13.0.0に従う．また，QD-SOAのパラメータは表{\ref{table:qd_soa_param}}に示したものを用い，通信速度は160Gbps，150Gbpsの2通りについて行った．
-\begin{table}[htbp]
+本研究では，Optisystem14.0.0，MATLAB R2014aを用いて行い各光デバイスを数値的に解析する．QD-SOA，PC-QD-SOAはキャリアのレート方程式及び非線形状態空間法(Nonlinear State Space Method:NSSM)を用いて解析を行い，QD-SOA，PC-QD-SOA以外の光デバイスの動作はOptisystem14.0.0に従う．
+
+\subsection{QD-SOAの解析条件}
+QD-SOAのパラメータは表{\ref{table:qd_soa_values}}に示したものを用いた．
+
 \renewcommand{\arraystretch}{1.3}
-  \begin{center}
-    \small
-    \caption{デバイスパラメータ}
-    \label{table:qd_soa_param}
-    \begin{tabular}{c c c c}
-    \hline
-    Symbol & パラメータ名 & 値 & 単位 \\
-    \hline
-    $L$ & QD-SOAの長さ & $2.0 \times 10^{-3}$ & $m$ \\
-    $L_{w}$ & QD-SOAの厚さ & $ 0.25 \times 10^{-6}$ & $m$ \\
-    $W$ & QD-SOAの幅 & $ 3.0 \times 10^{-6}$ & $m$ \\
-    $N_{Q}$ & 量子ドット密度  & $ 5.0 \times 10^{14}$ & $m^{-2}$ \\
-    $\tau_{w2}$ & キャリア寿命(WL→ES) & $ 3.0 \times 10^{-12}$ & $s$ \\
-    $\tau_{2w}$ & キャリア寿命(ES→WL) & $ 1.0 \times 10^{-9}$ & $s$ \\
-    $\tau_{wR}$ & キャリア寿命(WL→系外) & $ 2.0 \times 10^{-9}$ & $s$ \\
-    $\tau_{21}$ & キャリア寿命(ES→GS) & $ 0.16 \times 10^{-12}$ & $s$ \\
-    $\tau_{12}$ & キャリア寿命(GS→ES) & $ 1.2 \times 10^{-12}$ & $s$ \\
-    $\tau_{1R}$ & キャリア寿命(GS→系外) & $ 0.4 \times 10^{-9}$ & $s$ \\
-    $I$ & 注入電流 & $ 3.0 \times 10^{-2}$ & $A$ \\
-    $g_{\max}$ & 最大利得 & $ 3.0 \times 10^{2}$ & $m^{-1}$ \\
-    $\alpha_{LEF}$ & 線幅増大係数 & $ 2.0 \times 10^{2}$ & $-$ \\
-    $\alpha_{int}$ & 損失係数 & $ 3.0 \times 10^{2}$ & $m^{-1}$ \\
-    \hline
-    \end{tabular}
-  \end{center}
+\begin{center}
+\begin{longtable}[c]{|c|c|c|}
+  \caption{QD-SOA解析の式に用いる文字，値，単位\label{table:qd_soa_values}} \\ \hline
+  Symbol & Value & Unit \\ \hline \hline \endfirsthead
+  $L_{ca}$  			& 2.0 $\times 10^{-3}$	& ${\rm m}$ \\ \hline
+  $W$        			& 4.0 $\times 10^{-6}$ 	& ${\rm m}$ \\ \hline
+  $L_{QW}$ 			& 5.0 $\times 10^{-9}$  & ${\rm m}$ \\ \hline
+  $L_{H}$ 				& 2.0 $\times 10^{-9}$  & ${\rm m}$ \\ \hline
+  $l_{D}$ 				& 10					& - \\ \hline 
+  $T$ 				& 300				& ${\rm K}$ \\ \hline
+  $n_{D}$ 				& 5.0 $\times 10^{14}$	& ${\rm m^{-2}}$ \\ \hline
+  $D^{c,v}_{g}$ 			& 2					&  - \\ \hline
+  $D^{c,v}_{e}$ 		& 4 					&  - \\ \hline
+  $D^{c(v)}_{u}$ 		& 10(20) 				&  - \\ \hline
+  $D^{c(v)}_{w}$ 		& 100(200)			&  - \\ \hline
+  $|M_{env}|^2$ 		& 0.88				&  - \\ \hline
+  $\langle|\hat{e} \cdot p_{cv}|^2\rangle$ & 3.37 $\times 10^{-30}$ &  ${\rm kg \cdot eV}$ \\ \hline
+  $f_{D}$ 				& 6 		 			 &  - \\ \hline
+  $m^{*c(v)}_{w}$ 		& 0.0604(0.1029)$m_{0}$ &  ${\rm kg}$ \\ \hline
+  $m^{*c(v)}_{d}$ 		& 0.023(0.4)$m_{0}$ 	 &  ${\rm kg}$ \\ \hline
+  $V_{d}$ 				& 1.6 $\times 10^{-16}$ & ${\rm m^{3}}$ \\ \hline
+  $\Gamma^{c(v)}_{ih}$ 	& 40(10) $\times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\Gamma_{ih}$ 		& 50		$\times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\Gamma_{h}$ 		& 10		$\times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\Gamma$ 			& 0.025			& - \\ \hline
+  $\Gamma_{w}$ 		& 0.0625			& - \\ \hline
+  $\hat{\tau}^{c(v)}_{eg}$ & 0.5(0.075)   $\times 10^{-12}$	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ug}$ & 0.33(0.022) $\times 10^{-12}$ & ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ue}$ & 0.66(0.043) $\times 10^{-12}$ & ${\rm s}$ \\ \hline 
+  $\hat{\tau}^{c(v)}_{wu}$ & 1.8(0.078)  $\times 10^{-12}$ & ${\rm s}$ \\ \hline
+  $\hat{\tau}_{dr}$ 		  & 1.0 		 $\times 10^{-9}$ 	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{wr}$ & 0.14(0.28)   $\times 10^{-9}$	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ur}$ & 0.71(1.42)   $\times 10^{-9}$ 	& ${\rm s}$ \\ \hline
+  $r_{c(v)}$ 	 		& 0.8(0.2) 					& - \\ \hline
+  $\Delta E$ 			& 1.0 		 $\times 10^{-3}$ 	& ${\rm eV}$ \\ \hline
+  $2M+1$ 	 		& 181						& - \\ \hline
+  $E^{c(v)}_{QW}$		& 1.0631(-0.2745)				& ${\rm eV}$ \\ \hline
+  $E^{c(v)}_{u,M}$		& 1.0251(-0.1275)				& ${\rm eV}$ \\ \hline
+  $E^{c(v)}_{e,M}$		& 0.9541(-0.0875)				& ${\rm eV}$ \\ \hline
+  $E^{c(v)}_{g,M}$		& 0.8873(-0.0743)				& ${\rm eV}$ \\ \hline
+  $n_r$ 	 	 		& 3.51 						& - \\ \hline
+  $V_{w}$ 	 		& 4.0		$\times 10^{-16}$ 	& ${\rm m^{3}}$ \\ \hline
+\end{longtable}
+\end{center}
 \renewcommand{\arraystretch}{1.0}
-\end{table}
-
-\section{入出力波形}
-
-図{\ref{fig:send_compare_160Gbps}}に通信速度を160Gbpsとしたときの符号化システムに入力した信号と符号化システムから出力された信号を示す．入力信号は``1110''，``0110''の2パターンとする．出力された信号は各パターンについて``11100101''，``01101111''となり，このことから符号化システムに信号を入力すると入力信号に対応した符号語が出力されることが分かる．\\
-続いて図{\ref{fig:passive_compare_160Gbps}}に受信信号と受信信号を誤り訂正システムに入力して出力された信号を示す．受信信号は``11110101''，``00101111''の2パターンとする．このとき，1つ目のパターンは4ビット目に誤りが発生したことにより元々``0''であった信号が``1''となり，2つ目のパターンは1ビット目に誤りが発生したことにより元々``1''であった信号が``0''となっている．誤り訂正システムから出力された信号は``1''に対応する光強度と``0''に対応する光強度の差が開いており，1つ目のパターンは``11100101''であり，2つ目のパターンは``01101111''であることが分かる．このことから，両パターンについて誤り訂正が行われていることが分かる． \\
-同様の数値解析を通信速度を150Gbpsとして行うと，符号化システムの入出力結果は図{\ref{fig:send_compare_150Gbps}}となり，誤り訂正システムの入出力結果は図{\ref{fig:passive_compare_150Gbps}}となる． \\
-以上より，160Gbps，150Gbpsで水平垂直パリティによる符号語の生成，誤りの訂正が可能であることが言える．
-
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[clip,width=12.0cm]{send_compare_160Gbps.eps}
-    \caption{符号化システムの入出力結果(160Gbps)}
-    \label{fig:send_compare_160Gbps}
-    \includegraphics[clip,width=12.0cm]{passive_compare_160Gbps.eps}
-    \caption{誤り訂正システムの入出力結果(160Gbps)}
-    \label{fig:passive_compare_160Gbps}
-  \end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[clip,width=12.0cm]{send_compare_150Gbps.eps}
-    \caption{符号化システムの入出力結果(150Gbps)}
-    \label{fig:send_compare_150Gbps}
-    \includegraphics[clip,width=12.0cm]{passive_compare_150Gbps.eps}
-    \caption{誤り訂正システムの入出力結果(150Gbps)}
-    \label{fig:passive_compare_150Gbps}
-  \end{center}
-\end{figure}
 
 \newpage
 
-\section{性能評価}
+\subsection{PC-QD-SOAの解析条件}
+ここでは，PC-QD-SOAの特性解析条件を示す．
 
-評価指標としてアイダイアグラムと消光比(ER:Extinction Ratio)を用いる．アイダイアグラムとは信号波形を1ビットごとに重ねあわせたものである．``1''に対応する光強度と``0''に対応する光強度のスペースの空き具合をアイ開口といい，大きいほど信号品質がよいとされる．また，消光比とはアイダイアグラムを数値で評価する指標である．ERは$ER(dB)=10log_{10}(P_{\min}^{1}/P_{\max}^{0})$で表され，$P_{\min}^{1}$は出力``1''の最小強度，$P_{\max}^{0}$は出力``0''の最大強度を表す．図{\ref{fig:eyedia_result_160Gbps}}に，通信速度を160Gbpsとしたときの誤り訂正後の信号のアイダイアグラムを示す．本研究では， 図{\ref{fig:eyedia_result_160Gbps}}の矢印で示した部分の消光比を求めるものとし，ER値は5.72(dB)である． \\
-通信速度が150Gbpsのときアイダイアグラムは図{\ref{fig:eyedia_result_150Gbps}}となり，ER値は13.6(dB)である．文献{\cite{Gayen}}より，消光比が5.23(dB)より大きい場合，回路性能が良いとされることから提案システムは160Gbps，150Gbpsで有効であることが示された．
+\subsubsection{誘電体の屈折率}
+PC-QD-SOAの活性層はGaAs，${\rm In_{0.15}Ga_{0.85}As}$，InAsによって構成され，体積比は表{\ref{table:volume_rate}}の通りである．表よりPC-QD-SOAの活性層の屈折率$n_{core}(\lambda)$は
+% TODO: 屈折率を書く
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+\begin{center}
+ \small
+ \caption{体積比}
+ \label{table:volume_rate}
+ \begin{tabular}{c c}
+  \hline
+  媒質 & 比率 \\
+  \hline
+  GaAs & 0.85 \\
+  ${\rm In_{0.15}Ga_{0.85}As}$ & 0.107 \\
+  InAs & 0.043 \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+\renewcommand{\arraystretch}{1.0}
 
-\begin{figure}[htbp]
-  \begin{minipage}{0.5\hsize}
-  \begin{center}
-    \includegraphics[clip,width=6.0cm]{eyedia_result_160Gbps.eps}
-    \caption{受信信号のアイダイアグラム(160Gbps)}
-    \label{fig:eyedia_result_160Gbps}
-  \end{center}
-  \end{minipage}
-  \begin{minipage}{0.5\hsize}
-  \begin{center}
-    \includegraphics[clip,width=7.0cm]{eyedia_result_150Gbps.eps}
-    \caption{受信信号のアイダイアグラム(150Gbps)}
-    \label{fig:eyedia_result_150Gbps}
-  \end{center}
-  \end{minipage}
-\end{figure}
+\subsubsection{分散関係式}
+分散関係，群屈折率は以下の式より求める．
+\begin{eqnarray}
+  \omega(k) & = & \frac{1}{2}a_{0} + \sum_{n=1}^{8}\left[a_{n}\cos(nwk) + b_{n}\sin(nwk)\right] \\
+  n_{g}(k) & = & \left(\sum_{n=1}^{8}\left[-a_{n}nw\sin(nwk)+b_{n}nw\cos(nwk)\right]\right)^{-1}
+\end{eqnarray}
+また，フーリエ係数$a_n,b_n$を表{\ref{table:disp_fourier_coefficients}}に示す．
+
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+\begin{center}
+ \small
+ \caption{分散関係のフーリエ係数}
+ \label{table:disp_fourier_coefficients}
+ \begin{tabular}{c c c}
+  \hline
+  n & $a_n$ & $b_n$ \\
+  \hline
+  0 & 0.3202   	& - \\
+  1 & 0.1740   	& 0.001989 \\
+  2 & -0.1414 		& -0.0098 \\
+  3 & 0.09489 		& 0.01365 \\
+  4 & -0.05176 	& -0.01137 \\
+  5 & 0.02278 		& 0.006729 \\
+  6 & -0.007657 	& -0.003049 \\
+  7 & 0.001711 	& 0.0009613 \\
+  8 & -0.0001844 	& -0.0001516 \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+\renewcommand{\arraystretch}{1.0}
+
+\subsubsection{閉じ込め係数}
+xy軸方向及びz軸方向に関する閉じ込め係数は，以下の式より求まる．
+\begin{eqnarray}
+  \Gamma_{xy}(\lambda) 	& = & \frac{1}{2}c_{0} + \sum_{n=1}^{8}\left[c_{n}\cos(nw\lambda) + d_{n}\sin(nw\lambda)\right] \\
+  \Gamma_{z}(\lambda) 		& = & 0.8426 - 4.546 \times 10^{-4} \lambda + 8.375 \times 10^{-8} \lambda^{2}
+\end{eqnarray}
+また，活性層の割合は$\xi_{QD} = l_{D}L_{H}/2d$と表されるので閉じ込め係数$\Gamma(\lambda)$は
+\begin{equation}
+  \Gamma(\lambda) = \Gamma_{xy} \Gamma_{z} \xi_{QD}
+\end{equation}
+と表される．
+また，フーリエ係数$c_n,d_n$を表{\ref{table:conf_fourier_coefficients}}に示す．
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
+\begin{center}
+ \small
+ \caption{閉じ込め係数のフーリエ係数}
+ \label{table:conf_fourier_coefficients}
+ \begin{tabular}{c c c}
+  \hline
+  n & $c_n$ & $d_n$ \\
+  \hline
+  0 & 1.3462   	& - \\
+  1 & -0.4163   	& -0.08407 \\
+  2 & -0.04644 	& -0.1838 \\
+  3 & 0.1719 		& -0.1399 \\
+  4 & 0.1855 		& -0.009377 \\
+  5 & 0.08669 		& 0.07319 \\
+  6 & -0.0006487 	& 0.06741 \\
+  7 & -0.02412 	& 0.02651 \\
+  8 & -0.0108 		& 0.002958 \\
+  \hline
+\end{tabular}
+\end{center}
+\end{table}
+\renewcommand{\arraystretch}{1.0}
+
 
