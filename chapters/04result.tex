@@ -2,66 +2,136 @@
 \label{chap:result}
 
 %-----------------------------------------------------
-\section{”’l‰ğÍğŒ}
-–{Œ¤‹†‚Å‚ÍCOptisystem14.0.0CMATLAB R2014a‚ğ—p‚¢‚Äs‚¢ŠeŒõƒfƒoƒCƒX‚ğ”’l“I‚É‰ğÍ‚·‚éDQD-SOACPC-QD-SOA‚ÍƒLƒƒƒŠƒA‚ÌƒŒ[ƒg•û’ö®‹y‚Ñ”ñüŒ`ó‘Ô‹óŠÔ–@(Nonlinear State Space Method:NSSM)‚ğ—p‚¢‚Ä‰ğÍ‚ğs‚¢CQD-SOACPC-QD-SOAˆÈŠO‚ÌŒõƒfƒoƒCƒX‚Ì“®ì‚ÍOptisystem14.0.0‚É]‚¤D
+\section{”’l‰ğÍğŒŠT—v}
+–{Œ¤‹†‚Å‚ÍCOptisystem14.0.0CMATLAB R2014a‚ğ—p‚¢‚Äs‚¢ŠeŒõƒfƒoƒCƒX‚ğ”’l“I‚É‰ğÍ‚·‚éDQD-SOACPC-QDSOA‚ÌƒŒ[ƒg•û’ö®‹y‚Ñ“`”À•û’ö®‚Í”ñüŒ`ó‘Ô‹óŠÔ–@(Nonlinear State Space Method:NSSM)‚ğ—p‚¢‚Ä‰ğÍ‚ğs‚¢CQD-SOACPC-QDSOAˆÈŠO‚ÌŒõƒfƒoƒCƒX‚Ì“®ì‚ÍOptisystem14.0.0‚É]‚¤D‚Ü‚½CQD-SOACPC-QDSOA‚Ì‰ğÍ‚É‹¤’Ê‚Ì•¨—ƒpƒ‰ƒ[ƒ^‚ğ•\{\ref{table:physic_values}}‚É¦‚·D
 
-\subsection{QD-SOA‚Ì‰ğÍğŒ}
-QD-SOA‚Ìƒpƒ‰ƒ[ƒ^‚Í•\{\ref{table:qd_soa_values}}‚É¦‚µ‚½‚à‚Ì‚ğ—p‚¢‚½D
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{longtable}[c]{|c|c|c|}
+  \caption{‰ğÍ‚Ì®‚É—p‚¢‚é•¶šC’lC’PˆÊ\label{table:physic_values}} \\ \hline
+  Symbol & Value & Unit \\ \hline \hline \endfirsthead
+  $\hbar$  		& $6.5821195 \times 10^{-16}$	& ${\rm eV \cdot s}$ \\ \hline
+  $q$  			& $1.6021766 \times 10^{-19}$	& ${\rm C}$ 		 \\ \hline
+  $m_{0}$  		& $9.1093897 \times 10^{-31}$	& ${\rm kg}$ 		 \\ \hline
+  $\varepsilon_0$	& $8.8541878 \times 10^{-12}$	& ${\rm F/m}$ 	 \\ \hline
+  $\mu_0$		& $1.2566371 \times 10^{-6}$	& ${\rm H/m}$	 \\ \hline
+  $c$			& $2.9979246 \times 10^{8}$		& ${\rm m/s}$	 \\ \hline
+  $k_{B}$			& $8.6173303 \times 10^{-5}$	& ${\rm eV/K}$	 \\ \hline
+\end{longtable}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\section{QD-SOA‚Ì‰ğÍğŒ}
+QD-SOA‚Ìƒpƒ‰ƒ[ƒ^‚ğ•\{\ref{table:qd_soa_values}}‚É¦‚·D
 
 \renewcommand{\arraystretch}{1.3}
 \begin{center}
 \begin{longtable}[c]{|c|c|c|}
   \caption{QD-SOA‰ğÍ‚Ì®‚É—p‚¢‚é•¶šC’lC’PˆÊ\label{table:qd_soa_values}} \\ \hline
   Symbol & Value & Unit \\ \hline \hline \endfirsthead
-  $L_{ca}$  			& 2.0 $\times 10^{-3}$	& ${\rm m}$ \\ \hline
-  $W$        			& 4.0 $\times 10^{-6}$ 	& ${\rm m}$ \\ \hline
-  $L_{QW}$ 			& 5.0 $\times 10^{-9}$  & ${\rm m}$ \\ \hline
-  $L_{H}$ 				& 2.0 $\times 10^{-9}$  & ${\rm m}$ \\ \hline
+  $L_{ca}$  			& $2.0 \times 10^{-3}$	& ${\rm m}$ \\ \hline
+  $W$        			& $4.0 \times 10^{-6}$ 	& ${\rm m}$ \\ \hline
+  $L_{QW}$ 			& $5.0 \times 10^{-9}$  & ${\rm m}$ \\ \hline
+  $L_{H}$ 				& $2.0 \times 10^{-9}$  & ${\rm m}$ \\ \hline
   $l_{D}$ 				& 10					& - \\ \hline 
   $T$ 				& 300				& ${\rm K}$ \\ \hline
-  $n_{D}$ 				& 5.0 $\times 10^{14}$	& ${\rm m^{-2}}$ \\ \hline
+  $n_{D}$ 				& $5.0 \times 10^{14}$	& ${\rm m^{-2}}$ \\ \hline
   $D^{c,v}_{g}$ 			& 2					&  - \\ \hline
   $D^{c,v}_{e}$ 		& 4 					&  - \\ \hline
   $D^{c(v)}_{u}$ 		& 10(20) 				&  - \\ \hline
   $D^{c(v)}_{w}$ 		& 100(200)			&  - \\ \hline
   $|M_{env}|^2$ 		& 0.88				&  - \\ \hline
-  $\langle|\hat{e} \cdot p_{cv}|^2\rangle$ & 3.37 $\times 10^{-30}$ &  ${\rm kg \cdot eV}$ \\ \hline
-  $f_{D}$ 				& 6 		 			 &  - \\ \hline
-  $m^{*c(v)}_{w}$ 		& 0.0604(0.1029)$m_{0}$ &  ${\rm kg}$ \\ \hline
-  $m^{*c(v)}_{d}$ 		& 0.023(0.4)$m_{0}$ 	 &  ${\rm kg}$ \\ \hline
-  $V_{d}$ 				& 1.6 $\times 10^{-16}$ & ${\rm m^{3}}$ \\ \hline
-  $\Gamma^{c(v)}_{ih}$ 	& 40(10) $\times 10^{-3}$		& ${\rm eV}$ \\ \hline
-  $\Gamma_{ih}$ 		& 50		$\times 10^{-3}$		& ${\rm eV}$ \\ \hline
-  $\Gamma_{h}$ 		& 10		$\times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\langle|\hat{e} \cdot p_{cv}|^2\rangle$ & $3.37 \times 10^{-30}$ &  ${\rm kg \cdot eV}$ \\ \hline
+  $f^{c(v)}_{D}$ 		& 1(6) 		 		 &  - \\ \hline
+  $m^{*_{c(v)}}_{w}$ 	& $0.0604(0.1029)m_{0}$ &  ${\rm kg}$ \\ \hline
+  $m^{*_{c(v)}}_{d}$ 		& $0.023(0.4)m_{0}$ 	 &  ${\rm kg}$ \\ \hline
+  $\Gamma^{c(v)}_{ih}$ 	& $40(10) \times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\Gamma_{ih}$ 		& $50	 \times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\Gamma_{h}$ 		& $10	 \times 10^{-3}$		& ${\rm eV}$ \\ \hline
   $\Gamma$ 			& 0.025			& - \\ \hline
   $\Gamma_{w}$ 		& 0.0625			& - \\ \hline
-  $\hat{\tau}^{c(v)}_{eg}$ & 0.5(0.075)   $\times 10^{-12}$	& ${\rm s}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{ug}$ & 0.33(0.022) $\times 10^{-12}$ & ${\rm s}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{ue}$ & 0.66(0.043) $\times 10^{-12}$ & ${\rm s}$ \\ \hline 
-  $\hat{\tau}^{c(v)}_{wu}$ & 1.8(0.078)  $\times 10^{-12}$ & ${\rm s}$ \\ \hline
-  $\hat{\tau}_{dr}$ 		  & 1.0 		 $\times 10^{-9}$ 	& ${\rm s}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{wr}$ & 0.14(0.28)   $\times 10^{-9}$	& ${\rm s}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{ur}$ & 0.71(1.42)   $\times 10^{-9}$ 	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{eg}$ & $0.5(0.075)   \times 10^{-12}$	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ug}$ & $0.33(0.022) \times 10^{-12}$ & ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ue}$ & $0.66(0.043) \times 10^{-12}$ & ${\rm s}$ \\ \hline 
+  $\hat{\tau}^{c(v)}_{wu}$ & $1.8(0.078)  \times 10^{-12}$ & ${\rm s}$ \\ \hline
+  $\hat{\tau}_{dr}$ 		  & $1.0 		   \times 10^{-9}$ 	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{wr}$ & $0.14(0.28)   \times 10^{-9}$	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ur}$ & $0.71(1.42)   \times 10^{-9}$ 	& ${\rm s}$ \\ \hline
   $r_{c(v)}$ 	 		& 0.8(0.2) 					& - \\ \hline
-  $\Delta E$ 			& 1.0 		 $\times 10^{-3}$ 	& ${\rm eV}$ \\ \hline
+  $\Delta E$ 			& $1.0 		 \times 10^{-3}$ 	& ${\rm eV}$ \\ \hline
   $2M+1$ 	 		& 181						& - \\ \hline
   $E^{c(v)}_{QW}$		& 1.0631(-0.2745)				& ${\rm eV}$ \\ \hline
   $E^{c(v)}_{u,M}$		& 1.0251(-0.1275)				& ${\rm eV}$ \\ \hline
   $E^{c(v)}_{e,M}$		& 0.9541(-0.0875)				& ${\rm eV}$ \\ \hline
   $E^{c(v)}_{g,M}$		& 0.8873(-0.0743)				& ${\rm eV}$ \\ \hline
   $n_r$ 	 	 		& 3.51 						& - \\ \hline
-  $V_{w}$ 	 		& 4.0		$\times 10^{-16}$ 	& ${\rm m^{3}}$ \\ \hline
+  $A$ 				& $L_{ca}W $	 	 & ${\rm m^{3}}$ \\ \hline
+  $V_{d}$ 				& $l_{D}AL_{H}$ 	 & ${\rm m^{3}}$ \\ \hline
+  $V_{w}$ 	 		& $l_{D}AL_{QW}$ 	 & ${\rm m^{3}}$ \\ \hline
 \end{longtable}
 \end{center}
 \renewcommand{\arraystretch}{1.0}
 
 \newpage
 
-\subsection{PC-QD-SOA‚Ì‰ğÍğŒ}
-‚±‚±‚Å‚ÍCPC-QD-SOA‚Ì“Á«‰ğÍğŒ‚ğ¦‚·D
+\section{PC-QDSOA‚Ì‰ğÍğŒ}
+‚±‚±‚Å‚ÍCPC-QDSOA‚Ì“Á«‰ğÍğŒ‚ğ¦‚·D
+
+\subsection{PC-QDSOA‚Ìƒpƒ‰ƒ[ƒ^}
+PC-QDSOA‚Ìƒpƒ‰ƒ[ƒ^‚ğ•\{\ref{table:pc_qdsoa_values}}‚É¦‚·D
+
+\renewcommand{\arraystretch}{1.3}
+\begin{center}
+\begin{longtable}[c]{|c|c|c|}
+  \caption{PC-QDSOA‰ğÍ‚Ì®‚É—p‚¢‚é•¶šC’lC’PˆÊ\label{table:pc_qdsoa_values}} \\ \hline
+  Symbol & Value & Unit \\ \hline \hline \endfirsthead
+  $L_{ca}$  			& $125 	 \times 10^{-6}$	& ${\rm m}$ \\ \hline
+  $a_{lc}$  			& $330.78 \times 10^{-9}$	& ${\rm m}$ \\ \hline
+  $W$        			& $1.312 	 \times a_{lc}$  	& ${\rm m}$ \\ \hline
+  $L_{QW}$ 			& $5.0 	\times 10^{-9}$  	& ${\rm m}$ \\ \hline
+  $L_{H}$ 				& $2.0 	\times 10^{-9}$  	& ${\rm m}$ \\ \hline
+  $l_{D}$ 				& 5						& - \\ \hline 
+  $T$ 				& 300					& ${\rm K}$ \\ \hline
+  $n_{D}$ 				& $5.0 \times 10^{14}$		& ${\rm m^{-2}}$ \\ \hline
+  $D^{c,v}_{g}$ 			& 2						&  - \\ \hline
+  $D^{c,v}_{e}$ 		& 4 						&  - \\ \hline
+  $D^{c(v)}_{u}$ 		& 10(20) 					&  - \\ \hline
+  $D^{c(v)}_{w}$ 		& 100(200)				&  - \\ \hline
+  $|M_{env}|^2$ 		& 0.88					&  - \\ \hline
+  $\langle|\hat{e} \cdot p_{cv}|^2\rangle$ & $3.37 \times 10^{-30}$ &  ${\rm kg \cdot eV}$ \\ \hline
+  $f^{c(v)}_{D}$ 		& 1(6) 		 		 &  - \\ \hline
+  $m^{*_{c(v)}}_{w}$ 	& $0.0604(0.1029)m_{0}$ &  ${\rm kg}$ \\ \hline
+  $m^{*_{c(v)}}_{d}$ 		& $0.023(0.4)m_{0}$ 	 &  ${\rm kg}$ \\ \hline
+  $\Gamma^{c(v)}_{ih}$ 	& $40(10) \times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\Gamma_{ih}$ 		& $50		\times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\Gamma_{h}$ 		& $10		\times 10^{-3}$		& ${\rm eV}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{eg}$ & $0.5(0.075)   \times 10^{-12}$	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ug}$ & $0.33(0.022) \times 10^{-12}$ & ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ue}$ & $0.66(0.043) \times 10^{-12}$ & ${\rm s}$ \\ \hline 
+  $\hat{\tau}^{c(v)}_{wu}$ & $1.8(0.078)  \times 10^{-12}$ & ${\rm s}$ \\ \hline
+  $\hat{\tau}_{dr}$ 		  & $1.0 		 \times 10^{-9}$ 	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{wr}$ & $0.14(0.28)   \times 10^{-9}$	& ${\rm s}$ \\ \hline
+  $\hat{\tau}^{c(v)}_{ur}$ & $0.71(1.42)   \times 10^{-9}$ 	& ${\rm s}$ \\ \hline
+  $r_{c(v)}$ 	 		& 0.8(0.2) 					& - \\ \hline
+  $\Delta E$ 			& $1.0 		 \times 10^{-3}$ 	& ${\rm eV}$ \\ \hline
+  $2M+1$ 	 		& 181						& - \\ \hline
+  $E^{c(v)}_{b}$		& 1.0905(-0.3335)				& ${\rm eV}$ \\ \hline
+  $E^{c(v)}_{QW}$		& 1.0631(-0.2745)				& ${\rm eV}$ \\ \hline
+  $E^{c(v)}_{u,M}$		& 1.0251(-0.1275)				& ${\rm eV}$ \\ \hline
+  $E^{c(v)}_{e,M}$		& 0.9541(-0.0875)				& ${\rm eV}$ \\ \hline
+  $E^{c(v)}_{g,M}$		& 0.8873(-0.0743)				& ${\rm eV}$ \\ \hline
+  $E^{c(v)}_{0}$		& 0.354(-0)					& ${\rm eV}$ \\ \hline
+  $n_r$ 	 	 		& 3.51 						& - \\ \hline
+  $a_{cl}$ 	 	 		& 1.0 						& ${\rm dB}$ \\ \hline
+  $A$ 				& $L_{ca}W $	 	 & ${\rm m^{3}}$ \\ \hline
+  $V_{d}$ 				& $l_{D}AL_{H}$ 	 & ${\rm m^{3}}$ \\ \hline
+  $V_{w}$ 	 		& $l_{D}AL_{QW}$ 	 & ${\rm m^{3}}$ \\ \hline
+\end{longtable}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
 
 \subsubsection{—U“d‘Ì‚Ì‹üÜ—¦}
-PC-QD-SOA‚ÌŠˆ«‘w‚ÍGaAsC${\rm In_{0.15}Ga_{0.85}As}$CInAs‚É‚æ‚Á‚Ä\¬‚³‚êC‘ÌÏ”ä‚Í•\{\ref{table:volume_rate}}‚Ì’Ê‚è‚Å‚ ‚éD•\‚æ‚èPC-QD-SOA‚ÌŠˆ«‘w‚Ì‹üÜ—¦$n_{core}(\lambda)$‚Í
+PC-QDSOA‚ÌŠˆ«‘w‚ÍGaAsC${\rm In_{0.15}Ga_{0.85}As}$CInAs‚É‚æ‚Á‚Ä\¬‚³‚êC‘ÌÏ”ä‚Í•\{\ref{table:volume_rate}}‚Ì’Ê‚è‚Å‚ ‚éD•\‚æ‚èPC-QDSOA‚ÌŠˆ«‘w‚Ì‹üÜ—¦$n_{core}(\lambda)$‚Í
 % TODO: ‹üÜ—¦‚ğ‘‚­
 \renewcommand{\arraystretch}{1.3}
 \begin{table}[htbp]
@@ -82,12 +152,13 @@ PC-QD-SOA‚ÌŠˆ«‘w‚ÍGaAsC${\rm In_{0.15}Ga_{0.85}As}$CInAs‚É‚æ‚Á‚Ä\¬‚³‚êC‘Ì
 \end{table}
 \renewcommand{\arraystretch}{1.0}
 
-\subsubsection{•ªUŠÖŒW®}
-•ªUŠÖŒWCŒQ‹üÜ—¦‚ÍˆÈ‰º‚Ì®‚æ‚è‹‚ß‚éD
+\subsection{•ªUŠÖŒW®}
+•ªUŠÖŒWCŒQ‹üÜ—¦‚Í‚»‚ê‚¼‚ê
 \begin{eqnarray}
   \omega(k) & = & \frac{1}{2}a_{0} + \sum_{n=1}^{8}\left[a_{n}\cos(nwk) + b_{n}\sin(nwk)\right] \\
   n_{g}(k) & = & \left(\sum_{n=1}^{8}\left[-a_{n}nw\sin(nwk)+b_{n}nw\cos(nwk)\right]\right)^{-1}
 \end{eqnarray}
+‚Æ‹‚ß‚éD
 ‚Ü‚½Cƒt[ƒŠƒGŒW”$a_n,b_n$‚ğ•\{\ref{table:disp_fourier_coefficients}}‚É¦‚·D
 
 
@@ -116,18 +187,22 @@ PC-QD-SOA‚ÌŠˆ«‘w‚ÍGaAsC${\rm In_{0.15}Ga_{0.85}As}$CInAs‚É‚æ‚Á‚Ä\¬‚³‚êC‘Ì
 \end{table}
 \renewcommand{\arraystretch}{1.0}
 
-\subsubsection{•Â‚¶‚ßŒW”}
-xy²•ûŒü‹y‚Ñz²•ûŒü‚ÉŠÖ‚·‚é•Â‚¶‚ßŒW”‚ÍCˆÈ‰º‚Ì®‚æ‚è‹‚Ü‚éD
+\subsection{•Â‚¶‚ßŒW”}
+Œõ‚Ìis•ûŒü‚Æ•½s‚È–Ê‚ğxy•½–Ê‚Æ‚µ‚½‚Æ‚«Cxy²•ûŒü‹y‚Ñz²•ûŒü‚ÉŠÖ‚·‚é•Â‚¶‚ßŒW”‚ÍCˆÈ‰º‚Ì®‚æ‚è‹‚ß‚éD
 \begin{eqnarray}
   \Gamma_{xy}(\lambda) 	& = & \frac{1}{2}c_{0} + \sum_{n=1}^{8}\left[c_{n}\cos(nw\lambda) + d_{n}\sin(nw\lambda)\right] \\
   \Gamma_{z}(\lambda) 		& = & 0.8426 - 4.546 \times 10^{-4} \lambda + 8.375 \times 10^{-8} \lambda^{2}
 \end{eqnarray}
-‚Ü‚½CŠˆ«‘w‚ÌŠ„‡‚Í$\xi_{QD} = l_{D}L_{H}/2d$‚Æ•\‚³‚ê‚é‚Ì‚Å•Â‚¶‚ßŒW”$\Gamma(\lambda)$‚Í
+‚Ü‚½CŠˆ«‘w‚ÌŠ„‡‚Í$\xi_{QD} = l_{D}L_{H}/2d$‚Æ•\‚³‚ê‚é‚Ì‚ÅQD‚Ì•Â‚¶‚ßŒW”$\Gamma(\lambda)$‚Í
 \begin{equation}
   \Gamma(\lambda) = \Gamma_{xy} \Gamma_{z} \xi_{QD}
 \end{equation}
+‚Æ•\‚³‚êCQW‚Ì•Â‚¶‚ßŒW”$\Gamma_{W}(\lambda)$‚Í
+\begin{equation}
+  \Gamma_{W}(\lambda) = \Gamma_{xy} \Gamma_{z} l_{D} L_{QW} / 2d
+\end{equation}
 ‚Æ•\‚³‚ê‚éD
-‚Ü‚½Cƒt[ƒŠƒGŒW”$c_n,d_n$‚ğ•\{\ref{table:conf_fourier_coefficients}}‚É¦‚·D
+‚Ü‚½Cƒt[ƒŠƒGŒW”$c_{n},d_{n}$‚ğ•\{\ref{table:conf_fourier_coefficients}}‚É¦‚·D
 
 \renewcommand{\arraystretch}{1.3}
 \begin{table}[htbp]
@@ -153,5 +228,10 @@ xy²•ûŒü‹y‚Ñz²•ûŒü‚ÉŠÖ‚·‚é•Â‚¶‚ßŒW”‚ÍCˆÈ‰º‚Ì®‚æ‚è‹‚Ü‚éD
 \end{center}
 \end{table}
 \renewcommand{\arraystretch}{1.0}
+
+\subsection{ÀŒø‹üÜ—¦}
+
+
+
 
 
