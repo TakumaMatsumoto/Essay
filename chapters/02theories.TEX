@@ -167,6 +167,10 @@ QD-SOAとは活性層が量子ドット構造で構成される半導体光増幅器である．図{\ref{fig:mo
   $N^{c(v)}_{U,j}$ & 最大許容キャリア数(j番目US層) 	 \\ \hline
   $N^{c(v)}_{E,j}$ & 最大許容キャリア数(j番目ES層) 	 \\ \hline
   $N^{c(v)}_{G,j}$ & 最大許容キャリア数(j番目GS層) 	 \\ \hline
+  $E^{c(v)}_{QW}$	& QW層のエネルギー \\ \hline
+  $E^{c(v)}_{u,j}$	& US層j番目のエネルギー \\ \hline
+  $E^{c(v)}_{e,j}$	& ES層j番目のエネルギー \\ \hline
+  $E^{c(v)}_{g,j}$	& GS層j番目のエネルギー \\ \hline
   $G^{c(v)}_{j}$   & 不均一広がりのうちj番目の割合 	 \\ \hline
   $\varepsilon_0$		& 真空中における誘電率 	 \\ \hline
   $\mu_0$			& 真空中における透磁率 	 \\ \hline
@@ -207,7 +211,7 @@ QDはどのような製造過程においても大きさを制御することができないため，エネルギー準
 \newpage
 
 \subsection{キャリア遷移時間，脱出時間}
-キャリアの遷移時間はポンプ，プローブ法による実験から求めることができる．また，キャリアの脱出時間は釣り合いの原理を用いてキャリアの遷移時間，及び縮退係数から求めることができる．伝導帯におけるy層からx層へのキャリア脱出時間は({\ref{eq:cb_carrier_escape_time}})式より求めることができる{\cite{qd_dispersion}}．
+キャリアの遷移時間はポンプ，プローブ法による実験から求めることができる．また，キャリアの脱出時間は釣り合いの原理を用いてキャリアの遷移時間，及び縮退係数から求めることができる．伝導帯におけるy層からx層へのキャリア脱出時間は({\ref{eq:cb_carrier_escape_time}})式より求めることができる{\cite{qd_dispersion},\cite{on_the_noise_properties}}．
 \begin{equation}
   \label{eq:cb_carrier_escape_time}
   \tau^{c(v)}_{yx} = 
@@ -217,7 +221,17 @@ QDはどのような製造過程においても大きさを制御することができないため，エネルギー準
 	{\Delta E^{c(v)}_{xy}}
 	{k_{B}T}\right)
 \end{equation}
-
+また，US層からQW層へのキャリア脱出時間は
+\begin{equation}
+  \label{eq:cb_carrier_escape_time}
+  \tau^{c(v)}_{uw,j} = 
+	f^{c(v)}_{D} \tau^{c(v)}_{wu} 
+	\frac{D_{u,j}}{D_{w}}
+	\exp\left(\frac
+	{\Delta E^{c(v)}_{u,j}}
+	{k_{B}T}\right)
+\end{equation}
+と求めることができる．
 
 \subsection{QD-SOAのレート方程式}
 QD-SOAの入出力特性を解析するためには，QD-SOAに光を入射した際のキャリアの増減に起因する利得の変化，およびそれに伴う光の振幅と位相の変化を計算する必要がある．半導体発光デバイスにおけるキャリアの時間変化はレート方程式と呼ばれる微分方程式で記述できることが知られている{\cite{qd_soa_rate_equation}}．本研究に用いるQD-SOAのレート方程式を({\ref{eq:qd_qw}})式から({\ref{eq:qd_gs}})式に示す．
@@ -543,8 +557,8 @@ ${\rm In_{x}Ga_{1-x}As }$の屈折率$n{\rm In_{x}Ga_{1-x}As }(\lambda,x)$は波長$\la
 \end{equation}
 と表される．
 
-\subsection{PC-QD-SOAのレート方程式}
-PC-QD-SOAの解析にはQD-SOAと同様にレート方程式を用いる．本研究に用いるPC-QD-SOAのレート方程式を式に示す{\cite{pc_qd_soa_rate_equation}}．また，各項の意味はQD-SOAと同等である．
+\subsection{PC-QDSOAのレート方程式}
+PC-QDSOAの解析にはQD-SOAと同様にレート方程式を用いる．本研究に用いるPC-QDSOAのレート方程式を式に示す{\cite{pc_qd_soa_rate_equation}}．また，各項の意味はQD-SOAと同等である．
 
 \begin{eqnarray}
   \label{eq:pc_qd_qw}
@@ -635,25 +649,30 @@ PC-QDSOAでは垂直方向に関する光閉じ込めに加えて，PCにより水平方向に関する光閉じ込
 PC-QDSOAでは光の散乱，吸収により光が損失する．散乱による損失を$\alpha_{scattering}(\lambda)$，吸収による損失を$\alpha_{absorption}(\lambda)$とすると損失係数はそれらの和$\alpha(\lambda) = \alpha_{scattering}(\lambda) + \alpha_{absorption}(\lambda)$で表される．
 また，$\alpha_{scattering}(\lambda)$，$\alpha_{absorption}(\lambda)$はそれぞれ
 \begin{eqnarray}
-  \alpha_{scattering}(\lambda) & = & \alpha_{intrinsic}S(\lambda) + \alpha_{extrinsic}S^{2}(\lambda) \\
-  \alpha_{absorption}(\lambda) & = & \Gamma_{z}S(\lambda)\left[\Gamma_{xy}\alpha_{core} + (1-\Gamma_{xy})\alpha_{cladding}\right]
+  $\alpha_{scattering}(\lambda)$ & = & $\alpha_{intrinsic}S(\lambda) + \alpha_{extrinsic}S^{2}(\lambda)$ \\
+  $\alpha_{absorption}(\lambda)$ & = & $\Gamma_{z}S(\lambda)\left[\Gamma_{xy}\alpha_{core} + (1-\Gamma_{xy})\alpha_{cladding}\right]$
 \end{eqnarray}
-と求められる．
+と求められる．また，$\alpha_{core}$，$\alpha_{cladding}$はそれぞれ
+\begin{eqnarray}
+  $\alpha_{core} 	 $ & $\thickapprox$ & $\alpha_{FCA} = \sigma_{p}N_{A,core}$ \\
+  $\alpha_{cladding} $ & $\thickapprox$ & $\frac{1}{2}\left(\sigma_{p}N_{A,cladding} + \sigma_{n}N_{D,cladding}$ \right)
+\end{eqnarray}
+となる{\cite{loss_coefficient}}．
+% TODO::断面積の求め方を書く
 
 \subsection{PC-QDSOAによる利得}
 PC-QDSOAの単位長さあたりの利得$g_{mod}(t,\lambda_{k})$はスローダウン要素，閉じ込め係数の波長依存性を考慮して
 \begin{equation}
   g_{mod}(t,\lambda_{k}) = S(\lambda_{k})\Gamma(\lambda_{k})g_{mat}(t,\lambda_{k})
 \end{equation}
-と表せる．
-このとき，出力光強度$P_{k,out}$は増幅利得を$G(t,E_k)$として入力強度を$P_{k,in}$とすると
+と表せる．このとき，出力光強度$P_{k,out}$は増幅利得を$G(t,E_k)$として入力強度を$P_{k,in}$とすると
 \begin{equation}
   P_{k,out} = G(t,E_k)P_{k,in}
 \end{equation}
-と表される．また，増幅利得$G(t,E_k)$は閉じ込め係数を$\Gamma$，損失係数を$\alpha_{i}$，活性層の長さを$L_{ca}$として
+と表される．また，PCW内で発生する分散，吸収損失とは別にPCWに光が入力される際，PCWから光が出力される際には結合損失が発生する{\cite{model_of_pc_qdsoa}}．そのため，増幅利得$G(t,E_k)$は活性層の長さを$L_{ca}$，結合損失係数を$\alpha_{cl}$として
 \begin{equation}
   \label{eq:pc_total_gain}
-  G(t,E_k) = \exp\left(\left[g_{mod}(t,\lambda_{k}) - \alpha(\lambda_{k})\right]L_{ca}\right)
+  G(t,E_k) = \exp\left(\left[g_{mod}(t,\lambda_{k}) - \alpha(\lambda_{k})\right]L_{ca}\right) - \alpha_{cl}
 \end{equation}
 と表される．
 
@@ -715,10 +734,6 @@ PC-QDSOAはバンド充填効果，自由電子吸収効果により屈折率変化が起き，それにより光の
 \end{equation}
 と表される．
 
-% TODO::coupling lossについて言及する
-\subsection{結合部における損失}
-
-
 \newpage
 
 \section{アイダイアグラム}
@@ -748,5 +763,3 @@ PC-QDSOAはバンド充填効果，自由電子吸収効果により屈折率変化が起き，それにより光の
     \label{fig:extinction}
   \end{center}
 \end{figure}
-
-\newpage
