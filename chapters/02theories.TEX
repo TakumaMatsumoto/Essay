@@ -646,16 +646,16 @@ PC-QDSOAでは垂直方向に関する光閉じ込めに加えて，PCにより水平方向に関する光閉じ込
 と表される．
 
 \subsection{PC-QDSOAにおける損失係数}
-PC-QDSOAでは光の散乱，吸収により光が損失する．散乱による損失を$\alpha_{scattering}(\lambda)$，吸収による損失を$\alpha_{absorption}(\lambda)$とすると損失係数はそれらの和$\alpha(\lambda) = \alpha_{scattering}(\lambda) + \alpha_{absorption}(\lambda)$で表される．
+PC-QDSOAの活性層内では光の散乱，吸収により光が損失する．散乱による損失を$\alpha_{scattering}(\lambda)$，吸収による損失を$\alpha_{absorption}(\lambda)$とすると損失係数はそれらの和$\alpha(\lambda) = \alpha_{scattering}(\lambda) + \alpha_{absorption}(\lambda)$で表される．
 また，$\alpha_{scattering}(\lambda)$，$\alpha_{absorption}(\lambda)$はそれぞれ
 \begin{eqnarray}
-  $\alpha_{scattering}(\lambda)$ & = & $\alpha_{intrinsic}S(\lambda) + \alpha_{extrinsic}S^{2}(\lambda)$ \\
-  $\alpha_{absorption}(\lambda)$ & = & $\Gamma_{z}S(\lambda)\left[\Gamma_{xy}\alpha_{core} + (1-\Gamma_{xy})\alpha_{cladding}\right]$
+  \alpha_{scattering}(\lambda)  & = & \alpha_{intrinsic}S(\lambda) + \alpha_{extrinsic}S^{2}(\lambda) \\
+  \alpha_{absorption}(\lambda) & = & \Gamma_{z}S(\lambda)\left[ \Gamma_{xy}\alpha_{core} + (1-\Gamma_{xy})\alpha_{cladding} \right]
 \end{eqnarray}
 と求められる．また，$\alpha_{core}$，$\alpha_{cladding}$はそれぞれ
 \begin{eqnarray}
-  $\alpha_{core} 	 $ & $\thickapprox$ & $\alpha_{FCA} = \sigma_{p}N_{A,core}$ \\
-  $\alpha_{cladding} $ & $\thickapprox$ & $\frac{1}{2}\left(\sigma_{p}N_{A,cladding} + \sigma_{n}N_{D,cladding}$ \right)
+  \alpha_{core} & \approx & \alpha_{FCA} = \sigma_{p}N_{A,core} \\
+  \alpha_{cladding}  & \approx & \frac{1}{2}\left( \sigma_{p}N_{A,cladding} + \sigma_{n}N_{D,cladding} \right)
 \end{eqnarray}
 となる{\cite{loss_coefficient}}．
 % TODO::断面積の求め方を書く
