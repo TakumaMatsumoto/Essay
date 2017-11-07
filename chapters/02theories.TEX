@@ -518,19 +518,19 @@ QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起こることにより光波の
 \end{equation}
 と表される．このとき，スローダウン要素は$S(\lambda)=v_{p}/v_{g}$と表される．
 
-\section{フォトニック結晶導波路(PCW:Photonic Crystal Waveguides)}
-フォトニック結晶導波路は2次元のフォトニック結晶で，図{\ref{fig:model_of_pcw}}のように三角格子状に空孔が並んだ結晶に一列分の欠陥を作ることで光が欠陥部分を伝搬できるようにする．特定の波長の光は結晶部分を伝搬することができないため，導波路中を低損失で伝搬することができる．また，格子係数を変えることで分散関係により群速度を小さくして光の伝搬速度を遅くすることができる．
+\section{フォトニック結晶導波路(Photonic Crystal Waveguides:PCW)}
+フォトニック結晶導波路は2次元のフォトニック結晶で，図{\ref{fig:model_of_pcw}}のように三角格子状に空孔が並んだ結晶に1列分の欠陥を作ることで光が欠陥部分を伝搬できるようにする．特定の波長の光は結晶部分を伝搬することができないが，他の波長の光は結晶部分を伝搬する．また，格子係数を変えることで分散関係により群速度を小さくして光の伝搬速度を遅くすることができる．
 
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[clip,width=12.0cm]{model_of_pcw.eps}
-    \caption{フォトニック結晶導波路のモデル}
+    \caption{PCWのモデル}
     \label{fig:model_of_pcw}
   \end{center}
 \end{figure}
 
 \section{フォトニック結晶量子ドット構造半導体光増幅器(PC-QDSOA)}
-PC-QDSOAとはQD-SOAのクラッド部分をPCにしてQD-SOAの構造をPCWにしたもので，フォトニック結晶のスローライト効果により光の速度を遅くすることによってQD-SOAと比べて短いデバイス長でQD-SOAと同等の利得を得ることができる．また，活性層の幅がQD-SOAよりも狭いため，増幅に必要な注入電流量がQD-SOAよりも小さい．これらの利点から，PC-QDSOAはQD-SOAと比較して小容量化が可能であり，省電力化が可能であるといえる{\cite{model_of_pc_qdsoa}}．図{\ref{fig:model_of_pc_qdsoa}}にPC-QDSOAのモデル図を示す．
+PC-QDSOAとはQDSOAのクラッド部分をPCにしてQDSOAの構造をPCWにしたもので，フォトニック結晶のスローライト効果により光の速度を遅くすることによってQDSOAと比べて短いデバイス長でQD-SOAと同等の利得を得ることができる．また，活性層の幅がQD-SOAよりも狭いため，増幅に必要な注入電流量がQDSOAよりも小さい．これらの利点から，PC-QDSOAはQDSOAと比較して小容量化が可能であり，省電力化が可能であるといえる{\cite{model_of_pc_qdsoa}}．図{\ref{fig:model_of_pc_qdsoa}}にPC-QDSOAのモデル図を示す．
 
 \begin{figure}[htbp]
   \begin{center}
@@ -567,7 +567,7 @@ ${\rm In_{x}Ga_{1-x}As }$の屈折率$n{\rm In_{x}Ga_{1-x}As }(\lambda,x)$は波長$\la
 と表される．
 
 \subsection{PC-QDSOAのレート方程式}
-PC-QDSOAの解析にはQD-SOAと同様にレート方程式を用いる．本研究に用いるPC-QDSOAのレート方程式を式に示す{\cite{pc_qd_soa_rate_equation}}．また，各項の意味はQD-SOAと同等である．
+PC-QDSOAの解析にはQDSOAと同様にレート方程式を用いる．本研究に用いるPC-QDSOAのレート方程式を式に示す{\cite{pc_qd_soa_rate_equation}}．また，各項の意味はQDSOAと同等である．
 
 \begin{eqnarray}
   \label{eq:pc_qd_qw}
