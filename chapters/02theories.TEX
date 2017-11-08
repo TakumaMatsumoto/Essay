@@ -116,8 +116,8 @@ QDSOAとは活性層が量子ドット構造で構成される半導体光増幅器である．図{\ref{fig:mod
   \end{center}
 \end{figure}
 
-\section{QD-SOAの入出力特性の解析}
-ここでは，QD-SOAの入出力特性の解析に用いる手法，式について説明する．以降で用いる文字とその意味を表{\ref{table:qd_soa_param}}に示す．
+\section{QDSOAの入出力特性の解析}
+ここでは，QDSOAの入出力特性の解析に用いる手法，式について説明する．以降で用いる文字とその意味を表{\ref{table:qd_soa_param}}に示す．
 
 \renewcommand{\arraystretch}{1.5}
 \begin{center}
@@ -241,8 +241,8 @@ QDはどのような製造過程においても大きさを制御することができないため，エネルギー準
 \end{equation}
 と求めることができる．
 
-\subsection{QD-SOAのレート方程式}
-QD-SOAの入出力特性を解析するためには，QD-SOAに光を入射した際のキャリアの増減に起因する利得の変化，およびそれに伴う光の振幅と位相の変化を計算する必要がある．半導体発光デバイスにおけるキャリアの時間変化はレート方程式と呼ばれる微分方程式で記述できることが知られている{\cite{qd_soa_rate_equation}}．本研究に用いるQD-SOAのレート方程式を({\ref{eq:qd_qw}})式から({\ref{eq:qd_gs}})式に示す．
+\subsection{QDSOAのレート方程式}
+QDSOAの入出力特性を解析するためには，QDSOAに光を入射した際のキャリアの増減に起因する利得の変化，およびそれに伴う光の振幅と位相の変化を計算する必要がある．半導体発光デバイスにおけるキャリアの時間変化はレート方程式と呼ばれる微分方程式で記述できることが知られている{\cite{qd_soa_rate_equation}}．本研究に用いるQDSOAのレート方程式を({\ref{eq:qd_qw}})式から({\ref{eq:qd_gs}})式に示す．
 
 \begin{eqnarray}
   \label{eq:qd_qw}
@@ -384,8 +384,8 @@ QD-SOAの入出力特性を解析するためには，QD-SOAに光を入射した際のキャリアの増減に起
 
 \newpage
 
-\subsection{QD-SOAによる利得}
-QD-SOAの単位長さあたりの利得$g(t,E_k)$は
+\subsection{QDSOAによる利得}
+QDSOAの単位長さあたりの利得$g(t,E_k)$は
 \begin{equation}
   \label{eq:gain}
   g(t,E_k) = \sum_{l=e,g}\sum_{j=1}^{2M+1} g^{l}_{j,k}(E_k)\bigl[f^{c}_{l,j}+f^{v}_{l,j}-1\bigr]
@@ -414,9 +414,8 @@ QD-SOAの単位長さあたりの利得$g(t,E_k)$は
   G(t,E_k) = \exp\left(\left[\Gamma g(t,E_k) - \alpha_{i}\right]L_{ca}\right)
 \end{equation}
 
-% TODO::BandFilling,FCAによる屈折率変化についての文献がほしい
 \subsection{QD-SOAによる位相変化}
-QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起こることにより光波の位相変化が起きる．バンド充填効果による屈折率変化はQW層からGS層まで
+QDSOAはバンド充填効果，自由電子吸収効果により屈折率変化が起こることにより光波の位相変化が起きる{\cite{bf_and_fca_phase}}．バンド充填効果による屈折率変化はQW層からGS層まで
 \begin{eqnarray}
   \Delta n^{w}_{ib} (t,E_k) & = & 
 	\frac
@@ -452,21 +451,21 @@ QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起こることにより光波の
 \end{eqnarray}
 と表される．ここで$B_{w}$，$B_{u(e,g),j}$は屈折率による均一広がりを表し，以下の式で与えられる．
 \begin{eqnarray}
-  B_{w} & = & \frac{\left(E^{s}_{w} - E_{k}\right) / \pi}{\left(E^{s}_{w} - E_{k}\right)^{2} + \left(\Gamma_{h} / 2\right)^{2}} \\
+  B_{w} 	    & = & \frac{\left(E^{s}_{w} - E_{k}\right) / \pi}{\left(E^{s}_{w} - E_{k}\right)^{2} + \left(\Gamma_{h} / 2\right)^{2}} \\
   B_{u(e,g),j} & = & \frac{\left(E^{s}_{u(e,g),j} - E_{k}\right) / \pi}{\left(E^{s}_{u(e,g),j} - E_{k}\right)^{2} + \left(\Gamma_{h} / 2\right)^{2}}
 \end{eqnarray}
 自由電子吸収効果による屈折率変化の式は以下のようになる．
 \begin{eqnarray}
   \Delta n^{w}_{fc} (t,E_k) & = & - \frac{ \Gamma_{w} \hbar^{2} q^{2} }{ 2 V_{w} n_{r} \varepsilon_{0} E^{2}_{k} } 
   \left(
-	\frac{ N^{c}_{W} }{ m^{*c}_{w} } f^{c}_{w} + 
-	\frac{ N^{v}_{W} }{ m^{*v}_{w} } f^{v}_{w}
+	\frac{ N^{c}_{W} }{ m^{*_{c}}_{w} } f^{c}_{w} + 
+	\frac{ N^{v}_{W} }{ m^{*_{v}}_{w} } f^{v}_{w}
   \right) 
   \\
   \Delta n^{u(e,g)}_{fc} (t,E_k) & = & - \frac{ \Gamma \hbar^{2} q^{2} }{ 2 V_{d} n_{r} \varepsilon_{0} E^{2}_{k} } \nonumber\\ &&
   \left( \sum_{j=1}^{2M+1} 
-	  \frac{ f^{c}_{u(e,g),j} N^{c}_{U(E,G),j} }{ m^{*c}_{d} } 
-	+\frac{ f^{v}_{u(e,g),j} N^{v}_{U(E,G),j} }{ m^{*v}_{d} }
+	  \frac{ f^{c}_{u(e,g),j} N^{c}_{U(E,G),j} }{ m^{*_{c}}_{d} } 
+	+\frac{ f^{v}_{u(e,g),j} N^{v}_{U(E,G),j} }{ m^{*_{v}}_{d} }
   \right)
 \end{eqnarray}
 バンド充填効果，自由電子吸収効果による屈折率変化量の和を$\Delta n(t,E_k)$とすると位相変化量は
@@ -494,7 +493,7 @@ QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起こることにより光波の
 と表される．
 
 \subsection{非線形状態空間法(Nonlinear State Space Method:NSSM)}
-伝搬方程式を解くには適切な単位距離を設定して各セクションごとに電場を求めるTransfer Matrix Method(TMM)と呼ばれる手法が存在する．しかし，電子計算機上での計算量が多いことから本研究では計算量を削減できるNSSMと呼ばれる手法を用いる．NSSMは各セクションごとの電場を求めることなく入力された電場から出力される電場を算出する方法であり，TMMと同様の結果を得られることが知られている{\cite{NSSM}}．NSSMを用いると式(\ref{eq:total_gain})，式(\ref{eq:phase_diff})よりQDSOAに入力する光の電場を$E(0)$とするとQDSOAから出力される光の電場$E(L_{ca})$は(\ref{eq:electric_field_out})式より求められる．
+伝搬方程式を解くには適切な単位距離を設定して各セクションごとに電場を求めるTransfer Matrix Method(TMM)と呼ばれる手法が存在する．しかし，電子計算機上での計算量が多いことから本研究では計算量を削減できるNSSMと呼ばれる手法を用いる．NSSMは各セクションごとの電場を求めることなく入力された電場から出力される電場を算出する方法であり，TMMと同様の結果を得られることが知られている{\cite{NSSM1,NSSM2}}．NSSMを用いると式(\ref{eq:total_gain})，式(\ref{eq:phase_diff})よりQDSOAに入力する光の電場を$E(0)$とするとQDSOAから出力される光の電場$E(L_{ca})$は(\ref{eq:electric_field_out})式より求められる．
 \begin{equation}
   \label{eq:electric_field_out}
   E(L_{ca}) = E(0)\exp\left(G(t,E_{k})+j\Delta \phi (t,E_{k})\right)
@@ -504,13 +503,12 @@ QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起こることにより光波の
 
 % TODO::PCに関する文献
 \section{フォトニック結晶(Photonic Crystal:PC)}
-フォトニック結晶とは屈折率の異なる物質が周期的に並んだナノ構造体である{\cite{photonic_crystal}}．フォトニック結晶は1から3次元が構築可能でナノ構造によってフォトニック結晶中の光の伝わり方が制御される．フォトニック結晶は光の回折，散乱，干渉を利用しており，その特性を利用した光ファイバ，光導波路，光メモリが研究されている．
+フォトニック結晶とは屈折率の異なる物質が周期的に並んだナノ周期の構造体であり，1次元から3次元の結晶が構築可能である．自然界の蝶の羽や宝石の一種が，見る方向によって光沢が変わることが知られているが，これは自然界で形成されたナノ周期構造による光の侵入阻止効果によるものであり，フォトニック結晶と同等の原理である．ナノ周期構造を人工的に，かつ二次元または三次元的に作成することは極めて困難だったがナノテクノロジー技術の発展により実現可能となった{\cite{photonic_crystal}}．構造の周期を使用する光の波長に応じて変化させることにより特定の波長域の光が結晶中で伝搬することを禁止でき，その特性から人為的に欠陥構造を作ることにより特定の波長の光のみを伝搬させることができる．これは光の回折，散乱，干渉による影響によるもので，その特性を利用した光ファイバ，光導波路，光メモリが研究されている．
 
 % TODO::分散関係に関する文献
 \section{分散関係}
-分散関係は波数と角振動数の関係を表し，分散がある場合は波数$k$に対して一定の角振動数$\omega(k)$が成立する．分散がない場合では，波数と角振動数には比例関係$\omega(k) = vk$が成立する．例えば，真空中であれば分散がないので真空中の光速を$c_{0}$とすると分散関係$\omega(k) = c_{0}k$が成り立つ．
+分散関係は波数と角振動数の関係を表し，分散がある場合は波数$k$に対して一定の角振動数$\omega(k)$が成立する．分散がない場合では，波数と角振動数には常に比例関係$\omega(k) = vk$が成立する．例えば，真空中であれば分散がないので真空中の光速を$c_{0}$とすると分散関係$\omega(k) = c_{0}k$が成り立つ．
 
-% TODO::スローライト効果に関する文献(馬場さんのがいいかな?)
 \section{スローライト効果}
 
 位相速度$v_{p}$は
@@ -521,7 +519,7 @@ QD-SOAはバンド充填効果，自由電子吸収効果により屈折率変化が起こることにより光波の
 \begin{equation}
   v_{g} = \frac{\partial \omega(k)}{\partial k}
 \end{equation}
-と表される．このとき，スローダウン要素は$S(\lambda)=v_{p}/v_{g}$と表される．
+と表される．このとき，スローダウン要素は$S(\lambda)=v_{p}/v_{g}$と表される{\cite{slow_light1,slow_light2}}．
 
 \section{フォトニック結晶導波路(Photonic Crystal Waveguides:PCW)}
 フォトニック結晶導波路は2次元のフォトニック結晶で，図{\ref{fig:model_of_pcw}}のように三角格子状に空孔が並んだ結晶に1列分の欠陥を作ることで光が欠陥部分を伝搬できるようにする．特定の波長の光は結晶部分を伝搬することができないが，他の波長の光は結晶部分を伝搬する．また，格子係数を変えることで分散関係により群速度を小さくして光の伝搬速度を遅くすることができる．
