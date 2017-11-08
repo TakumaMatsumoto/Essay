@@ -139,8 +139,8 @@ QDSOAとは活性層が量子ドット構造で構成される半導体光増幅器である．図{\ref{fig:mod
   $|M_{env}|^2$ 		& 包絡関数 				 \\ \hline
   $\langle|\hat{e} \cdot p_{cv}|^2\rangle$ & 運動量行列 	 \\ \hline
   $f^{c(v)}_{D}$ 		& ドープ密度 		 		\\ \hline
-  $m^{*c(v)}_{w}$ 		& キャリアの有効質量(QW層) \\ \hline
-  $m^{*c(v)}_{d}$ 		& キャリアの有効質量(QD層) \\ \hline
+  $m^{*_{c(v)}}_{w}$ 	& キャリアの有効質量(QW層) \\ \hline
+  $m^{*_{c(v)}}_{d}$ 		& キャリアの有効質量(QD層) \\ \hline
   $\Gamma^{c(v)}_{ih}$ 	& 不均一広がりの半値全幅		\\ \hline
   $\Gamma_{ih}$ 		& 不均一広がりの半値全幅の和	\\ \hline
   $\Gamma_{h}$ 		& 均一広がりの半値全幅		\\ \hline
@@ -225,11 +225,16 @@ QDはどのような製造過程においても大きさを制御することができないため，エネルギー準
 	{k_{B}T}\right)
 \end{equation}
 より求めることができる．また，US層からQW層へのキャリア脱出時間は
+\begin{eqnarray}
+	D_{W} & =  & \frac{m^{*_{c(v)}}_{d} k_{B} T}{2 \pi \hbar^{2}}  \\
+	D_{U}  & = & N^{D}_{3D} D_{u}
+\end{eqnarray}
+として
 \begin{equation}
   \label{eq:cb_carrier_escape_time}
   \tau^{c(v)}_{uw,j} = 
 	f^{c(v)}_{D} \tau^{c(v)}_{wu} 
-	\frac{D_{u,j}}{D_{w}}
+	\frac{D_{U}}{D_{W}}
 	\exp\left(\frac
 	{\left| E^{c(v)}_{u,j} - E^{c(v)}_{QW} \right|}
 	{k_{B}T}\right)
