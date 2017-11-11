@@ -529,8 +529,9 @@ PCとは屈折率の異なる物質が周期的に並んだナノ周期の構造体であり，1次元から3次元の
   \end{center}
 \end{figure}
 
+%TODO::PC-QDSOAのモデル図
 \section{フォトニック結晶量子ドット構造半導体光増幅器(PC-QDSOA)}
-PC-QDSOAとはQDSOAのクラッド部分をPCにしてQDSOAの構造をPCWにしたもので，PCWのスローライト効果により光の速度を遅くすることによってQDSOAと比べて短いデバイス長でQD-SOAと同等の利得を得ることができる．また，活性層の幅がQD-SOAよりも狭いため，増幅に必要な注入電流量がQDSOAよりも小さい．これらの利点から，PC-QDSOAはQDSOAと比較して小容量化が可能であり，省電力化が可能であるといえる{\cite{model_of_pc_qdsoa}}．図{\ref{fig:model_of_pc_qdsoa}}にPC-QDSOAのモデル図を示す．
+PC-QDSOAとはQDSOAのクラッド部分をPCにしてQDSOAの構造をPCWにしたもので，PCWのスローライト効果により光の伝搬速度を遅くすることによってQDSOAと比べて短いデバイス長でQDSOAと同等の利得を得ることができる．また，活性層の幅がQDSOAよりも狭いため，増幅に必要な注入電流量がQDSOAよりも小さい．これらの利点からPC-QDSOAはQDSOAと比較して小容量化が可能であり，省電力化が可能であるといえる{\cite{model_of_pc_qdsoa}}．図{\ref{fig:model_of_pc_qdsoa}}にPC-QDSOAのモデル図を示す．
 
 \begin{figure}[htbp]
   \begin{center}
@@ -566,8 +567,12 @@ ${\rm In_{x}Ga_{1-x}As }$の屈折率$n{\rm In_{x}Ga_{1-x}As }(\lambda,x)$は波長$\la
 \end{equation}
 と表される．
 
+% PCWの屈折率を1次元的に見る必要があることを示す論文を参考文献として挙げる
+\subsection{実効屈折率}
+屈折率が一様でない媒体を解析するには実効屈折率を用いる．フォトニック結晶導波路には光の伝搬方向に関する実効屈折率を用いる．
+
 \subsection{PC-QDSOAのレート方程式}
-PC-QDSOAの解析にはQDSOAと同様にレート方程式を用いる．本研究に用いるPC-QDSOAのレート方程式を式に示す{\cite{pc_qd_soa_rate_equation}}．また，各項の意味はQDSOAと同等である．
+PC-QDSOAのキャリア密度に関する解析にはQDSOAと同様にレート方程式を用いる．本研究に用いるPC-QDSOAのレート方程式を式に示す{\cite{pc_qd_soa_rate_equation}}．また，各項の意味はQDSOAと同等である．
 
 \begin{eqnarray}
   \label{eq:pc_qd_qw}
