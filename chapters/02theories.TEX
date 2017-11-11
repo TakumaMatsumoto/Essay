@@ -554,7 +554,7 @@ ${\rm In_{x}Ga_{1-x}As }$の屈折率$n{\rm In_{x}Ga_{1-x}As }(\lambda,x)$は波長$\la
 \begin{equation}
   n{\rm In_{x}Ga_{1-x}As }(\lambda,x) = \sqrt{8.950+\frac{ 2.054 }{ 1-\left(\frac{0.6254\times E_{GaAs}}{\lambda \cdot E_{g}(x)}\right) }}
 \end{equation}
-と表される{\cite{InGaAsIndex}}．また，${\rm In_{x}Ga_{1-x}As }$のバンドギャップエネルギー$E_{g}(x)$は(\ref{eq:InGaAs_bandgap})式より求めることができる．
+と表される{\cite{InGaAsIndex}}．また，${\rm In_{x}Ga_{1-x}As }$のバンドギャップエネルギー$E_{g}(x)$はGaAsのエネルギーバンドギャップを${\rm E_{g_{GaAs}}}$として(\ref{eq:InGaAs_bandgap})式より求めることができる．
 \begin{equation}
   \label{eq:InGaAs_bandgap}
   E_{g}(x) = E_{g_{GaAs}} - (1.501)x + (0.436)x^{2}
@@ -682,11 +682,11 @@ PC-QDSOAの単位長さあたりの利得$g_{mod}(t,\lambda_{k})$はスローライト効果，閉じ込
 \begin{equation}
   g_{mod}(t,\lambda_{k}) = S(\lambda_{k})\Gamma(\lambda_{k})g_{mat}(t,\lambda_{k})
 \end{equation}
-と表せる．このとき，出力光強度$P_{k,out}$は増幅利得を$G(t,E_k)$として入力強度を$P_{k,in}$とすると
+と表せる．このとき，出力光強度$P_{k,out}$は増幅利得を$G(t,E_{k})$として入力強度を$P_{k,in}$とすると
 \begin{equation}
   P_{k,out} = G(t,E_k)P_{k,in}
 \end{equation}
-と表される．また，PCW内で発生する分散，吸収損失とは別にPCWに光が入力される際，PCWから光が出力される際には結合損失が発生する{\cite{model_of_pc_qdsoa}}．そのため，増幅利得$G(t,E_k)$は活性層の長さを$L_{ca}$，結合損失係数を$\alpha_{cl}$として
+と表される．また，PCW内で発生する分散，吸収損失とは別にPCWに光が入力される際，PCWから光が出力される際には結合損失が発生する{\cite{model_of_pc_qdsoa}}．そのため，増幅利得$G(t,E_{k})$は活性層の長さを$L_{ca}$，結合損失係数を$\alpha_{cl}$として
 \begin{equation}
   \label{eq:pc_total_gain}
   G(t,E_k) = \exp\left(\left[g_{mod}(t,\lambda_{k}) - \alpha(\lambda_{k})\right]L_{ca}\right) - \alpha_{cl}
