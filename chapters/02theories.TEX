@@ -212,7 +212,7 @@ QDはどのような製造過程においても大きさを制御することができないため，エネルギー準
 \newpage
 
 \subsection{キャリア緩和時間，脱出時間}
-キャリア緩和時間とはキャリアがエネルギーバンドギャップの高いQD層から低いQD層へ移るまでに要する時間のことであり，キャリア脱出時間とはエネルギーバンドギャップの低いQD層から高いQD層へ移るまでに要する時間を表す．そのため，キャリア緩和時間がキャリア脱出時間よりも短いほどGS層にキャリアが集まりやすくなり，効率よく光を増幅させることができる．キャリア脱出時間は釣り合いの原理を用いてキャリア緩和時間，及び縮退係数から求めることができる{\cite{qd_dispersion,on_the_noise_properties}}．US,ES,GS間のキャリア脱出時間は2つの層をy層，x層とすると
+キャリア緩和時間とはキャリアがエネルギーバンドギャップの高いQD層から低いQD層へ移るまでに要する時間のことであり，キャリア脱出時間とはエネルギーバンドギャップの低いQD層から高いQD層へ移るまでに要する時間を表す．そのため，キャリア緩和時間がキャリア脱出時間よりも短いほどGS層にキャリアが集まりやすくなり，効率よく光を増幅させることができる．キャリア脱出時間は釣り合いの原理を用いてキャリア緩和時間，及び縮退係数から求めることができる{\cite{qd_dispersion,on_the_noise_properties,qd_low_noise}}．US,ES,GS間のキャリア脱出時間は2つの層をy層，x層とすると
 \begin{equation}
   \label{eq:cb_carrier_escape_time}
   \tau^{c(v)}_{yx} = 
@@ -223,16 +223,10 @@ QDはどのような製造過程においても大きさを制御することができないため，エネルギー準
 	{k_{B}T}\right)
 \end{equation}
 より求めることができる．また，US層からQW層へのキャリア脱出時間は
-% \begin{eqnarray}
-%	D_{W} & =  & \frac{m^{*_{c(v)}}_{d} k_{B} T}{2 \pi \hbar^{2}}  \\
-%	D_{U}  & = & N^{D}_{3D} D_{u}
-% \end{eqnarray}
-として
 \begin{equation}
   \label{eq:cb_carrier_escape_time}
   \tau^{c(v)}_{uw,j} = 
-	f^{c(v)}_{D} \tau^{c(v)}_{wu} 
-%	\frac{D_{U}}{D_{W}}
+	\tau^{c(v)}_{wu} 
 	\exp\left(\frac
 	{\left| E^{c(v)}_{u,j} - E^{c(v)}_{QW} \right|}
 	{k_{B}T}\right)
