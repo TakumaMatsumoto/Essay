@@ -3,7 +3,7 @@
 
 %-----------------------------------------------------
 \section{数値解析条件概要}
-本研究では，Optisystem14.1.0，MATLAB R2016bを用いて行い各光デバイスを数値的に解析する．QDSOA，PC-QDSOAのレート方程式及び伝搬方程式はNSSMを用いて解析を行い，QDSOA，PC-QDSOA以外の光デバイスの動作はOptisystem14.1.0に従う．また，QDSOA，PC-QDSOAの解析に共通の物理パラメータを表{\ref{table:physic_values}}に示す．
+本研究の数値解析にはOptisystem14.1.0，MATLAB R2016bを用いた．一般にレート方程式及び伝搬方程式は時間，光の伝搬方向に関する微分方程式で表されるため，それぞれに関して解く必要がある．従来研究で示した各式はNSSMにより導出された式であり，これは光の伝搬方向に関する微分方程式を解いた式に対応する．一方で，時間に関する微分方程式はRunge-Kutta法により解析した．また，QDSOA，PC-QDSOAの解析に共通の物理パラメータを表{\ref{table:physic_values}}に示す．
 
 \renewcommand{\arraystretch}{1.3}
 \begin{center}
@@ -78,7 +78,7 @@ QDSOAのパラメータを表{\ref{table:qd_soa_values}}に示す．
 ここでは，PC-QDSOAの特性解析条件を示す．
 
 \subsection{PC-QDSOAのパラメータ}
-PC-QDSOAのパラメータを表{\ref{table:pc_qdsoa_values}}に示す．
+PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記載されていないパラメータに関しては表{\ref{table:qd_soa_values}}と等しいものとする．変更，追加したパラメータのみを表{\ref{table:pc_qdsoa_values}}に示す．
 
 \renewcommand{\arraystretch}{1.3}
 \begin{center}
@@ -88,45 +88,9 @@ PC-QDSOAのパラメータを表{\ref{table:pc_qdsoa_values}}に示す．
   $L_{ca}$  			& $125 	 \times 10^{-6}$	& ${\rm m}$ \\ \hline
   $a_{lc}$  			& $330.78 \times 10^{-9}$	& ${\rm m}$ \\ \hline
   $W$        			& $1.312 	 \times a_{lc}$  	& ${\rm m}$ \\ \hline
-  $L_{QW}$ 			& $5.0 	\times 10^{-9}$  	& ${\rm m}$ \\ \hline
-  $L_{H}$ 				& $2.0 	\times 10^{-9}$  	& ${\rm m}$ \\ \hline
   $l_{D}$ 				& 5						& - \\ \hline 
-  $T$ 				& 300					& ${\rm K}$ \\ \hline
-  $n_{D}$ 				& $5.0 \times 10^{14}$		& ${\rm m^{-2}}$ \\ \hline
-  $D^{c,v}_{g}$ 			& 2						&  - \\ \hline
-  $D^{c,v}_{e}$ 		& 4 						&  - \\ \hline
-  $D^{c(v)}_{u}$ 		& 10(20) 					&  - \\ \hline
-  $D^{c(v)}_{w}$ 		& 100(200)				&  - \\ \hline
-  $|M_{env}|^2$ 		& 0.88					&  - \\ \hline
-  $\langle|\hat{e} \cdot p_{cv}|^2\rangle$ & $3.37 \times 10^{-30}$ &  ${\rm kg \cdot eV}$ \\ \hline
-  $f^{c(v)}_{D}$ 		& 1(6) 		 		 &  - \\ \hline
-  $m^{*_{c(v)}}_{w}$ 	& $0.0604(0.1029)m_{0}$ &  ${\rm kg}$ \\ \hline
-  $m^{*_{c(v)}}_{d}$ 		& $0.023(0.4)m_{0}$ 	 &  ${\rm kg}$ \\ \hline
-  $\Gamma^{c(v)}_{ih}$ 	& $40(10) \times 10^{-3}$		& ${\rm eV}$ \\ \hline
-  $\Gamma_{ih}$ 		& $50		\times 10^{-3}$		& ${\rm eV}$ \\ \hline
-  $\Gamma_{h}$ 		& $10		\times 10^{-3}$		& ${\rm eV}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{eg}$ & $0.5(0.075)   \times 10^{-12}$	& ${\rm s}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{ug}$ & $0.33(0.022) \times 10^{-12}$ & ${\rm s}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{ue}$ & $0.66(0.043) \times 10^{-12}$ & ${\rm s}$ \\ \hline 
-  $\hat{\tau}^{c(v)}_{wu}$ & $1.8(0.078)  \times 10^{-12}$ & ${\rm s}$ \\ \hline
-  $\hat{\tau}_{dr}$ 		  & $1.0 		 \times 10^{-9}$ 	& ${\rm s}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{wr}$ & $0.14(0.28)   \times 10^{-9}$	& ${\rm s}$ \\ \hline
-  $\hat{\tau}^{c(v)}_{ur}$ & $0.71(1.42)   \times 10^{-9}$ 	& ${\rm s}$ \\ \hline
-  $r_{c(v)}$ 	 		& 0.8(0.2) 					& - \\ \hline
-  $\Delta E$ 			& $1.0 		 \times 10^{-3}$ 	& ${\rm eV}$ \\ \hline
-  $2M+1$ 	 		& 181						& - \\ \hline
   $E^{c(v)}_{b}$		& 1.0905(-0.3335)				& ${\rm eV}$ \\ \hline
-  $E^{c(v)}_{QW}$		& 1.0631(-0.2745)				& ${\rm eV}$ \\ \hline
-  $E^{c(v)}_{u,M}$		& 1.0251(-0.1275)				& ${\rm eV}$ \\ \hline
-  $E^{c(v)}_{e,M}$		& 0.9541(-0.0875)				& ${\rm eV}$ \\ \hline
-  $E^{c(v)}_{g,M}$		& 0.8873(-0.0743)				& ${\rm eV}$ \\ \hline
   $E^{c(v)}_{0}$		& 0.354(0)					& ${\rm eV}$ \\ \hline
-  $E_{g_{GaAs}}$		& 1.424						& ${\rm eV}$ \\ \hline
-  $n_r$ 	 	 		& 3.51 						& - \\ \hline
-  $a_{cl}$ 	 	 		& 1.0 						& ${\rm dB}$ \\ \hline
-  $A$ 				& $L_{ca}W $	 	 & ${\rm m^{3}}$ \\ \hline
-  $V_{d}$ 				& $l_{D}AL_{H}$ 	 & ${\rm m^{3}}$ \\ \hline
-  $V_{w}$ 	 		& $l_{D}AL_{QW}$ 	 & ${\rm m^{3}}$ \\ \hline
 \end{longtable}
 \end{center}
 \renewcommand{\arraystretch}{1.0}
