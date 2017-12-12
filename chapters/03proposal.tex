@@ -3,20 +3,7 @@
 
 \section{ANDゲート}
 
-本研究における水平垂直パリティ符号の配置を図{\ref{fig:parity}}に示す．本研究で用いる水平垂直パリティ符号は情報系列のビット数が4，パリティ符号のビット数が4となる符号であり，符号長は8となる．このとき，$x_1,x_2,x_3,x_4$は情報系列を表し，$x_5,x_6,x_7,x_8$はパリティを表す．また，パリティは以下の式より求められる．
-\begin{eqnarray}
-  x_5 = x_1 \oplus x_2 \\
-  x_6 = x_3 \oplus x_4 \\
-  x_7 = x_1 \oplus x_3 \\
-  x_8 = x_2 \oplus x_4 
-\end{eqnarray}
-
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[clip,width=4.0cm]{Parity.eps}
-    \caption{水平垂直パリティ}
-    \label{fig:parity}
-  \end{center}
-\end{figure}
+% 図{\ref{fig:model_of_pc_qdsoa}}に
+本研究で提案するANDゲートのモデルを示す．入力光A，B，クロック光の波長をそれぞれ$\lambda_{A},\lambda_{B},\lambda_{C}$とし，このとき$\lambda_{A}=\lambda_{B} \neq \lambda_{C}$である．PC-QDSOA1に光強度の高い入力光Aが入力されるとXGMによりクロック光が十分に増幅されず，PC-QDSOA1から出力される$\lambda_{C}$の光はNOT Aとなる．次に，NOT Aの光と入力光BがPC-QDSOA2に入力されるとNOT Aの光強度に依存してXGMが発生し，PC-QDSOA2から出力される$\lambda_{B}$の光はA AND Bとなる．以上が動作原理である．なお，PC-QDSOAの利得回復時間は注入電流量に依存するため，十分な
 
 \newpage
