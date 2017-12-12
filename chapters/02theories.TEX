@@ -136,7 +136,7 @@ QDSOAとは活性層が量子ドット構造で構成される半導体光増幅器である．図{\ref{fig:mod
   $D^{c(v)}_{w}$ 		& 縮退係数(QW層) 		 \\ \hline
   $|M_{env}|^2$ 		& 包絡関数 				 \\ \hline
   $\langle|\hat{e} \cdot p_{cv}|^2\rangle$ & 運動量行列 	 \\ \hline
-  $f^{c(v)}_{D}$ 		& ドープ密度 		 		\\ \hline
+  $f^{c(v)}_{D}$ 		& ドーパント係数 		 	 \\ \hline
   $m^{*_{c(v)}}_{w}$ 	& キャリアの有効質量(QW層) \\ \hline
   $m^{*_{c(v)}}_{d}$ 		& キャリアの有効質量(QD層) \\ \hline
   $\Gamma^{c(v)}_{ih}$ 	& 不均一広がりの半値全幅		\\ \hline
@@ -217,7 +217,6 @@ QDはどのような製造過程においても大きさを制御することができないため，エネルギー準
   \label{eq:cb_carrier_escape_time}
   \tau^{c(v)}_{yx} = 
 	f^{c(v)}_{D} \tau^{c(v)}_{xy} 
-	\frac{D_{y}}{D_{x}} 
 	\exp\left(\frac
 	{\left| E^{c(v)}_{x} - E^{c(v)}_{y} \right|}
 	{k_{B}T}\right)
@@ -226,7 +225,7 @@ QDはどのような製造過程においても大きさを制御することができないため，エネルギー準
 \begin{equation}
   \label{eq:cb_carrier_escape_time}
   \tau^{c(v)}_{uw,j} = 
-	\tau^{c(v)}_{wu} 
+	f^{c(v)}_{D} \tau^{c(v)}_{wu} 
 	\exp\left(\frac
 	{\left| E^{c(v)}_{u,j} - E^{c(v)}_{QW} \right|}
 	{k_{B}T}\right)
@@ -513,7 +512,7 @@ PCとは屈折率の異なる物質が周期的に並んだナノ周期の構造体であり，1次元から3次元の
 と表される．このとき，スローダウン要素は$S(\lambda)=v_{p}/v_{g}$と表される{\cite{slow_light1,slow_light2}}．
 
 \section{フォトニック結晶導波路(Photonic Crystal Waveguides:PCW)}
-2次元のPCは屈折率が一様な半導体に対して周期的に空孔を設けることで得られる結晶構造であり，実用的なデバイスとしてはPCWが挙げられる。PCWのモデルを図{\ref{fig:model_of_pcw}}に示す．PCには特定の帯域の光を結晶内部に伝搬させない性質があり，この帯域はフォトニックバンドギャップと呼ばれる．PCWはこの性質を利用しており，モデル図のように1列分の欠陥を作ることで欠陥部分をフォトニックバンドギャップ帯域の光のみが伝搬できるようにしている{\cite{photonic_crystal2}}．また，使用する帯域の光の波長をもとに空孔の間隔を調整することで光の速度を調整することができるが，構造によっては高次の分散が発生し，パルスの広がりや変形が起きるため適切な間隔に調整する必要がある{\cite{slow_light1}}．
+2次元のPCは屈折率が一様な半導体に対して周期的に空孔を設けることで得られる結晶構造であり，実用的なデバイスとしてはPCWが挙げられる。三角格子型PCWのモデルを図{\ref{fig:model_of_pcw}}に示す．PCには特定の帯域の光を結晶内部に伝搬させない性質があり，この帯域はフォトニックバンドギャップと呼ばれる．PCWはこの性質を利用しており，モデル図のように1列分の欠陥を作ることで欠陥部分をフォトニックバンドギャップ帯域の光のみが伝搬できるようにしている{\cite{photonic_crystal2}}．また，使用する帯域の光の波長をもとに空孔の間隔を調整することで光の速度を調整することができるが，構造によっては高次の分散が発生し，パルスの広がりや変形が起きるため適切な間隔に調整する必要がある{\cite{slow_light1}}．
 
 \begin{figure}[htbp]
   \begin{center}
@@ -562,7 +561,7 @@ ${\rm In_{x}Ga_{1-x}As }$の屈折率$n{\rm In_{x}Ga_{1-x}As }(\lambda,x)$は波長$\la
 と表される．
 
 \subsection{実効屈折率}
-屈折率が一様でない媒体を解析するには実効屈折率を用いる．フォトニック結晶導波路には光の伝搬方向に関する実効屈折率を用いる{\cite{effective_index_approximations}}．
+屈折率が一様でない媒体を解析するには実効屈折率を用いる．フォトニック結晶導波路の解析には光の伝搬方向に関する実効屈折率を用いる{\cite{effective_index_approximations}}．
 
 \subsection{PC-QDSOAのレート方程式}
 PC-QDSOAのキャリア密度に関する解析にはQDSOAと同様にレート方程式を用いる．本研究に用いるPC-QDSOAのレート方程式を式に示す{\cite{pc_qd_soa_rate_equation}}．また，各項の意味はQDSOAと同等である．
