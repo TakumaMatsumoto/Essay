@@ -3,4 +3,17 @@
 
 %-----------------------------------------------------
 \section{入出力結果}
-注入電流，ビットレートをそれぞれ6mA，160Gbpsとしたときの入出力結果を図に示す．
+注入電流，ビットレートをそれぞれ6mA，160Gbpsとしたときの入出力結果を図{\ref{fig:in-out}}に示す．入力光Bが``1''かつ入力光Aが``0''のとき入力光BはPC-QDSOA2で増幅され，出力光が``0''であるべき位置に0.1mWの光が出力されている．また，入力光A，Bが共に``1''となるビット列が続くと出力光強度が上がることが分かる．これらは，キャリアが完全に回復していない状態でXGMが起きているためであると考えられる．また，このときのアイダイアグラムとER値，Q値を図{\ref{fig:eyedia_6mA}}に示す．これらのことから，提案した全光ゲートはANDゲートとして動作可能であるといえる．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip, width=12.0cm]{in-out.eps}
+    \caption{電流:6mA，ビットレート160Gbpsのときの入出力結果}
+    \label{fig:in-out}
+    \includegraphics[clip, width=12.0cm]{eyedia_6mA.eps}
+    \caption{電流:6mA，ビットレート160Gbpsのときのアイダイアグラム}
+    \label{fig:eyedia_6mA}
+  \end{center}
+\end{figure}
+
+キャリアの回復時間は注入電流に依存していることから，注入電流を変化させたときのER値とQ値を図に示す．
