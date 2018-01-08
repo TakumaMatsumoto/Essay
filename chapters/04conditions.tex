@@ -1,8 +1,8 @@
-\chapter{数値解析条件と結果} 
-\label{chap:result}
+\chapter{数値解析条件} 
+\label{chap:conditions}
 
 %-----------------------------------------------------
-\section{数値解析条件}
+% TODO::Runge-Kutta法の参考文献
 本研究の数値解析にはOptisystem14.1.0，MATLAB R2016bを用いた．一般にレート方程式及び伝搬方程式は時間，光の伝搬方向に関する微分方程式で表されるため，それぞれに関して解く必要がある．従来研究で示した各式はNSSMにより導出された式であり，これは光の伝搬方向に関する微分方程式を解いた式に対応する．一方で，時間に関する微分方程式はRunge-Kutta法により解析した．また，QDSOA，PC-QDSOAの解析に共通の物理パラメータを表{\ref{table:physic_values}}に示す．
 
 \renewcommand{\arraystretch}{1.3}
@@ -21,7 +21,24 @@
 \end{center}
 \renewcommand{\arraystretch}{1.0}
 
-\subsection{QDSOAのパラメータ}
+\begin{table}[htbp]
+  \begin{center}
+  \caption{固定パラメータ}
+  \begin{tabular}{|c|c|c|} \hline
+    Parameter & Value & Unit \\ \hline
+    Maximum power of Input A & 10 & mW \\ \hline
+    Maximum power of Input B & 1 & $\mu W$ \\ \hline
+    Maximum power of Clock & 100 & $\mu W$ \\ \hline
+    Wavelength of Input A & 1307 & nm \\ \hline
+    Wavelength of Input B & 1307 & nm \\ \hline
+    Wavelength of Clock & 1310 & nm \\ \hline
+    Full width at half maximum of pulse & 1.2 & ps \\ \hline
+  \end{tabular}
+  \label{tb:sim_fixed_param}
+  \end{center}
+\end{table}
+
+\section{QDSOAのパラメータ}
 QDSOAのパラメータを表{\ref{table:qd_soa_values}}に示す．
 
 \renewcommand{\arraystretch}{1.3}
@@ -74,7 +91,7 @@ QDSOAのパラメータを表{\ref{table:qd_soa_values}}に示す．
 
 \newpage
 
-\subsection{PC-QDSOAのパラメータ・解析条件}
+\section{PC-QDSOAのパラメータ・解析条件}
 PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記載されていないパラメータに関しては表{\ref{table:qd_soa_values}}と等しいものとする．変更，追加したパラメータのみを表{\ref{table:pc_qdsoa_values}}に示す．
 
 \renewcommand{\arraystretch}{1.3}
@@ -92,13 +109,13 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
 \end{center}
 \renewcommand{\arraystretch}{1.0}
 
-\subsubsection{分散関係式}
+\subsection{分散関係式}
 分散関係，群屈折率はそれぞれ
 \begin{eqnarray}
   \omega(k) & = & \frac{1}{2}a_{0} + \sum_{n=1}^{8}\left[a_{n}\cos(nwk) + b_{n}\sin(nwk)\right] \\
   n_{g}(k) & = & \left(\sum_{n=1}^{8}\left[-a_{n}nw\sin(nwk)+b_{n}nw\cos(nwk)\right]\right)^{-1}
 \end{eqnarray}
-と求める．
+で求める．
 また，フーリエ係数$a_n,b_n$を表{\ref{table:disp_fourier_coefficients}}に示す．
 
 \renewcommand{\arraystretch}{1.3}
@@ -126,7 +143,7 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
 \end{table}
 \renewcommand{\arraystretch}{1.0}
 
-\subsubsection{閉じ込め係数}
+\subsection{閉じ込め係数}
 光の進行方向と平行な面をxy平面としたとき，xy軸方向及びz軸方向に関する閉じ込め係数は，以下の式より求める．
 \begin{eqnarray}
   \Gamma_{xy}(\lambda) 	& = & \frac{1}{2}c_{0} + \sum_{n=1}^{8}\left[c_{n}\cos(nw\lambda) + d_{n}\sin(nw\lambda)\right] \\
@@ -167,11 +184,3 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
 \end{center}
 \end{table}
 \renewcommand{\arraystretch}{1.0}
-
-\section{結果}
-ここでは，提案したANDゲートがANDゲートとして機能することを示す．また，提案したANDゲートの性能を評価するため，注入電流，パルス強度，パルス幅，ビットレートを変化させたときの結果を示す．
-
-\subsection{入出力結果}
-注入電流5mA，パルス幅1.2ps，ビットレート
-
-
