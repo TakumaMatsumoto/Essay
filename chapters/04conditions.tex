@@ -3,40 +3,26 @@
 
 %-----------------------------------------------------
 % TODO::Runge-Kutta法の参考文献
-本研究の数値解析にはOptisystem14.1.0，MATLAB R2016bを用いた．一般にレート方程式及び伝搬方程式は時間，光の伝搬方向に関する微分方程式で表されるため，それぞれに関して解く必要がある．従来研究で示した各式はNSSMにより導出された式であり，これは光の伝搬方向に関する微分方程式を解いた式に対応する．一方で，時間に関する微分方程式はRunge-Kutta法により解析した．また，QDSOA，PC-QDSOAの解析に共通の物理パラメータを表{\ref{table:physic_values}}に示す．
+本研究の数値解析にはOptisystem14.1.0，MATLAB R2016bを用いた．一般にレート方程式及び伝搬方程式は時間，光の伝搬方向に関する微分方程式で表されるため，それぞれに関して解く必要がある．従来研究で示した各式はNSSMにより導出された式であり，これは光の伝搬方向に関する微分方程式を解いた式に対応する．一方で，時間に関する微分方程式はRunge-Kutta法により解析した．また，QDSOA，PC-QDSOAの解析に共通の物理的パラメータを表{\ref{table:physic_values}}に示す．
 
 \renewcommand{\arraystretch}{1.3}
-\begin{center}
-\begin{longtable}[c]{|c|c|c|}
-  \caption{解析の式に用いる文字，値，単位\label{table:physic_values}} \\ \hline
-  Symbol & Value & Unit \\ \hline \hline \endfirsthead
-  $\hbar$  		& $6.5821195 \times 10^{-16}$	& ${\rm eV \cdot s}$ \\ \hline
-  $q$  			& $1.6021766 \times 10^{-19}$	& ${\rm C}$ 		 \\ \hline
-  $m_{0}$  		& $9.1093897 \times 10^{-31}$	& ${\rm kg}$ 		 \\ \hline
-  $\varepsilon_0$	& $8.8541878 \times 10^{-12}$	& ${\rm F/m}$ 	 \\ \hline
-  $\mu_0$		& $1.2566371 \times 10^{-6}$	& ${\rm H/m}$	 \\ \hline
-  $c$			& $2.9979246 \times 10^{8}$		& ${\rm m/s}$	 \\ \hline
-  $k_{B}$			& $8.6173303 \times 10^{-5}$	& ${\rm eV/K}$	 \\ \hline
-\end{longtable}
-\end{center}
-\renewcommand{\arraystretch}{1.0}
-
 \begin{table}[htbp]
   \begin{center}
-  \caption{固定パラメータ}
+  \caption{解析に用いる物理的パラメータ}
   \begin{tabular}{|c|c|c|} \hline
-    Parameter & Value & Unit \\ \hline
-    Maximum power of Input A & 10 & mW \\ \hline
-    Maximum power of Input B & 1 & $\mu W$ \\ \hline
-    Maximum power of Clock & 100 & $\mu W$ \\ \hline
-    Wavelength of Input A & 1307 & nm \\ \hline
-    Wavelength of Input B & 1307 & nm \\ \hline
-    Wavelength of Clock & 1310 & nm \\ \hline
-    Full width at half maximum of pulse & 1.2 & ps \\ \hline
+    Symbol & Value & Unit \\ \hline \hline
+    $\hbar$  		& $6.5821195 \times 10^{-16}$	& ${\rm eV \cdot s}$ \\ \hline
+    $q$  			& $1.6021766 \times 10^{-19}$	& ${\rm C}$ 		 \\ \hline
+    $m_{0}$  		& $9.1093897 \times 10^{-31}$	& ${\rm kg}$ 		 \\ \hline
+    $\varepsilon_0$	& $8.8541878 \times 10^{-12}$	& ${\rm F/m}$ 	 \\ \hline
+    $\mu_0$		& $1.2566371 \times 10^{-6}$	& ${\rm H/m}$	 \\ \hline
+    $c$			& $2.9979246 \times 10^{8}$		& ${\rm m/s}$	 \\ \hline
+    $k_{B}$		& $8.6173303 \times 10^{-5}$	& ${\rm eV/K}$	 \\ \hline
   \end{tabular}
-  \label{tb:sim_fixed_param}
+  \label{table:physic_values}
   \end{center}
 \end{table}
+\renewcommand{\arraystretch}{1.0}
 
 \section{QDSOAのパラメータ}
 QDSOAのパラメータを表{\ref{table:qd_soa_values}}に示す．
@@ -85,6 +71,13 @@ QDSOAのパラメータを表{\ref{table:qd_soa_values}}に示す．
   $A$ 				& $L_{ca}W $	 	 & ${\rm m^{3}}$ \\ \hline
   $V_{d}$ 				& $l_{D}AL_{H}$ 	 & ${\rm m^{3}}$ \\ \hline
   $V_{w}$ 	 		& $l_{D}AL_{QW}$ 	 & ${\rm m^{3}}$ \\ \hline
+% TODO::入力光に関する情報をテーブルに追加
+  $P_{A}$				& 10							& ${\rm mW}$ \\ \hline
+  $P_{B}$				& 1							& ${\rm \mu W}$ \\ \hline
+  $P_{C}$				& 100						& ${\rm \mu W}$ \\ \hline
+  $\lambda_{A}$		& 1292						& ${\rm nm}$ \\ \hline
+  $\lambda_{B}$		& 1307						& ${\rm nm}$ \\ \hline
+  $\lambda_{C}$		& 1310						& ${\rm nm}$ \\ \hline
 \end{longtable}
 \end{center}
 \renewcommand{\arraystretch}{1.0}
@@ -105,6 +98,12 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
   $l_{D}$ 				& 5						& - \\ \hline 
   $E^{c(v)}_{b}$		& 1.0905(-0.3335)				& ${\rm eV}$ \\ \hline
   $E^{c(v)}_{0}$		& 0.354(0)					& ${\rm eV}$ \\ \hline
+  $P_{A}$				& 10							& ${\rm mW}$ \\ \hline
+  $P_{B}$				& 1							& ${\rm \mu W}$ \\ \hline
+  $P_{C}$				& 100						& ${\rm \mu W}$ \\ \hline
+  $\lambda_{A}$		& 1307						& ${\rm nm}$ \\ \hline
+  $\lambda_{B}$		& 1307						& ${\rm nm}$ \\ \hline
+  $\lambda_{C}$		& 1310						& ${\rm nm}$ \\ \hline
 \end{longtable}
 \end{center}
 \renewcommand{\arraystretch}{1.0}
@@ -117,31 +116,6 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
 \end{eqnarray}
 で求める．
 また，フーリエ係数$a_n,b_n$を表{\ref{table:disp_fourier_coefficients}}に示す．
-
-\renewcommand{\arraystretch}{1.3}
-\begin{table}[htbp]
-\begin{center}
- \small
- \caption{分散関係のフーリエ係数}
- \label{table:disp_fourier_coefficients}
- \begin{tabular}{c c c}
-  \hline
-  n & $a_n$ & $b_n$ \\
-  \hline
-  0 & 0.3202   	& - \\
-  1 & 0.1740   	& 0.001989 \\
-  2 & -0.1414 		& -0.0098 \\
-  3 & 0.09489 		& 0.01365 \\
-  4 & -0.05176 	& -0.01137 \\
-  5 & 0.02278 		& 0.006729 \\
-  6 & -0.007657 	& -0.003049 \\
-  7 & 0.001711 	& 0.0009613 \\
-  8 & -0.0001844 	& -0.0001516 \\
-  \hline
-\end{tabular}
-\end{center}
-\end{table}
-\renewcommand{\arraystretch}{1.0}
 
 \subsection{閉じ込め係数}
 光の進行方向と平行な面をxy平面としたとき，xy軸方向及びz軸方向に関する閉じ込め係数は，以下の式より求める．
@@ -162,25 +136,51 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
 
 \renewcommand{\arraystretch}{1.3}
 \begin{table}[htbp]
-\begin{center}
- \small
- \caption{閉じ込め係数のフーリエ係数}
- \label{table:conf_fourier_coefficients}
- \begin{tabular}{c c c}
-  \hline
-  n & $c_n$ & $d_n$ \\
-  \hline
-  0 & 1.3462   	& - \\
-  1 & -0.4163   	& -0.08407 \\
-  2 & -0.04644 	& -0.1838 \\
-  3 & 0.1719 		& -0.1399 \\
-  4 & 0.1855 		& -0.009377 \\
-  5 & 0.08669 		& 0.07319 \\
-  6 & -0.0006487 	& 0.06741 \\
-  7 & -0.02412 	& 0.02651 \\
-  8 & -0.0108 		& 0.002958 \\
-  \hline
+\begin{tabular}{cc}
+\begin{minipage}{0.5\hsize}
+	\begin{center}
+	 \small
+	 \caption{分散関係のフーリエ係数}
+	 \label{table:disp_fourier_coefficients}
+	 \begin{tabular}{c c c}
+	  \hline
+	  n & $a_n$ & $b_n$ \\
+	  \hline
+	  0 & 0.3202   	& - \\
+	  1 & 0.1740   	& 0.001989 \\
+	  2 & -0.1414 		& -0.0098 \\
+	  3 & 0.09489 		& 0.01365 \\
+	  4 & -0.05176 	& -0.01137 \\
+	  5 & 0.02278 		& 0.006729 \\
+	  6 & -0.007657 	& -0.003049 \\
+	  7 & 0.001711 	& 0.0009613 \\
+	  8 & -0.0001844 	& -0.0001516 \\
+	  \hline
+	\end{tabular}
+	\end{center}
+\end{minipage}
+\begin{minipage}{0.5\hsize}
+	\begin{center}
+	 \small
+	 \caption{閉じ込め係数のフーリエ係数}
+	 \label{table:conf_fourier_coefficients}
+	 \begin{tabular}{c c c}
+	  \hline
+	  n & $c_n$ & $d_n$ \\
+	  \hline
+	  0 & 1.3462   	& - \\
+	  1 & -0.4163   	& -0.08407 \\
+	  2 & -0.04644 	& -0.1838 \\
+	  3 & 0.1719 		& -0.1399 \\
+	  4 & 0.1855 		& -0.009377 \\
+	  5 & 0.08669 		& 0.07319 \\
+	  6 & -0.0006487 	& 0.06741 \\
+	  7 & -0.02412 	& 0.02651 \\
+	  8 & -0.0108 		& 0.002958 \\
+	  \hline
+	\end{tabular}
+	\end{center}
+\end{minipage}
 \end{tabular}
-\end{center}
 \end{table}
 \renewcommand{\arraystretch}{1.0}
