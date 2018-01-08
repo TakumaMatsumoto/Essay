@@ -1,9 +1,18 @@
 \chapter{PC-QDSOAを用いた全光ANDゲート} 
 \label{chap:proposal}
 
+% TODO::入力A，Bが異なる場合すべてについて各デバイスから出力される信号の図を追加
+
 \section{ANDゲート}
 
-% 図{\ref{fig:model_of_pc_qdsoa}}に
-本研究で提案するANDゲートのモデルを示す．入力光A，B，クロック光の波長をそれぞれ$\lambda_{A},\lambda_{B},\lambda_{C}$とし，このとき$\lambda_{A}=\lambda_{B} \neq \lambda_{C}$である．PC-QDSOA1に光強度の高い入力光Aが入力されるとXGMによりクロック光が十分に増幅されず，PC-QDSOA1から出力される$\lambda_{C}$の光はNOT Aとなる．次に，NOT Aの光と入力光BがPC-QDSOA2に入力されるとNOT Aの光強度に依存してXGMが発生し，PC-QDSOA2から出力される$\lambda_{B}$の光はA AND Bとなる．以上が動作原理である．なお，PC-QDSOAの利得回復時間は注入電流量に依存するため，十分な
+図{\ref{fig:model_of_and_gate}}に本研究で提案するANDゲートのモデルを示す．入力光A，B，クロック光の波長をそれぞれ$\lambda_{A},\lambda_{B},\lambda_{C}$とし，このとき$\lambda_{A}=\lambda_{B} \neq \lambda_{C}$である．PC-QDSOA1に光強度の高い入力光Aが入力されるとXGMによりクロック光が十分に増幅されず，PC-QDSOA1から出力される$\lambda_{C}$の光はNOT Aとなる．次に，NOT Aの光と入力光BがPC-QDSOA2に入力されるとNOT Aの光強度に依存してXGMが発生し，PC-QDSOA2から出力される$\lambda_{B}$の光はA AND Bとなる．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip, width=12.0cm]{and_gate.eps}
+    \caption{提案したANDゲート}
+    \label{fig:model_of_and_gate}
+  \end{center}
+\end{figure}
 
 \newpage
