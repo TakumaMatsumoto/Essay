@@ -3,9 +3,18 @@
 
 % TODO::入力A，Bが異なる場合すべてについて各デバイスから出力される信号の図を追加
 
-\section{ANDゲート}
+\section{動作原理}
 
-図{\ref{fig:model_of_and_gate}}に本研究で提案するANDゲートのモデルを示す．入力光A，B，クロック光の波長をそれぞれ$\lambda_{A},\lambda_{B},\lambda_{C}$とし，このとき$\lambda_{A}=\lambda_{B} \neq \lambda_{C}$である．PC-QDSOA1に光強度の高い入力光Aが入力されるとXGMによりクロック光が十分に増幅されず，PC-QDSOA1から出力される$\lambda_{C}$の光はNOT Aとなる．次に，NOT Aの光と入力光BがPC-QDSOA2に入力されるとNOT Aの光強度に依存してXGMが発生し，PC-QDSOA2から出力される$\lambda_{B}$の光はA AND Bとなる．
+図{\ref{fig:model_of_and_gate}}に本研究で提案するANDゲートのモデルを示す．入力光A，B，クロック光の波長をそれぞれ$\lambda_{A},\lambda_{B},\lambda_{C}$とし，このとき$\lambda_{A}=\lambda_{B} \neq \lambda_{C}$である．入力光A，Bはそれぞれ
+\begin{description}
+ \item[入力光A，Bがともに``1''のとき]\mbox{}\\ 
+	    PC-QDSOA1に強い光強度の入力光Aが入力され，XGMが起こり，クロック光が十分に増幅されない．そのため，PC-QDSOA2から出力される波長$\lambda_{C}$の光の強度はXGMが起こらない場合と比較して光強度が小さい．PC-QDSOA2には光強度の小さい波長$\lambda_{C}$の光と入力光Bが入力され，波長$\lambda_{B}$の光は十分に増幅される．
+ \item[運動の第二法則]\mbox{}\\
+	    運動方程式のことです．
+ \item[運動の第三法則]\mbox{}\\
+	    作用反作用の法則のことです．
+\end{description}
+PC-QDSOA1に光強度の高い入力光Aが入力されるとXGMによりクロック光が十分に増幅されず，PC-QDSOA1から出力される$\lambda_{C}$の光はNOT Aとなる．次に，NOT Aの光と入力光BがPC-QDSOA2に入力されるとNOT Aの光強度に依存してXGMが発生し，PC-QDSOA2から出力される$\lambda_{B}$の光はA AND Bとなる．
 
 \begin{figure}[htbp]
   \begin{center}
