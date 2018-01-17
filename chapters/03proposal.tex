@@ -1,27 +1,47 @@
-\chapter{PC-QDSOAを用いた全光ANDゲート} 
+\chapter{提案法}
 \label{chap:proposal}
 
-% TODO::入力A，Bが異なる場合すべてについて各デバイスから出力される信号の図を追加
+\section{PC-QDSOAを用いた全光ANDゲート}
 
-\section{動作原理}
-
-図{\ref{fig:model_of_and_gate}}に本研究で提案するANDゲートのモデルを示す．入力光A，B，クロック光の波長をそれぞれ$\lambda_{A},\lambda_{B},\lambda_{C}$とし，このとき$\lambda_{A}=\lambda_{B} \neq \lambda_{C}$である．入力光A，Bはそれぞれ
-\begin{description}
- \item[入力光A，Bがともに``1''のとき]\mbox{}\\ 
-	    PC-QDSOA1に強い光強度の入力光Aが入力され，XGMが起こり，クロック光が十分に増幅されない．そのため，PC-QDSOA2から出力される波長$\lambda_{C}$の光の強度はXGMが起こらない場合と比較して光強度が小さい．PC-QDSOA2には光強度の小さい波長$\lambda_{C}$の光と入力光Bが入力され，波長$\lambda_{B}$の光は十分に増幅される．
- \item[運動の第二法則]\mbox{}\\
-	    運動方程式のことです．
- \item[運動の第三法則]\mbox{}\\
-	    作用反作用の法則のことです．
-\end{description}
-PC-QDSOA1に光強度の高い入力光Aが入力されるとXGMによりクロック光が十分に増幅されず，PC-QDSOA1から出力される$\lambda_{C}$の光はNOT Aとなる．次に，NOT Aの光と入力光BがPC-QDSOA2に入力されるとNOT Aの光強度に依存してXGMが発生し，PC-QDSOA2から出力される$\lambda_{B}$の光はA AND Bとなる．
+全光ANDゲートを構成する従来の全光デバイスは
+図{\ref{fig:model_of_and_gate}}に本研究で提案するANDゲートのモデルを示す．$\lambda_{A},\lambda_{B},\lambda_{C}$はそれぞれ入力光A，B，クロック光の波長を表す．提案するANDゲートはPCWのスローライト効果を利用することにより集積化及び省電力化を実現しており，入力信号を操作するためにQDSOAの非線形光学効果であるXGMを利用している．
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[clip, width=13.0cm]{and_gate.eps}
-    \caption{提案したANDゲート}
+    \includegraphics[clip, width=14.0cm]{and_gate.eps}
+    \caption{提案するANDゲート}
     \label{fig:model_of_and_gate}
   \end{center}
 \end{figure}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[htbp]
+  \begin{center}
+  \caption{ANDゲートの真理値表}
+  \begin{tabular}{|c|c|c|} \hline
+    入力光A & 入力光B & 出力光 \\ \hline \hline
+    0 & 0 & 0 \\ \hline
+    0 & 1 & 0 \\ \hline
+    1 & 0 & 0 \\ \hline
+    1	& 1 & 1 \\ \hline
+  \end{tabular}
+  \label{table:logic_table}
+  \end{center}
+\end{table}
+
+\section{動作原理}
+
+以下に全パターンの挙動を示す．
+\begin{description}
+ \item[入力光A，Bがともに``1''のとき]\mbox{}\\ 
+	    PC-QDSOA1に光強度の大きい入力光Aが入力され，XGMが発生する．このとき，クロック光が十分に増幅されず，PC-QDSOA1から出力される波長$\lambda_{C}$の光強度はXGMが起こらない場合と比較して小さい．PC-QDSOA2には光強度の小さい波長$\lambda_{C}$の光と入力光Bが入力され，波長$\lambda_{B}$の光は十分に増幅される．その結果，PC-QDSOA2から出力される波長$\lambda_{B}$の光は``1''となる．
+ \item[入力光Aが``1''，入力光Bが``0''のとき]\mbox{}\\
+	    PC-QDSOA1に光強度の大きい入力光Aが入力され，XGMが発生する．このとき，クロック光が十分に増幅されず，PC-QDSOA1から出力される波長$\lambda_{C}$の光強度はXGMが起こらない場合と比較して小さい．PC-QDSOA2には光強度の小さい波長$\lambda_{C}$の光と入力光Bが入力される．波長$\lambda_{B}$の光は十分に増幅されるが，入力前の強度が小さいため，出力される波長$\lambda_{B}$の光強度は小さい．その結果，PC-QDSOA2から出力される波長$\lambda_{B}$の光は``0''となる．
+ \item[入力光Aが``0''，入力光Bが``1''のとき]\mbox{}\\
+	    PC-QDSOA1ではクロック光が十分に増幅され，PC-QDSOA1から出力される波長$\lambda_{C}$の光強度は十分大きい．PC-QDSOA2には光強度の大きい波長$\lambda_{C}$の光と入力光Bが入力され，XGMが発生することにより波長$\lambda_{B}$の光は十分に増幅されない．その結果，PC-QDSOA2から出力される波長$\lambda_{B}$の光は``0''となる．
+ \item[入力光A，Bがともに``0''のとき]\mbox{}\\
+	    PC-QDSOA1ではクロック光が十分に増幅され，PC-QDSOA1から出力される波長$\lambda_{C}$の光強度は十分大きい．PC-QDSOA2には光強度の大きい波長$\lambda_{C}$の光と入力光Bが入力され，XGMが発生することにより波長$\lambda_{B}$の光は十分に増幅されない．また，入力光Bの光強度は小さいため，PC-QDSOA2から出力される波長$\lambda_{B}$の光は``0''となる．
+\end{description}
+
 
 \newpage
