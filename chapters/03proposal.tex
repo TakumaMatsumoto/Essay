@@ -3,8 +3,7 @@
 
 \section{PC-QDSOAを用いた全光ANDゲート}
 
-全光ANDゲートを構成する従来の全光デバイスは
-図{\ref{fig:model_of_and_gate}}に本研究で提案するANDゲートのモデルを示す．$\lambda_{A},\lambda_{B},\lambda_{C}$はそれぞれ入力光A，B，クロック光の波長を表す．提案するANDゲートはPCWのスローライト効果を利用することにより集積化及び省電力化を実現しており，入力信号を操作するためにQDSOAの非線形光学効果であるXGMを利用している．
+図{\ref{fig:model_of_and_gate}}，表{\ref{table:logic_table}}にそれぞれ本研究で提案するANDゲートのモデル，真理値表を示す．$\lambda_{A},\lambda_{B},\lambda_{C}$はそれぞれ入力光A，B，クロック光の波長を表す．提案するANDゲートはPCWのスローライト効果を利用することにより集積化及び省電力化を実現しており，入力信号を操作するためにQDSOAの非線形光学効果であるXGMを利用している．XPMを利用するANDゲートと比較して構造が単純であり，2つのPC-QDSOAの物理的パラメータが同一のものである必要がないという利点がある．
 
 \begin{figure}[htbp]
   \begin{center}
@@ -31,7 +30,7 @@
 
 \section{動作原理}
 
-以下に全パターンの挙動を示す．
+入力光A，Bの全パターンに対するゲートの動作原理を以下に示す．
 \begin{description}
  \item[入力光A，Bがともに``1''のとき]\mbox{}\\ 
 	    PC-QDSOA1に光強度の大きい入力光Aが入力され，XGMが発生する．このとき，クロック光が十分に増幅されず，PC-QDSOA1から出力される波長$\lambda_{C}$の光強度はXGMが起こらない場合と比較して小さい．PC-QDSOA2には光強度の小さい波長$\lambda_{C}$の光と入力光Bが入力され，波長$\lambda_{B}$の光は十分に増幅される．その結果，PC-QDSOA2から出力される波長$\lambda_{B}$の光は``1''となる．
