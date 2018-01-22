@@ -3,17 +3,70 @@
 
 %-----------------------------------------------------
 \section{入出力結果}
-注入電流，ビットレートをそれぞれ6mA，160Gbpsとしたときの入出力結果を図{\ref{fig:in-out}}に示す．入力光Bが``1''かつ入力光Aが``0''のとき入力光BはPC-QDSOA2で増幅され，出力光が``0''であるべき位置に0.1mWの光が出力されている．また，入力光A，Bが共に``1''となるビット列が続くと出力光強度が上がることが分かる．これらは，キャリアが完全に回復していない状態でXGMが起きているためであると考えられる．また，このときのアイダイアグラムとER値，Q値を図{\ref{fig:eyedia_6mA}}に示す．これらのことから，提案した全光ゲートはANDゲートとして動作可能であるといえる．
+注入電流，ビットレートをそれぞれ6mA，160Gbpsとしたときの入出力結果を図{\ref{fig:in-out}}に示す．入力A，Bが共に``1''のときのみ，強度の大きい出力光が得られていることが分かる．入力光Aが``0''かつ入力光Bが``1''のとき入力光BはPC-QDSOA2で増幅され，出力光の強度は0.1mWとなる．これは，PC-QDSOA2に入力されるクロック光により発生するXGMでは入力光Bの増幅を完全に抑えることができないためである．また，入力光A，Bが共に``1''となるビット列が続く場合，後ろのビット列ほど出力光強度が大きい．キャリアが完全に回復していない状態でXGMが起きるため，この現象が発生する．また，このときのアイダイアグラム，ER値，Q値を図{\ref{fig:eyedia_6mA}}に示す．これらのことから，提案した全光ゲートはANDゲートとして動作可能であるといえる．
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[clip, width=12.0cm]{in-out.eps}
-    \caption{電流:6mA，ビットレート160Gbpsのときの入出力結果}
+    \includegraphics[clip, width=10.0cm]{in-out.eps}
+    \caption{電流6mA，ビットレート160Gbpsのときの入出力結果}
     \label{fig:in-out}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
     \includegraphics[clip, width=12.0cm]{eyedia_6mA.eps}
-    \caption{電流:6mA，ビットレート160Gbpsのときのアイダイアグラム}
+    \caption{電流6mA，ビットレート160Gbpsのときの出力光のアイダイアグラム}
     \label{fig:eyedia_6mA}
   \end{center}
 \end{figure}
 
-キャリアの回復時間は注入電流に依存していることから，注入電流を変化させたときのER値とQ値を図に示す．
+\section{注入電流との関係}
+
+キャリア回復時間は注入電流に依存しており，ANDゲートの性能と関係があるものと考えられる．そこで，注入電流とER値，Q値の関係を調査した．図{\ref{fig:pcqdsoa_ERs}}，{\ref{fig:pcqdsoa_Qs}}はそれぞれ注入電流とER値，Q値の関係を表している．図{\ref{fig:pcqdsoa_ERs}}より注入電流が大きいほど良いER値が得られることが分かる．また，ER値と注入電流の関係は非線形性を示し，最高で約9dBのER値が得られる．非線形性になる理由として，入力光Bの増幅を完全に抑えられないため，注入電流が大きい場合であっても``0''の出力光の強度がわずかに大きいことが挙げられる．一方，図{\ref{fig:pcqdsoa_Qs}}から注入電流とQ値の関係は線形性を示していることが分かる．これは，注入電流を増やすことでビットパターンの違いによる光強度の差が小さくなるためである．以上から，パターン効果が抑えられることによりER値，Q値は共に注入電流を大きくすると改善することが分かる．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip, width=14.0cm]{pcqdsoa_ERs.eps}
+    \caption{注入電流とER値の関係}
+    \label{fig:pcqdsoa_ERs}
+    \includegraphics[clip, width=14.0cm]{pcqdsoa_Qs.eps}
+    \caption{注入電流とQ値の関係}
+    \label{fig:pcqdsoa_Qs}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\section{ビットレートとの関係}
+
+図{\ref{fig:pcqdsoa_bitrate_vs_ERs}}，{\ref{fig:pcqdsoa_bitrate_vs_Qs}}はそれぞれビットレート，注入電流を変化させたときのER値，Q値を表す．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip, width=14.0cm]{qdsoa_vs_pcqdsoa_ERs.eps}
+    \caption{ビットレートとER値の関係}
+    \label{fig:pcqdsoa_bitrate_vs_ERs}
+    \includegraphics[clip, width=14.0cm]{qdsoa_vs_pcqdsoa_Qs.eps}
+    \caption{ビットレートとQ値の関係}
+    \label{fig:pcqdsoa_bitrate_vs_Qs}
+  \end{center}
+\end{figure}
+
+\section{クロック光との関係}
+
+
+
+\section{QDSOAを用いたANDゲートとの比較}
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip, width=14.0cm]{qdsoa_vs_pcqdsoa_ERs.eps}
+    \caption{QDSOA，PC-QDSOAを用いたANDゲートに関する注入電流とER値の関係}
+    \label{fig:qdsoa_vs_pcqdsoa_ERs}
+    \includegraphics[clip, width=14.0cm]{qdsoa_vs_pcqdsoa_Qs.eps}
+    \caption{QDSOA，PC-QDSOAを用いたANDゲートに関する注入電流とQ値の関係}
+    \label{fig:qdsoa_vs_pcqdsoa_Qs}
+  \end{center}
+\end{figure}
