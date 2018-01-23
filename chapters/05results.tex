@@ -8,7 +8,7 @@
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[clip, width=10.0cm]{in-out.eps}
-    \caption{電流6mA，ビットレート160Gbpsのときの入出力結果}
+    \caption{注入電流6mA，ビットレート160Gbpsのときの入出力結果}
     \label{fig:in-out}
   \end{center}
 \end{figure}
@@ -16,7 +16,7 @@
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[clip, width=12.0cm]{eyedia_6mA.eps}
-    \caption{電流6mA，ビットレート160Gbpsのときの出力光のアイダイアグラム}
+    \caption{注入電流6mA，ビットレート160Gbpsのときの出力光のアイダイアグラム}
     \label{fig:eyedia_6mA}
   \end{center}
 \end{figure}
@@ -24,9 +24,20 @@
 \section{注入電流との関係}
 
 キャリア回復時間は注入電流に依存しており，ANDゲートの性能と関係があるものと考えられる．そこで，注入電流とER値，Q値の関係を調査した．
-% TODO:注入電流を変えたときのアイダイアグラム6mA,8mA,10mAのときのものを示す
+図{\ref{fig:eyedia_4mA}}，{\ref{fig:eyedia_8mA}}にそれぞれ注入電流が4mA，8mAのときのアイダイアグラム，ER値，Q値を示す．図{\ref{fig:eyedia_6mA}}，{\ref{fig:eyedia_4mA}}，{\ref{fig:eyedia_8mA}}より，4～8mAの範囲において注入電流を大きくするとER値，Q値は共に改善することが分かる．
 
-図{\ref{fig:pcqdsoa_ERs}}，{\ref{fig:pcqdsoa_Qs}}はそれぞれ注入電流とER値，Q値の関係を表している．図{\ref{fig:pcqdsoa_ERs}}より注入電流が大きいほど良いER値が得られることが分かる．また，ER値と注入電流の関係は非線形性を示し，最高で約9dBのER値が得られる．非線形性になる理由として，入力光Bの増幅を完全に抑えられないため，注入電流が大きい場合であっても``0''の出力光の強度がわずかに大きいことが挙げられる．一方，図{\ref{fig:pcqdsoa_Qs}}から注入電流とQ値の関係は線形性を示していることが分かる．これは，注入電流を増やすことでビットパターンの違いによる光強度の差が小さくなるためである．以上から，パターン効果が抑えられることによりER値，Q値は共に注入電流を大きくすると改善することが分かる．
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip, width=12.0cm]{eyedia_4mA.eps}
+    \caption{注入電流4mA，ビットレート160Gbpsのときのアイダイアグラム}
+    \label{fig:eyedia_4mA}
+    \includegraphics[clip, width=12.0cm]{eyedia_8mA.eps}
+    \caption{注入電流8mA，ビットレート160Gbpsのときのアイダイアグラム}
+    \label{fig:eyedia_8mA}
+  \end{center}
+\end{figure}
+
+同様にして注入電流が3mA～15mAの範囲のときのER値，Q値をシミュレーションにより計測した．図{\ref{fig:pcqdsoa_ERs}}，{\ref{fig:pcqdsoa_Qs}}はそれぞれ注入電流とER値，Q値の関係を表している．図{\ref{fig:pcqdsoa_ERs}}より注入電流が大きいほど良いER値が得られることが分かる．また，ER値と注入電流の関係は非線形性を示し，最高で約9dBのER値が得られる．非線形性になる理由として，入力光Bの増幅を完全に抑えられないため，注入電流が大きい場合であっても``0''の出力光の強度がわずかに大きいことが挙げられる．一方，図{\ref{fig:pcqdsoa_Qs}}から注入電流とQ値の関係は線形性を示していることが分かる．これは，注入電流を増やすことでビットパターンの違いによる光強度の差が小さくなるためである．以上から，パターン効果が抑えられることによりER値，Q値は共に注入電流を大きくすると改善することが分かる．
 
 \begin{figure}[htbp]
   \begin{center}
@@ -62,6 +73,18 @@
 
 \section{QDSOAを用いたANDゲートとの比較}
 % TODO:QDSOAを用いた場合もANDゲートとして動作可能であることを示す
+提案したゲートの有効性を示すため，従来の素子を用いた全光ANDゲートとの比較を行う．図{\ref{fig:qdsoa_in_out}}，{\ref{fig:qdsoa_eyedia_2000mA}}にそれぞれQDSOAを用いたANDゲートの入出力特性，アイダイアグラムを示す．
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip, width=14.0cm]{eyedia_2000mA.eps}
+    \caption{QDSOAを用いたANDゲートの入出力特性}
+    \label{fig:qdsoa_in_out}
+    \includegraphics[clip, width=14.0cm]{eyedia_2000mA.eps}
+    \caption{QDSOAを用いたANDゲートの出力光アイダイアグラム}
+    \label{fig:qdsoa_eyedia_2000mA}
+  \end{center}
+\end{figure}
 
 \begin{figure}[htbp]
   \begin{center}
@@ -73,3 +96,6 @@
     \label{fig:qdsoa_vs_pcqdsoa_Qs}
   \end{center}
 \end{figure}
+
+
+
