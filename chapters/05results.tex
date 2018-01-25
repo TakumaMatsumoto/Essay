@@ -37,7 +37,7 @@
   \end{center}
 \end{figure}
 
-同様にして注入電流が3mA～15mAの範囲のときのER値，Q値をシミュレーションにより計測した．図{\ref{fig:pcqdsoa_ERs}}，{\ref{fig:pcqdsoa_Qs}}はそれぞれ注入電流とER値，Q値の関係を表している．図{\ref{fig:pcqdsoa_ERs}}より注入電流が大きいほど良いER値が得られることが分かる．また，ER値と注入電流の関係は非線形性を示し，最高で約9dBのER値が得られる．非線形性になる理由として，入力光Bの増幅を完全に抑えられないため，注入電流が大きい場合であっても``0''の出力光の強度がわずかに大きいことが挙げられる．一方，図{\ref{fig:pcqdsoa_Qs}}から注入電流とQ値の関係は線形性を示していることが分かる．これは，注入電流を増やすことでビットパターンの違いによる光強度の差が小さくなるためである．以上から，パターン効果が抑えられることによりER値，Q値は共に注入電流を大きくすると改善することが分かる．
+同様にして注入電流が3mA$\sim$15mAの範囲のときのER値，Q値をシミュレーションにより計測した．図{\ref{fig:pcqdsoa_ERs}}，{\ref{fig:pcqdsoa_Qs}}はそれぞれ注入電流とER値，Q値の関係を表している．図{\ref{fig:pcqdsoa_ERs}}より注入電流が大きいほど良いER値が得られることが分かる．また，ER値と注入電流の関係は非線形性を示し，最高で約9dBのER値が得られる．非線形性になる理由として，入力光Bの増幅を完全に抑えられないため，注入電流が大きい場合であっても``0''の出力光の強度がわずかに大きいことが挙げられる．一方，図{\ref{fig:pcqdsoa_Qs}}から注入電流とQ値の関係は線形性を示していることが分かる．これは，注入電流を増やすことでビットパターンの違いによる光強度の差が小さくなるためである．以上から，パターン効果が抑えられることによりER値，Q値は共に注入電流を大きくすると改善することが分かる．
 
 \begin{figure}[htbp]
   \begin{center}
@@ -54,16 +54,21 @@
 
 \section{ビットレートとの関係}
 
-図{\ref{fig:pcqdsoa_bitrate_vs_ERs}}，{\ref{fig:pcqdsoa_bitrate_vs_Qs}}はそれぞれビットレート，注入電流を変化させたときのER値，Q値を表す．
+図{\ref{fig:pcqdsoa_bitrate_vs_ERs}}，{\ref{fig:pcqdsoa_bitrate_vs_Qs}}にそれぞれビットレート，注入電流を変化させたときのER値，Q値を示す．
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[clip, width=14.0cm]{qdsoa_vs_pcqdsoa_ERs.eps}
-    \caption{ビットレートとER値の関係}
-    \label{fig:pcqdsoa_bitrate_vs_ERs}
-    \includegraphics[clip, width=14.0cm]{qdsoa_vs_pcqdsoa_Qs.eps}
-    \caption{ビットレートとQ値の関係}
-    \label{fig:pcqdsoa_bitrate_vs_Qs}
+    \includegraphics[clip, width=14.0cm]{ERs_diff_bitrates.eps}
+    \caption{ビットレート，注入電流，ER値の関係}
+    \label{fig:ERs_diff_bitrates}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[clip, width=14.0cm]{Qs_diff_bitrates.eps}
+    \caption{ビットレート，注入電流，Q値の関係}
+    \label{fig:Qs_diff_bitrates}
   \end{center}
 \end{figure}
 
@@ -71,9 +76,9 @@
 
 
 
-\section{QDSOAを用いたANDゲートとの比較}
-% TODO:QDSOAを用いた場合もANDゲートとして動作可能であることを示す
-提案したゲートの有効性を示すため，従来の素子を用いた全光ANDゲートとの比較を行う．図{\ref{fig:qdsoa_in_out}}，{\ref{fig:qdsoa_eyedia_2000mA}}にそれぞれQDSOAを用いたANDゲートの入出力特性，アイダイアグラムを示す．
+\section{QDSOAを用いた全光ANDゲートとの比較}
+
+提案したゲートの有効性を示すため，従来より全光論理回路で利用されている素子であるQDSOAを用いた全光ANDゲートとの比較を行う．ここで，全光ANDゲートの構成は提案法と等しいものとする．図{\ref{fig:qdsoa_in_out}}，{\ref{fig:qdsoa_eyedia_2000mA}}にそれぞれQDSOAを用いた全光ANDゲートの入出力特性，アイダイアグラムを示す．これらの結果から，提案法と同様の構成でANDゲートとして動作していることが分かる．
 
 \begin{figure}[htbp]
   \begin{center}
@@ -85,6 +90,8 @@
     \label{fig:qdsoa_eyedia_2000mA}
   \end{center}
 \end{figure}
+
+次に，同等のER値，Q値を得るために必要となる注入電流について提案法と比較を行った．図{\ref{fig:qdsoa_vs_pcqdsoa_ERs}}，{\ref{fig:qdsoa_vs_pcqdsoa_Qs}}にそれぞれER値，Q値を得るために必要となる注入電流をQDSOA，PC-QDSOAを用いたANDゲートと比較したものを示す．図{\ref{fig:qdsoa_vs_pcqdsoa_ERs}}より7.5dBのER値を得るためにはQDSOAでは3000mA必要である一方，PC-QDSOAで必要となる注入電流は5mAのみである．また，図{\ref{fig:qdsoa_vs_pcqdsoa_Qs}}よりQ値7.5を得るにはQDSOAでは3400mA必要であるが，PC-QDSOAで必要となる注入電流は6mAのみである．
 
 \begin{figure}[htbp]
   \begin{center}
