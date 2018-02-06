@@ -1,5 +1,7 @@
-\documentclass[a4j,12pt,fleqn]{jreport}	%%[文字サイズ12,数式を左寄せ]
+\documentclass[12pt]{jreport}	%%[文字サイズ12,数式を左寄せ]
 
+\usepackage{yagiarticle}
+\usepackage{grad2}		%オリジナルファイル
 \usepackage{hhline}			%オリジナルスタイル
 \usepackage[dvipdfmx]{graphicx} 	%図を載せるのに使う これにしないとmatlabの図が切れる
 \usepackage{wrapfig}			%キャプションの位置を調整する
@@ -19,9 +21,14 @@
 %\abovecaptionskip=10pt 		%タイトルの上の余白をもとに戻す
 \renewcommand{\bibname}{参考文献}
 
+\title{PC-QDSOAを用いた全光ANDゲートの\\提案と性能評価 \\ \vspace{1cm} Proposal and performance evaluation for all-optical AND gate using PC-QDSOA}
+\author{松本\ \ 拓磨}
+\gakuseki{4416630} 
+
 %%%%% 本文 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+\maketitle
 
 \pagenumbering{roman}		%ページ番号をローマ字で設定する
 \tableofcontents      %目次

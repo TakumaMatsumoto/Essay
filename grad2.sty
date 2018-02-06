@@ -1,0 +1,175 @@
+%%%%%%%%%%%%%%%%
+%    
+%    卒論（本論）用スタイル
+%    
+%%%%%%%%%%%%%%%%
+%    version 06.1   Naoto NIKI niki@ms.kagu.tus.ac.jp
+\long\def\comment#1\endcomment{\relax}\comment              コメント
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%% 目次の類 %%%%%
+
+\def\@pnumwidth{1.55em} % ページ番号の収まる箱の横幅
+\def\@tocrmarg {2.55em} % 複数行になるとき，2行目以降の右余白
+  % @tocrmarg は @pnumwidth 以上でなければならない
+\def\@dotsep{4.5} % 点々の間隔
+  % 単位は mu (math unit). 1mu = (1/18)em
+\setcounter{tocdepth}{2} % レベル2の見出しまでを目次に記載
+  % セクションまでなら1，サブセクションまでなら2，…とする
+
+\def\tableofcontents{% 目次を出力する命令
+  \@restonecolfalse % \@restonecol := 偽
+  \if@twocolumn     % 2段組なら
+    \@restonecoltrue  % \@restonecol := 真
+    \onecolumn        % 1段組
+  \fi               % \if の終わり
+  \chapter*{目 次\@mkboth{目 次}{目 次}}%
+    % 「目 次」と出力（両側の柱にも）
+  \@starttoc{toc}% .toc ファイルを読んで出力
+  \if@restonecol % \@restonecol=真 なら
+    \twocolumn   % 2段組に戻す
+  \fi}
+
+%  使い方
+\documentclass[12pt]{jbook}
+\usepackage{grad}                   %%% grad.sty を同じディレクトリに置くこと
+%　　ユーザ定義マクロ
+\title{表題}
+\author{名\ 字\ \ 名\ 前}           %%%  名字と名前の間に \ \  と２個空白を入れる
+\\\gakuseki{4413626}             %%% 学籍番号を入れる．% を定義を有効にすれば表紙が出る
+\begin{document}
+\maketitle
+\tableofcontents
+%\part{第１部表題}                 %%% 複数の部から構成する時
+\chapter{はじめに}
+%    　　本文
+%    　　抄録の section→chapter, subsection→section, 
+%    　　　　　 subsubsection→subsection に置換する
+\chapter*{謝　辞}                     %%% 謝辞を独立した章としておく時
+\addcontentsline {toc}{chapter}{謝　辞}
+%     　　みんなありがとう
+%\appendix                                   %%%  付録の始まり
+%\chapter{資料}
+%    　　付録（調査資料など）
+%\chapter{プログラムリスト}
+%\begin{verbatim}
+%    　　付録（ソースプログラムなど）
+%\end{verbatim}
+\begin{thebibliography}{99}
+%\bibitem{NN}  参考文献
+\end{thebibliography}{99}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endcomment
+%    以下の２行は印刷位置の調整用
+\hoffset=0pt % These values shift the printing position.
+\voffset=0pt % Adjust them for your printer.
+%
+%%  Page dimensions
+\textheight=230mm
+\textwidth=160mm
+\topmargin=-7mm
+\oddsidemargin=18pt
+\setlength{\evensidemargin}{\oddsidemargin}
+
+%
+%\catcode`\@=11
+%
+\long\def\ifundefined#1#2#3{%
+ \expandafter\ifx\csname #1\endcsname\relax #2\else #3\fi}
+
+% Page Style
+% \pagestyle{plain}
+
+\let \@mkboth \@gobbletwo \def \@oddhead {}
+ \def \@oddfoot {\rm \hfil --\ \thepage\ -- \hfil }
+ \def \@evenhead {}\let \@evenfoot \@oddfoot
+\advance\footskip 5mm
+
+% Title
+\def\gakuseki#1{\edef\gakusekiNum{#1}
+    \def\gakubu{工学部第一部}\def\maruIn{\quad}
+    \ifnum\gakusekiNum>5000000
+		\def\gakubu{工学部第二部}\def\maruIn{○\kern -1zw
+		\raise0.25ex \hbox to 1zw{\small \hss 印\hss}}\fi}
+
+\def\maketitle{\ifundefined{4412603}{\maketitleAux}%
+  {\setcounter {page}{0}\thispagestyle{empty}%\begin {titlepage} 
+	\vspace*{2.5em} \begin {center} {\Huge 卒　業　研　究　論　文 \par }\end {center}
+	\vspace*{1cm} \begin {center} {\Large ２００５年度 \par }\end {center}
+	\vspace*{3cm}  {\Large  %\baselineskip 2cm
+		題　　目 \qquad  \quad \begin{minipage}[t]{11cm}\baselineskip 1.5cm\@title\end{minipage}
+		\vrule width0pt depth 1.6cm \\[-1.85cm]
+		\phantom{題　　目}\qquad \hbox{\vrule width 12cm height 0.5pt}\\[0.75cm]
+		\phantom{題　　目}\qquad \hbox{\vrule width 12cm height 0.5pt}\\[3.5cm]
+		指導教員 \qquad \hbox{\vrule width 12cm height 0.5pt}\\[-1cm]
+		\phantom{題　　目} \qquad  \quad  {仁木 直人 教授，鈴木 大助 助手\qquad \maruIn}\\[1cm]
+		氏　　名 \qquad  \hbox{\vrule width 7.5cm height 0.5pt}\\[-1cm]
+		\phantom{題　　目} \qquad \hbox to 7.5cm{\hss  \@author \hss}\\[1cm]
+		学籍番号 \qquad  \hbox{\vrule width 7.5cm height 0.5pt}\\[-1cm]
+		\phantom{題　　目} \qquad \hbox to 7.5cm{\hss \gakusekiNum\hss}\\[2.75cm]}
+	 {\hfill \large 東京理科大学\quad\gakubu\quad 経営工学科\hspace*{2em}\par}
+ %\end {titlepage}
+  \maketitleAux}}
+
+\def\maketitleAux{\begin {titlepage} \let \footnotesize \small
+  \let \footnoterule \relax \setcounter {page}{0} \null 
+    \vspace*{2em} 
+	\begin {center} {\huge \@title \par }\end {center}
+	\begin {flushleft} 
+	\vskip 5em {\Large 工学修士学位請求論文 \par}
+	\vskip 1em {\Large 平成29年度 \par }
+	\end {flushleft}
+    \vfill \begin {flushright} {\huge 
+      %\begin {tabular}[t]{c}\@author \end {tabular}
+　　\par }
+    \vskip 5em {\Large 東京理科大学大学院工学研究科経営工学専攻 \par}
+    \vskip 0.5em {\Large 4416630\ \ 松本\ 拓磨 \par}
+    \vskip 1em {\Large 指導教員：工学博士\ \ 八嶋\ 弘幸 \par}
+    \vskip 0.5em {\Large 工学博士\ \ 宮部\ 博史 \par}
+    \vskip 0.5em {\Large 工学博士\ \ 谷口\ 行信 \par}
+    \end {flushright} \par
+  \end {titlepage}
+  \setcounter {footnote}{0} \let \thanks \relax
+  \gdef \@thanks {}\gdef \@author {}\gdef \@title {}\let \maketitle \relax}
+
+% Chapter and Part
+
+\def\part{\clearpage
+        \if@twocolumn \onecolumn \@tempswatrue \else \@tempswafalse \fi 
+        \hbox{}\vfil \secdef \@part \@spart}
+
+\def\@endpart{\vskip20pt \if@tempswa \twocolumn \fi}
+
+\def\chapter{\clearpage 
+  \global \@topnum \z@ \@afterindenttrue \secdef \@chapter \@schapter}
+
+% Figures and Tables
+
+\ifundefined{zuhyo}{%
+ \def\tablename{表 }
+ \def\figurename{図.{}}
+}{\relax}
+
+% Bibliography
+
+\def\thebibliography#1{\chapter*{参 考 文 献%
+  \@mkboth{参 考 文 献}{参 考 文 献}}%
+  \addcontentsline{toc}{chapter}{参考文献}
+  \list {[\arabic{enumi}]}{\settowidth \labelwidth {[#1]}
+  \leftmargin \labelwidth \advance \leftmargin \labelsep
+  \usecounter {enumi}} \def \newblock {\hskip .11em plus .33em minus .07em}
+  \sloppy \sfcode `\.=1000\relax}
+
+% Baselineskip
+
+\def\normalsize{\@setsize \normalsize {20pt}\xiipt \@xiipt
+  \abovedisplayskip 12pt plus3pt minus7pt
+  \belowdisplayskip \abovedisplayskip
+  \abovedisplayshortskip \z@ plus3pt
+  \belowdisplayshortskip 6.5pt plus3.5pt minus3pt
+  \let \@listi \@listI}
+\normalsize
+
+%\catcode`\@=\active
