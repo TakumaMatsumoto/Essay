@@ -1,4 +1,4 @@
-\chapter{数値解析条件} 
+\chapter{シミュレーション条件} 
 \label{chap:conditions}
 
 %-----------------------------------------------------
@@ -23,6 +23,20 @@
   \end{center}
 \end{table}
 \renewcommand{\arraystretch}{1.0}
+
+また，入力光A，入力光B，クロック光の光強度$P_{A},P_{B},P_{C}$はシミュレーションのパラメータとして明記しない場合には表{\ref{table:optic_power}}に示された値を用いる．また，注入電流，ビットレートも同様に明記しない場合はそれぞれ6mA，160Gbpsとする．
+\begin{table}[htbp]
+  \begin{center}
+  \caption{光強度パラメータ}
+  \begin{tabular}{|c|c|c|} \hline
+  Symbol & Value & Unit \\ \hline \hline
+  $P_{A}$	& 10	  & ${\rm mW}$ \\ \hline
+  $P_{B}$	& 1	  & ${\rm \mu W}$ \\ \hline
+  $P_{C}$	& 100 & ${\rm \mu W}$ \\ \hline
+  \end{tabular}
+  \label{table:optic_power}
+  \end{center}
+\end{table}
 
 \section{QDSOAのパラメータ}
 QDSOAのパラメータを表{\ref{table:qd_soa_values}}に示す．
@@ -71,9 +85,6 @@ QDSOAのパラメータを表{\ref{table:qd_soa_values}}に示す．
   $A$ 				& $L_{ca}W $	 	 & ${\rm m^{3}}$ \\ \hline
   $V_{d}$ 				& $l_{D}AL_{H}$ 	 & ${\rm m^{3}}$ \\ \hline
   $V_{w}$ 	 		& $l_{D}AL_{QW}$ 	 & ${\rm m^{3}}$ \\ \hline
-  $P_{A}$				& 10							& ${\rm mW}$ \\ \hline
-  $P_{B}$				& 1							& ${\rm \mu W}$ \\ \hline
-  $P_{C}$				& 100						& ${\rm \mu W}$ \\ \hline
   $\lambda_{A}$		& 1292						& ${\rm nm}$ \\ \hline
   $\lambda_{B}$		& 1292						& ${\rm nm}$ \\ \hline
   $\lambda_{C}$		& 1290						& ${\rm nm}$ \\ \hline
@@ -86,7 +97,7 @@ QDSOAのパラメータを表{\ref{table:qd_soa_values}}に示す．
 \section{PC-QDSOAのパラメータ・解析条件}
 PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記載されていないパラメータに関しては表{\ref{table:qd_soa_values}}と等しいものとする．変更，追加したパラメータのみを表{\ref{table:pc_qdsoa_values}}に示す．
 
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{1.1}
 \begin{center}
 \begin{longtable}[c]{|c|c|c|}
   \caption{PC-QDSOA解析の式に用いる文字，値，単位\label{table:pc_qdsoa_values}} \\ \hline
@@ -107,50 +118,14 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
 \subsection{分散関係式}
 分散関係，群屈折率はそれぞれ
 \begin{eqnarray}
+  \label{eq:omega}
   \omega(k) & = & \frac{1}{2}a_{0} + \sum_{n=1}^{8}\left[a_{n}\cos(nwk) + b_{n}\sin(nwk)\right] \\
   n_{g}(k) & = & \left(\sum_{n=1}^{8}\left[-a_{n}nw\sin(nwk)+b_{n}nw\cos(nwk)\right]\right)^{-1}
 \end{eqnarray}
 で求める．
 また，フーリエ係数$a_n,b_n$を表{\ref{table:disp_fourier_coefficients}}に示す．
 
-\begin{comment}
-\subsection{実効屈折率}
-屈折率が一様でない媒体を解析するには実効屈折率を用いる．フォトニック結晶導波路には光の伝搬方向に関する実効屈折率が用いられる{\cite{effective_index_approximations}}．初めに，伝搬面に対して垂直な方向への波数を求める．フォトニック結晶導波路の厚さを$2d$，伝搬面に対して垂直な方向への波数を$k_z$，活性層，クラッド部の誘電率をそれぞれ$\varepsilon_{core}$，$\varepsilon_{cladding}$，真空の透磁率を$\mu_{0}$とすると，超越方程式
-\begin{equation}
-  \tan \left(k_{z}d \right) = \sqrt{ \frac
-	{\omega^{2}\mu_{0}\left( \varepsilon_{core} - \varepsilon_{cladding} \right) d^{2}}
-	{\left( k_{z}d \right)^{2}}
-	- 1}
-\end{equation}
-より$k_z$を求めることができる．次に，伝搬面に対する波数$k_{||}$を
-\begin{equation}
-  k_{||} = \sqrt{\omega^{2}\mu_{0}\varepsilon_{core} - k^{2}_{z}}
-\end{equation}
-より求める．
-格子係数を周波数で割った値は正規化角周波数と呼ばれ，
-\end{comment}
-
-\subsection{閉じ込め係数}
-光の進行方向と平行な面をxy平面としたとき，xy軸方向及びz軸方向に関する閉じ込め係数は，以下の式より求める．
-\begin{eqnarray}
-  \Gamma_{xy}(\lambda) 	& = & \frac{1}{2}c_{0} + \sum_{n=1}^{8}\left[c_{n}\cos(nw\lambda) + d_{n}\sin(nw\lambda)\right] \\
-  \Gamma_{z}(\lambda) 		& = & 0.8426 - 4.546 \times 10^{-4} \lambda + 8.375 \times 10^{-8} \lambda^{2}
-\end{eqnarray}
-また，活性層の割合は$\xi_{QD} = l_{D}L_{H}/2d$と表されるのでQDの閉じ込め係数$\Gamma(\lambda)$は
-\begin{equation}
-  \Gamma(\lambda) = \Gamma_{xy} \Gamma_{z} \xi_{QD}
-\end{equation}
-と表され，QWの閉じ込め係数$\Gamma_{W}(\lambda)$は
-\begin{equation}
-  \Gamma_{W}(\lambda) = \Gamma_{xy} \Gamma_{z} l_{D} L_{QW} / 2d
-\end{equation}
-と表される．
-また，フーリエ係数$c_{n},d_{n}$を表{\ref{table:conf_fourier_coefficients}}に示す．
-
-\renewcommand{\arraystretch}{1.3}
 \begin{table}[htbp]
-\begin{tabular}{cc}
-\begin{minipage}{0.5\hsize}
 	\begin{center}
 	 \small
 	 \caption{分散関係のフーリエ係数}
@@ -171,8 +146,55 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
 	  \hline
 	\end{tabular}
 	\end{center}
-\end{minipage}
-\begin{minipage}{0.5\hsize}
+\end{table}
+\subsection{実効屈折率}
+屈折率が一様でない媒体を解析するには実効屈折率を用いる．フォトニック結晶導波路には光の伝搬方向に関する実効屈折率が用いられる{\cite{effective_index_approximations}}．初めに，伝搬面に対して垂直な方向への波数を求める．フォトニック結晶導波路の厚さを$2d$，伝搬面に対して垂直な方向への波数を$k_z$，活性層，クラッド部の誘電率をそれぞれ$\varepsilon_{core}$，$\varepsilon_{cladding}$，真空の透磁率を$\mu_{0}$とすると，超越方程式
+\begin{equation}
+  \tan \left(k_{z}d \right) = \sqrt{ \frac
+	{\omega^{2}\mu_{0}\left( \varepsilon_{core} - \varepsilon_{cladding} \right) d^{2}}
+	{\left( k_{z}d \right)^{2}}
+	- 1}
+\end{equation}
+より適切な$k_z$を求める．この値を用いて，伝搬面に関する波数$k_{||}$を
+\begin{equation}
+  k_{||} = \sqrt{\omega^{2}\mu_{0}\varepsilon_{core} - k^{2}_{z}}
+\end{equation}
+より求める．次に，結晶間の距離を光の波長で割って正規化角周波数$\omega_{normal}$を求め，超越方程式
+\begin{equation}
+  \omega_{normal}(k_{x_{normal}}) = \omega(k_{x_{normal}})
+\end{equation}
+より伝搬方向に関する適切な正規化波数$k_{x_{normal}}$を求める．
+伝搬方向に関する波数を求めるには格子定数を$\alpha_{lattice}$とすると，正規化波数から光の伝搬方向に関する波数$k_{x}$を
+\begin{equation}
+  k_{x} = \frac{2\pi k_{x_{normal}}}{\alpha_{lattice}}
+\end{equation}
+より求めることができる{\cite{nano_photonic}}．
+ここで，伝搬方向に関する実行屈折率を$n_{eff_{||}}$とすると光の伝搬方向に関する実行屈折率$n_{eff_{x}}$は
+\begin{eqnarray}
+  n_{eff_{x}} & = & n_{eff_{||}} \cos \left( \theta \right) \\
+  \theta & = & \arccos \left( k_{x} / k_{||} \right)
+\end{eqnarray}
+より求められる．
+
+\subsection{閉じ込め係数}
+光の進行方向と平行な面をxy平面としたとき，xy軸方向及びz軸方向に関する閉じ込め係数は，以下の式より求める．
+\begin{eqnarray}
+  \Gamma_{xy}(\lambda) 	& = & \frac{1}{2}c_{0} + \sum_{n=1}^{8}\left[c_{n}\cos(nw\lambda) + d_{n}\sin(nw\lambda)\right] \\
+  \Gamma_{z}(\lambda) 		& = & 0.8426 - 4.546 \times 10^{-4} \lambda + 8.375 \times 10^{-8} \lambda^{2}
+\end{eqnarray}
+また，活性層の割合は$\xi_{QD} = l_{D}L_{H}/2d$と表されるのでQDの閉じ込め係数$\Gamma(\lambda)$は
+\begin{equation}
+  \Gamma(\lambda) = \Gamma_{xy} \Gamma_{z} \xi_{QD}
+\end{equation}
+と表され，QWの閉じ込め係数$\Gamma_{W}(\lambda)$は
+\begin{equation}
+  \Gamma_{W}(\lambda) = \Gamma_{xy} \Gamma_{z} l_{D} L_{QW} / 2d
+\end{equation}
+と表される．
+また，フーリエ係数$c_{n},d_{n}$を表{\ref{table:conf_fourier_coefficients}}に示す．
+
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[htbp]
 	\begin{center}
 	 \small
 	 \caption{閉じ込め係数のフーリエ係数}
@@ -193,7 +215,5 @@ PC-QDSOAのパラメータは主にQDSOAと等しいため，表{\ref{table:pc_qdsoa_values}}に記
 	  \hline
 	\end{tabular}
 	\end{center}
-\end{minipage}
-\end{tabular}
 \end{table}
 \renewcommand{\arraystretch}{1.0}
